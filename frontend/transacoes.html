@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./resourses/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./resourses/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./resourses/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./resourses/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./resourses/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!--FIM FAVICON-->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smith Money</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <button id="btnScrollToTop">
+        <i class="material-icons">keyboard_arrow_up</i>
+    </button>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
+            <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+                <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
+                <ul class="navbar-nav">
+                    <li>
+                        <div class="texto-avatar">
+                            <p><strong>Gagego Maciel</strong></p>
+                            <p class="texto-email">gagego.maciel@gmail.com</p>
+                            <ul class="texto-perfil">
+                                <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
+                                <li class="avatar-sair"><a href="./index.html">Sair</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar"></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div class="btn-menu">
+        <a><label for="btn-menu">☰ MENU</label></a>
+    </div>
+    
+    <div style="margin-top: 500px;">
+        <h1>Transações</h1>
+    </div>
+    
+    <input type="checkbox" id="btn-menu" />
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <p>Menu</p>
+                <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
+                <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
+                <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
+                <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
+                <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
+                <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
+                <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
+                <div class="footer-version">
+                    <sapn class="version">SmithMoney 1.0v</span>
+                </div>
+            </nav>
+            <label for="btn-menu">✖️</label>
+        </div>
+    </div>
+    
+    <footer class="mt-5">
+        <div class="container-flux mb-3">
+            <div class="row justify-content-center footer-social mx-0">
+                <ul>
+                    <li><a href="#"><img src="./resourses/img/facebook.png" alt="" class="social"></a></li>
+                    <li><a href="#"><img src="./resourses/img/instagram.png" alt="" class="social"></a></li>
+                    <li><a href="#"><img src="./resourses/img/twitter.png" alt="" class="social"></a></li>
+                    <li><a href="#"><img src="./resourses/img/youtube.png" alt="" class="social"></a></li>
+                </ul>
+            </div>
+            <div class="row justify-content-center my-4 mx-0">
+                <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos
+                    reservados</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
