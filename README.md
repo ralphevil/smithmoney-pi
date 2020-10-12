@@ -3,9 +3,7 @@
 
 A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajudar seus usuários a administrarem seus ganhos e gastos. Você poderá administrar quantas contas quiser, gerar relatórios precisos sobre seus gastos, realizar planejamentos sobre investimentos, estipular metas para economizar e receber alertas sobre estas metas, realizar visualizações dos lançamentos, importações de planilhas e extratos bancários. A iniciativa surgiu através do Projeto Integrador do curso Full Stack Java da Digital House em parceria com o Santander Coders.
 
-<span style="display:block;text-align:center">
-![](./header.png)
-</span>
+<img align="right" width="100" height="100" src="https://raw.githubusercontent.com/ralphevil/smithmoney-pi/master/header.png">
 
 ## Histórico de lançamentos
 
