@@ -1,7 +1,7 @@
 # Smith Money
 > Sistema de Gerenciamento Financeiro Pessoal
 
-A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajudar seus usuários a administrarem seus ganhos e gastos. Você poderá administrar quantas contas quiser, gerar relatórios precisos sobre seus gastos, realizar planejamentos sobre investimentos, estipular metas para economizar e receber alertas sobre estas metas, realizar visualizações dos lançamentos, importações de planilhas e extratos bancários.
+A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajudar seus usuários a administrarem seus ganhos e gastos. Você poderá administrar quantas contas quiser, gerar relatórios precisos sobre seus gastos, realizar planejamentos sobre investimentos, estipular metas para economizar e receber alertas sobre estas metas, realizar visualizações dos lançamentos, importações de planilhas e extratos bancários.<br/>
 A iniciativa surgiu através do Projeto Integrador do curso Full Stack Java da Digital House em parceria com o Santander Coders.
 
 ![](../header.png)
