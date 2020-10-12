@@ -7,7 +7,6 @@ A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajud
 <p align="center">
   <img width="200" height="200" src="https://raw.githubusercontent.com/ralphevil/smithmoney-pi/master/header.png">
 </p>
-<br />
 
 ## Histórico de lançamentos
 
