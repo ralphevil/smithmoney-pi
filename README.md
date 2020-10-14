@@ -1,3 +1,4 @@
+<img src="./banner.png">
 # Smith Money
 > Sistema de Gerenciamento Financeiro Pessoal
 
@@ -5,7 +6,7 @@ A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajud
 
 <br />
 <p align="center">
-  <img width="200" height="200" src="https://raw.githubusercontent.com/ralphevil/smithmoney-pi/master/header.png">
+  <img width="200" height="200" src="./header.png">
 </p>
 
 ## Histórico de Lançamentos
