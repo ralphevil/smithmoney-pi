@@ -1,4 +1,4 @@
-<img src="./banner.png" />
+<img src="./frontend/resourses/img/banner.png" />
 
 ## :computer: Smith Money
 > Sistema de Gerenciamento Financeiro Pessoal
@@ -7,7 +7,7 @@ A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajud
 
 <br />
 <p align="center">
-  <img width="200" height="200" src="./header.png">
+  <img width="200" height="200" src="./frontend/resourses/img/header.png">
 </p>
 
 ## :clipboard: Histórico de Lançamentos
