@@ -17,7 +17,7 @@ A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajud
 * 0.0.1
     * Trabalho em andamento
 
-## Equipe
+:mortar_board: ## Equipe
 
 <table>
   <tr>
