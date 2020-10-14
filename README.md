@@ -1,4 +1,5 @@
-<img src="./banner.png">
+<img src="./banner.png" />
+
 ## Smith Money
 > Sistema de Gerenciamento Financeiro Pessoal
 
