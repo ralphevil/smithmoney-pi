@@ -174,35 +174,10 @@ footer {
     text-align: center;
 }
 
-.container-objetivos {
-    margin-top: -5em;
-    padding: 2em;
-    padding-top: 3em;
-    width: 70em;
-    position: relative;
-    background-color: white;
-    border-radius: 1em;
-    text-align: center;
-}
-
-.objetivo {
-    margin-top: em;
-    padding: 2em;
-    padding-top: 3em;
-    width: 15em;
-    position: relative;
-    background-color: brown;
-    border-radius: 1em;
-    text-align: center;
-}
-
 #container-contato{
     width: 70em;
 }
 
-#container-objetivos {
-    width: 40em;
-}
 
 #container-contato input{
     margin: 1% auto; 
@@ -210,11 +185,6 @@ footer {
     height: 3em;  
 }
 
-#conteiner-objetivos input {
-    margin: 1% auto;
-    width: 100%;
-    height: 3em;
-}
 
 #container-sobre{
     width: 50em;
