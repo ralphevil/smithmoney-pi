@@ -44,7 +44,6 @@ footer {
     width: 100%;
 }
 
-
 /* footer ul {
     list-style: none;
     padding: 0;
@@ -488,9 +487,10 @@ footer {
 /*FIM EDITAR PERFIL*/
 
 /* INICIO DASHBOARD CONTENT */
-.container {
+.conteudo {
     max-width: 1300px;
     height: 100vh;
+    margin: 0 auto;
 }
 
 .select-date {
