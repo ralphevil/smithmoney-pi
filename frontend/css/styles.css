@@ -19,10 +19,12 @@ body {
     -moz-box-shadow: 1px 1px 7px #999;
     box-shadow: 1px 1px 7px #999;    
 }
+.header a {
+    margin-left: 20px;
+}
 
 footer ul {
     list-style: none;
-    padding: 0;
     margin-top: 20px;
 }
 
@@ -36,18 +38,40 @@ footer img {
 }
 
 footer {
+    margin-top: 35px;
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* footer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+footer ul li {
+
+    margin-left: 15px;
+}
+
+footer img {
+    width: 2em;
+}
+
+footer {
     position: absolute;
     margin-bottom: 0;
     text-align: center;
     width: 100%;
-    background-color: #1f1f1f;
     color: #fff;
 }
 
 .footer-social{
     background-color: #333;
 }
-
+*/
 .social{
     width:1.6em;
 }
@@ -294,6 +318,7 @@ footer {
     float: left;
     line-height: 100px;
 }
+
 .container .btn-menu label {
     font-size: 25px;
     cursor: pointer;
@@ -301,8 +326,14 @@ footer {
     color: #666 !important;
 }
 
+.btn-menu a label:hover {
+    cursor: pointer;
+    color: #2669EE;
+} 
+
 #btn-menu {
     display: none;
+    
 }
 
 .btn-menu label {
@@ -455,3 +486,150 @@ footer {
 }
 
 /*FIM EDITAR PERFIL*/
+
+/* INICIO DASHBOARD CONTENT */
+.container {
+    max-width: 1300px;
+    height: 100vh;
+}
+
+.select-date {
+    margin: 20px 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.dash-title {
+    margin: 20px 10px;
+    font-size: 32px;
+    color: #2669EE;
+    font-weight: 800;
+}
+
+.topo-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.descripiton-cards {
+    display: flex;
+}
+
+.cards {
+    margin: 10px;
+    background: #FFF;
+    width: 465px;
+    height: 120px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.text-card {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: #424949;
+    font-weight: 500;
+}
+
+.total-receitas {
+    padding-left: 15px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #04A922;
+}
+
+.total-despesas {
+    padding-left: 15px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #EE504B;
+}
+
+.total-cartao {
+    padding-left: 15px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #EE504B;
+}
+
+.total-saldo {
+    padding-left: 15px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #2669EE;
+}
+
+.cards-category {
+    display: flex;
+    margin: 20px auto;
+
+}
+
+.cards-category div h3 {
+    font-size: 22px;
+    margin-top: 25px;
+    margin-left: 10px;
+    color: #666;
+   
+}
+
+.card-category {
+    width: 615px;
+    height: 450px;
+    background: #FFF;
+    margin: 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-category p {
+    font-size: 18px;
+    color: #2669EE;
+}
+
+.pending-expenses-card {
+    background: #FFF;
+    width: 100%;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table-card h3 {
+    font-size: 22px;
+    margin-top: 25px;
+    margin-left: 10px;
+    color: #666;
+}
+
+.balanco-card {
+    background: #FFF;
+    width: 600px;
+    height: 200px;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.balance {
+    margin-top: 35px;
+}
+
+.balance h3 {
+    font-size: 22px;
+    margin-top: 25px;
+    margin-left: 335px;
+    color: #666;
+}
+
+/* FIM DASHBOARD CONTENT */
