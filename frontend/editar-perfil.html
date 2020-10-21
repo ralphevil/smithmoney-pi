@@ -125,7 +125,7 @@
                         </div>
                         <div class="form-row mt-4">
                             <div class="col-sm-3">
-                                <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                                <a class="btn btn-primary" data-toggle="modal" data-target="#alterarSenha" href="#">Alterar Senha</a>
                             </div>
                             <div class="col-sm-9 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Editar</button>
@@ -154,7 +154,59 @@
             </div>
         </div>
     </footer>
-
+    <div class="modal fade" id="alterarSenha" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div id="template">
+                        <div id="background-template">
+                            <h3><strong>Segurança e Login</strong></h3>
+                        </div>
+                        <div id="template">
+                            <div id="background-template">
+                                <h3><strong>Salvar</strong></h3>                         
+                            </div>
+                            <form action="">
+                                <div class="container container-template">
+            
+                                    <div class="row d-flex justify-content-center">
+                                        <a class="navbar-brand h1 mb-0 d-flex align-items-center mb-4" href="./index.html">
+                                            <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+                                            <span id="logo-text" style="color: black">Smith<span style="color: #00B0F0">Money</span></span>
+                                        </a>
+                                     </div>
+            
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Nova senha" id="new-password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Confirme a senha" id="confirm-password">
+                                    </div>
+                                    <div class="form-group pt-4">
+                                        <button type="submit" class="btn btn-primary btn-template">Redefinir</button>
+                                    </div>
+                                    <div class="form-group pt-4">
+                                        <a href="./login.html">Entre agora!</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                 
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous">
+        </script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
