@@ -8,10 +8,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./resourses/favicon/favicon-16x16.png">
     <link rel="manifest" href="./resourses/favicon/site.webmanifest">
     <link rel="mask-icon" href="./resourses/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <!--FIM FAVICON-->
-
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smith Money - Objetivos</title>
@@ -19,37 +22,193 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/styles.css">
 
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <div class="container-fluid" id='container-geral'>
-        <button id="btnScrollToTop">
-            <i class="material-icons">keyboard_arrow_up</i>
-        </button>
+    <button id="btnScrollToTop">
+        <i class="material-icons">keyboard_arrow_up</i>
+    </button>
 
-        <header>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
+            <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+                <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
+                <ul class="navbar-nav">
+                    <li>
+                        <div class="texto-avatar">
+                            <p><strong>Gagego Maciel</strong></p>
+                            <p class="texto-email">gagego.maciel@gmail.com</p>
+                            <ul class="texto-perfil">
+                                <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
+                                <li class="avatar-sair"><a href="./index.html">Sair</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar"></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div class="btn-menu">
+        <a><label for="btn-menu">☰ MENU</label></a>
+    </div>
+    <div id="content" class="container-fluid p-5">
+        <!-- Objetivo já definido -->
+        <section class="py-3">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
+                    <div class="card-body">
+                        <h5 class="mb-0">Primeiro objetivo</h5>
+                        <br>
+                        <small class="d-inline-block text-muted mb-0">12:30 - 15:45</small>
+                    <div class="d-flex">
+                        <div class="align-self-center">
+                            <h5 class="mb-0"> <small class="text-muted">Valor a economizar </small>R$: 3200,00</h5> 
+                        </div>
+                    </div>
+                    <br>
 
-        </header>
-        
-        <main>
-            <div id="template">
-                <div id="background-template">
-                    <h3><strong>Objetivos financeiros</strong></h3>
-                </div>
-                <form action="">
-                    <section class="form-section">
-                        <div id="container-contato" class="container container-template">
-                            <div class="row">                          
+                    <!-- Botões-->
+                    <tr class="shadow-sm">
+
+                        <button type="button" class="btn">
+                            <td class="shadow-sm"><span class="badge badge-secondary" data-toggle="modal" data-target="#myModal">detalhes <i
+                                class="icon ion-ios-add-circle-outline ml-2"></i></span></td>
+                        </button></button>
+                    
+                        <button type="button" class="btn">
+                            <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
+                                class="icon ion-ios-brush-outline ml-2"></i></span></td>
+                        </button></button>
+
+                        <button type="button" class="btn">
+                            <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
+                                class="icon ion-md-settings ml-2"></i></span></td>
+                        </button></button>
+                                         
+                    </tr>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title text-center" id="myModalLabel">Primeiro objetivo</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Detalhes sobre o objetivo:</p>
+                                        <br>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
-                    </section>
-                </form>
-            </div>
-        </main>
-    </div>
+                    </div>
 
+
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+            <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
+                <div class="card-body">
+                    <button type="button" class="mb-0 btn btn-primary" data-toggle="modal" data-target="#exampleModal"><h3>+ Adicionar objetivo financeiro</h3></button>            
+                    </button>
+                    <!-- + Novo Objetivo -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">+ Novo objetivo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Nome do objetivo:</label>
+                                        <input class="form-control" id="exampleFormControlInput1" placeholder="Meu objetivo 2021">
+                                    </div>                         
+                                    <div class="form-group">
+                                        <label for="exampleFormContrlInput1">Valor pretendido:</label>
+                                        <input class="form-control" id="exampleFormControlInput1" placeholder="valor em reáis R$">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleFormControlSelect1">Categoria:</label>
+                                      <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Outros</option>
+                                        <option>Móvel</option>
+                                        <option>Imóvel</option>
+                                        <option>Viágem</option>
+                                        <option>Alimentação</option>
+                                        <option>Reforma</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleFormControlTextarea1">Detalhes/descrição:</label>
+                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                  </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Salvar objetivo</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                <br>
+                
+                <div class="d-flex">
+                    
+                </div>
+                <br>
+                <tr class="shadow-sm">
+                        
+                    </tr>
+                </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </section>
+    </div>
+  </div> 
+    
+    <input type="checkbox" id="btn-menu" />
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <p>Menu</p>
+                <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
+                <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
+                <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
+                <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
+                <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
+                <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
+                <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
+                <div class="footer-version">
+                    <sapn class="version">SmithMoney 1.0v</span>
+                </div>
+            </nav>
+            <label for="btn-menu">✖️</label>
+        </div>
+    </div>
+    
     <footer class="mt-5">
         <div class="container-flux mb-3">
             <div class="row justify-content-center footer-social mx-0">
@@ -61,14 +220,12 @@
                 </ul>
             </div>
             <div class="row justify-content-center my-4 mx-0">
-                <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos
+                <span>2020 - 2020 © <strong>Smith <span style="color: #00B0F0">Money</span></strong>. Todos os direitos
                     reservados</span>
             </div>
         </div>
     </footer>
 
     <script src="./js/scripts.js"></script>
-
 </body>
-
 </html>
