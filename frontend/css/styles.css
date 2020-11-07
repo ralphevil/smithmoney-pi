@@ -445,13 +445,14 @@ footer {
 .lista-visualizacao-categorias li {
     
     list-style-type: none;
+    cursor: pointer;
 }
 
 
 .categoria-lista-dinamica {
     cursor: pointer;
-    border-bottom: solid 4px rgba(100,100,255,1);
-    background-color: rgba(0,0,255,0.15);
+    border-bottom: solid 2px rgba(100,100,255,1);
+    background-color:#F0F5F9;
 }
 
  .subcategoria-editavel {
@@ -484,6 +485,46 @@ footer {
 #img-perfil{
     position: relative;
     margin-top: -7em;
+}
+
+.img-perfil-container {
+   width: 180px;
+   height: 180px;
+   margin-top: -20%;
+   object-fit: cover; 
+   object-position: center;
+   display: flex;
+   position: relative;
+}
+
+#img-perfil {
+    margin: 0;
+    border-radius: 50%;
+}
+
+#img-select {
+    display: none;    
+}
+
+.btn-img-select {
+    position: absolute;
+    bottom: 5px;
+    right: 3px;
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #666;
+
+}
+
+.btn-img-select:hover {
+    background-color: #0468A9;
+    color: #fafafa;
 }
 
 /*FIM EDITAR PERFIL*/

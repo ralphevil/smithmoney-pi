@@ -11,7 +11,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <!--FIM FAVICON-->
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smith Money - Cadastrar Conta</title>
@@ -32,36 +32,38 @@
         <header>
 
         </header>
-        
+
         <main>
             <div id="template">
                 <div id="background-template">
                     <h3><strong>Faça seu Cadastro</strong></h3>
                 </div>
-                <form action="">
+                <form onsubmit="cadastrarUsuario(event, this);">
                     <div class="container container-template">
 
                         <div class="row d-flex justify-content-center">
                             <a class="navbar-brand h1 mb-0 d-flex align-items-center mb-4" href="./index.html">
-                                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
-                                <span id="logo-text" style="color: black">Smith<span style="color: #00B0F0">Money</span></span>
+                                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45
+                                    alt="Logotipo">
+                                <span id="logo-text" style="color: black">Smith<span
+                                        style="color: #00B0F0">Money</span></span>
                             </a>
-                         </div>
-                         
+                        </div>
+
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Nome" id="name">
+                            <input type="text" class="form-control" placeholder="Nome" id="nome">
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Seu e-mail" id="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Senha" id="password">
+                            <input type="password" class="form-control" placeholder="Senha" id="senha">
                         </div>
                         <div class="form-group pt-4">
                             <button type="submit" class="btn btn-primary btn-template">Cadastrar</button>
                         </div>
                         <div class="form-group pt-4">
-                            <a href="./login.html">Entre agora!</a>
+                            <a href="./login.html" type="submit">Entre agora!</a>
                         </div>
                     </div>
                 </form>
@@ -78,10 +80,11 @@
                 <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
                 <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
             </ul>
-            <span>2020 - 2020 © <strong style="color: #2669EE" >Smith<span style="color: #04A922">Money</span></strong>. Todos os direitos reservados</span>
+            <span>2020 - 2020 © <strong style="color: #2669EE">Smith<span style="color: #04A922">Money</span></strong>.
+                Todos os direitos reservados</span>
         </div>
     </footer>
-    
+
     <!-- <footer class="mt-5">
         <div class="container-flux mb-3">
             <div class="row justify-content-center footer-social mx-0">
@@ -98,7 +101,39 @@
             </div>
         </div>
     </footer> -->
-    
+
     <script src="./js/scripts.js"></script>
+    <script>
+        function cadastrarUsuario(event, form) {
+            event.preventDefault();
+            const nome = form.nome.value;
+            const email = form.email.value;
+            const senha = form.senha.value;
+            const data = {
+                nome: nome,
+                email: email,
+                password: senha
+            }
+            
+            if((!nome.length <= 0 || !nome == "")&&(!email.length <=0 || !email == "")&&(!senha.length <=0 || !senha == 0)) {
+                fetch('http://localhost:8080/api/usuarios', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                    method: 'POST',                
+                    body: JSON.stringify(data)
+                })
+                .then(function (data) {
+                    console.log('Request success: ', data); 
+                    if(data.ok) window.location.href = "/login.html"                       
+                })
+                .catch(function (error) {
+                    console.log('Request failure: ', error);
+                });
+            }       
+        }
+    </script>
 </body>
+
 </html>
