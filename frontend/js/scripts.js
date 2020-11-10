@@ -12,11 +12,18 @@ function scrollFunction() {
     }
 }
 
+<<<<<<< HEAD
 
 //function adicionarSubcategoriaEditavel(evento) {
  //  var subcategoriaEditavel = document.createElement("INPUT");
  //  subcategoriaEditavel.classList.add("subcategoria-editavel");
 //   subcategoriaEditavel.placeholder = "adicione aqui sua subcategoria";
+=======
+/* function adicionarSubcategoriaEditavel(evento) {
+    var subcategoriaEditavel = document.createElement("INPUT");
+    subcategoriaEditavel.classList.add("subcategoria-editavel");
+    subcategoriaEditavel.placeholder = "adicione aqui sua subcategoria";
+>>>>>>> 43dc8138e760d66eb3406fb0ce7d86e73bc0f969
     
     // var botaoSalvar = document.createElement("input");
     // botaoSalvar.classList.add("botao-temporario");
@@ -99,9 +106,15 @@ function scrollFunction() {
     //    evento.currentTarget.querySelector("input").style.display = "inline-table";
     //};
 
+<<<<<<< HEAD
    // insertAfter(subcategoriaDeViagens.querySelector("span"), subcategoriaDeViagensBotaoRemover);
     //insertAfter(modelElement, subcategoriaDeViagens);
 //}
+=======
+    insertAfter(subcategoriaDeViagens.querySelector("span"), subcategoriaDeViagensBotaoRemover);
+    insertAfter(modelElement, subcategoriaDeViagens);
+} */
+>>>>>>> 43dc8138e760d66eb3406fb0ce7d86e73bc0f969
 
 // function insertAfter(referenceNode, newNode) {
 //     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
@@ -128,3 +141,14 @@ function trocarIMG(){
         img.src = URL.createObjectURL(this.files[0]);
     }
 }
+
+var xmlhttp = new XMLHttpRequest();
+
+xmlhttp.onreadystatechange = function() {
+    if(xmlhttp.readyState == 4 && xmlhttp.status = 200) {
+        console.log(xmlhttp.responseText);
+    }
+}
+
+xmlhttp.open("GET", "url", true);
+xmlhttp.send();
