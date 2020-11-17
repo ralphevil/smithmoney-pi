@@ -63,7 +63,7 @@
     </div>
     <div id="content" class="container-fluid p-5">
         <!-- Saldo Total -->
-        <div class="row">
+        <div class="row container-fluid">
             <div class="col-xl-3 col-lg-6">
                 <div class="card mb-5 shadow-sm border-0 shadow-hover">
                     <div class="card-body d-flex">
@@ -77,84 +77,84 @@
                         <h5 class="mb-0">R$: 3200,00</h5>
                         <small class="text-muted">Saldo Atual</small>
                     </div>
+                    </div>                
+                </div>
+
+                <div class="w-100 mr-3 mb-5">
+                    <div>
+                        <button type="button" class="mb-0 btn btn-primary" data-toggle="modal" data-target="#exampleModal"><h3>+ Adicionar uma nova conta</h3></button>            
+                        
+                        <!-- + Nova Conta -->
+                        <form action="" id = "cadastroConta">
+                            <div class="modal fade nome" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title nome" id="exampleModalLabel">+ Nova Conta</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Nome da conta:</label>
+                                                <input class="form-control" id="exampleFormControlInput1" placeholder="Exemplo: Vaquinha emergência">
+                                            </div>                         
+                                            <div class="form-group">
+                                                <label for="exampleFormContrlInput1">Saldo atual:</label>
+                                                <input class="form-control" id="exampleFormControlInput2" placeholder="três reaix R$">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleFormControlSelect1">Banco:</label>
+                                              <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Santarder</option>
+                                                <option>Banco do Brasil</option>
+                                                <option>Caixa</option>
+                                                <option>Bradesco</option>
+                                                <option>Vestidobank</option>
+                                                <option>Outros</option>
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Tipo de conta</label>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                    <option>Corrente</option>
+                                                    <option>Poupança</option>          
+                                                  </select>
+
+                                            </div>
+                                          </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <button id="salvar" type="submit" class="btn btn-primary" xmlhttp; >Salvar Conta</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    <br>
+                    
+                    <div class="d-flex">
+                        
+                    </div>
+                    <br>
+                    <tr class="shadow-sm">
+                            
+                        </tr>
                     </div>
                 </div>
             </div>
+            
         </div>
         <!-- Saldo Total -->
       <section class="py-3">
         <div class="row">
-            <div class="col-lg-4">
-              <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
-                <div class="card-body">
-                  <h5 class="mb-0">Banco Santader</h5>
-                  <br>
-                  <small class="d-inline-block text-muted mb-0">12:30 - 15:45</small>
-                  <div class="d-flex">
-                    <div class="align-self-center">
-                        <h5 class="mb-0"> <small class="text-muted">Saldo Atual </small>R$: 3200,00</h5> 
-                    </div>
-                  </div>
-                  <br>
-                  <tr class="shadow-sm">
-                        <td class="shadow-sm"><span class="badge badge-secondary">Adicionar <i
-                            class="icon ion-ios-add-circle-outline ml-2"></i></span></td>
-                        <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
-                                class="icon ion-ios-brush-outline ml-2"></i></span></td>
-                        <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
-                            class="icon ion-md-settings ml-2"></i></span></td>
-                    </tr>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-            <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
-                <div class="card-body">
-                <h5 class="mb-0">Banco Santader</h5>
-                <br>
-                <small class="d-inline-block text-muted mb-0">12:30 - 15:45</small>
-                <div class="d-flex">
-                    <div class="align-self-center">
-                        <h5 class="mb-0"> <small class="text-muted">Saldo Atual </small>R$: 3200,00</h5> 
-                    </div>
-                </div>
-                <br>
-                <tr class="shadow-sm">
-                        <td class="shadow-sm"><span class="badge badge-secondary">Adicionar <i
-                            class="icon ion-ios-add-circle-outline ml-2"></i></span></td>
-                        <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
-                                class="icon ion-ios-brush-outline ml-2"></i></span></td>
-                        <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
-                            class="icon ion-md-settings ml-2"></i></span></td>
-                    </tr>
-                </div>
-            </div>
-            </div>
-            <div class="col-lg-4">
-            <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
-                <div class="card-body">
-                <h5 class="mb-0">Banco Santader</h5>
-                <br>
-                <small class="d-inline-block text-muted mb-0">12:30 - 15:45</small>
-                <div class="d-flex">
-                    <div class="align-self-center">
-                        <h5 class="mb-0"> <small class="text-muted">Saldo Atual </small>R$: 3200,00</h5> 
-                    </div>
-                </div>
-                <br>
-                <tr class="shadow-sm">
-                        <td class="shadow-sm"><span class="badge badge-secondary">Adicionar <i
-                            class="icon ion-ios-add-circle-outline ml-2"></i></span></td>
-                        <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
-                                class="icon ion-ios-brush-outline ml-2"></i></span></td>
-                        <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
-                            class="icon ion-md-settings ml-2"></i></span></td>
-                    </tr>
-                </div>
-            </div>
-            </div>
-          </div>
-        <div class="row">
+
+        
+
             <div class="col-lg-4">
                 <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
                     <div class="card-body">
@@ -167,9 +167,7 @@
                         </div>
                     </div>
                     <br>
-                    <tr class="shadow-sm">
-                            <td class="shadow-sm"><span class="badge badge-secondary">Adicionar <i
-                                class="icon ion-ios-add-circle-outline ml-2"></i></span></td>
+                    <tr class="shadow-sm">    
                             <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
                                     class="icon ion-ios-brush-outline ml-2"></i></span></td>
                             <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
@@ -178,6 +176,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4">
                 <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
                     <div class="card-body">
@@ -190,32 +189,7 @@
                         </div>
                     </div>
                     <br>
-                    <tr class="shadow-sm">
-                            <td class="shadow-sm"><span class="badge badge-secondary">Adicionar <i
-                                class="icon ion-ios-add-circle-outline ml-2"></i></span></td>
-                            <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
-                                    class="icon ion-ios-brush-outline ml-2"></i></span></td>
-                            <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
-                                class="icon ion-md-settings ml-2"></i></span></td>
-                        </tr>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
-                    <div class="card-body">
-                    <h5 class="mb-0">Banco Santader</h5>
-                    <br>
-                    <small class="d-inline-block text-muted mb-0">12:30 - 15:45</small>
-                    <div class="d-flex">
-                        <div class="align-self-center">
-                            <h5 class="mb-0"> <small class="text-muted">Saldo Atual </small>R$: 3200,00</h5> 
-                        </div>
-                    </div>
-                    <br>
-                    <tr class="shadow-sm">
-                            <td class="shadow-sm"><span class="badge badge-secondary">Adicionar <i
-                                class="icon ion-ios-add-circle-outline ml-2"></i></span></td>
+                    <tr class="shadow-sm">    
                             <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
                                     class="icon ion-ios-brush-outline ml-2"></i></span></td>
                             <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
@@ -267,5 +241,6 @@
     </footer>
 
     <script src="./js/scripts.js"></script>
+    <script src="./js/contascript.js"></script>
 </body>
 </html>

@@ -121,7 +121,7 @@ function scrollFunction() {
 //}
 
 let input_img = document.querySelector("#img-select");
-input_img.addEventListener("change",trocarIMG)
+//input_img.addEventListener("change",trocarIMG);
 function trocarIMG(){
     if (this.files && this.files[0]) {
         var img = document.querySelector("#img-perfil");
@@ -138,4 +138,4 @@ xmlhttp.onreadystatechange = function() {
 }
 
 xmlhttp.open("GET", "url", true);
-xmlhttp.send();
+//xmlhttp.send();
