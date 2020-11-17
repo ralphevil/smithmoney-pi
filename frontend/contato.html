@@ -23,93 +23,101 @@
 
 </head>
 
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+        <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+        <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="./sobre.html" class="nav-link">Sobre</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Recursos</a></li>
+            <li class="nav-item"><a href="./contato.html" class="nav-link">Contato</a></li>
+            <li class="nav-item"><a href="./cadastro.html" class="nav-link text-primary ml-lg-5">Cadastro
+                    Grátis</a></li>
+        </ul>
+        <a href="./login.html" class="btn btn-primary btn-template" style="width: 6em;">Entrar</a>
+    </div>
+    </div>
+</nav>
+
 <body>
-    <div class="container-fluid" id='container-geral'>
+    <div class="container-fluid" id="container-geral">
         <button id="btnScrollToTop">
             <i class="material-icons">keyboard_arrow_up</i>
         </button>
-
-        <header>
-
-        </header>
-        
+  
         <main>
             <div id="template">
                 <div id="background-template">
                     <h3><strong>Contate-nos</strong></h3>
-                </div>
-                <form action="">
+                </div>  
+                <form id = "formulario">
                     <section class="form-section">
-
-                        <div id="container-contato" class="container container-template">
+                        <div  class="container container-template">
+                            <div class="row d-flex justify-content-center">
+                                <a class="navbar-brand h1 mb-0 d-flex align-items-center mb-4" href="./index.html">
+                                    <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+                                    <span id="logo-text" style="color: black">Smith<span style="color: #00B0F0">Money</span></span>
+                                </a>
+                             </div>
                             <div class="row">
-
-                                <div class="col-md-6">
-
+                                <div class="col-md-12">
                                     <div class="form-row">
-                                        <p>Deixe-nos uma mensagem, nós vamos te responder o mais breve possível.</p>
+                                        <p>Deixe-nos uma mensagem, nós vamos te responder o mais breve possível. ^^</p>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Nome Completo">
+                                                <input id="nome" type="text" class="form-control" placeholder="Nome Completo">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="Email" class="form-control"
-                                                    placeholder="Seu endereço de email">
+                                                <input id="email" type="Email" class="form-control" placeholder="Seu endereço de email">
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" placeholder="Assunto">
-                                    </div>
+                                    <br>
                                     <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Sua mensagem</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="3"></textarea>
+                                        <label for="exampleFormControlTextarea1">Sua mensagem:</label>
+                                        <div class="form-group">
+                                            <input id="assunto" type="text" class="form-control" placeholder="Assunto">
+                                        </div>
+                                        <textarea id="menssagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                     </div>
+                                    
                                     <div class="form-row">
-                                        <div class="form-group ol-md-12 text-center">
-                                            <button type="submit" class="btn btn-primary btn-template"><i
-                                                    class="fas fa-papper-plane"></i>Enviar</button>
+                                        <div class="form-group pt-4 col-md-12">
+                                            <button type="submit" class="btn btn-primary btn-template"></i>Enviar</button>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <p>Ou, nos mande uma menságem via whatsapp:</p>
-                                    <p>4005-8055. Novo tel do yudy que vai dar PS5.</p>
-                                </div>
+                                </div>                           
                             </div>
                         </div>
-
                     </section>
-
-
                 </form>
             </div>
         </main>
     </div>
-
     <footer class="mt-5">
         <div class="container-flux mb-3">
-            <div class="row justify-content-center footer-social mx-0">
-                <ul>
-                    <li><a href="#"><img src="./resourses/img/facebook.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/instagram.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/twitter.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/youtube.png" alt="" class="social"></a></li>
-                </ul>
-            </div>
+            <h5><strong>Social</strong></h5>
+            <ul>
+                <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
+                <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
+                <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
+                <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
+            </ul>
             <div class="row justify-content-center my-4 mx-0">
                 <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos
                     reservados</span>
             </div>
         </div>
     </footer>
-
     <script src="./js/scripts.js"></script>
+    <script src="./js/contatoscript.js"></script>
 </body>
-
 </html>

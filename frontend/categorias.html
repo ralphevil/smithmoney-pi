@@ -30,13 +30,44 @@
             <i class="material-icons">keyboard_arrow_up</i>
         </button>
         
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
+                <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+                    <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+                    <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
+                    <ul class="navbar-nav">
+                        <li>
+                            <div class="texto-avatar">
+                                <div class="btn-menu">
+                                    <a><label for="btn-menu">☰ </label></a>
+                                </div> 
+                                <p><strong>Gagego Maciel</strong></p>
+                                <p class="texto-email">gagego.maciel@gmail.com</p>
+                                <ul class="texto-perfil">
+                                    <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
+                                    <li class="avatar-sair"><a href="./index.html">Sair</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar"></li>
+                    </ul>
+                </div>                
+            </nav>
+        </header>        
         <main>
-            <div id="template">
+            <div id="template" class="justify-content-center">
                 <div id="background-template">
                     <h3><strong>Categorias</strong></h3>
                 </div>
             </div>
-            <div class="container-categorias">
+            <div class="container-categorias" class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-sm-12 col-md-10 col-lg-11">
                 <!-- Abas -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
@@ -51,38 +82,50 @@
                     <div class="tab-pane" id="despesas" role="tabpanel">
 
                         <ul id="ulDespesas" class="list-group lista-visualizacao-categorias">
-                            <li class="list-group-item categoria-lista-dinamica"
-                                ><i class="fa fa-apple"
-                                    aria-hidden="true"></i><span> Viagens</span></li>
-                            <li class="list-group-item categoria-lista-dinamica"
-                                ><i class="fa fa-apple"
-                                    aria-hidden="true"></i><span> carambola</span></li>
-                            <li class="list-group-item categoria-lista-dinamica"
-                                ><i class="fa fa-apple"
-                                    aria-hidden="true"></i><span> Viagens</span></li>
-                            <li class="list-group-item categoria-lista-dinamica"
-                                ><i class="fa fa-glass color-custom"
-                                    aria-hidden="true"></i><span>Baladas</span></li>
-                            <li class="list-group-item categoria-lista-dinamica"
-                                ><span>Maquiagem</span></li>
-                        </ul>
 
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Aluguel</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Condomínio</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> IPTU</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Despesas de Consumo</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Financiamentos</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Alimentação</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Assinaturas & Serviços</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Academia & Sportes</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Bares & Restaurantes</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Compras</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Dívidas & Empréstimos</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Educação</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Família & Filhos</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Impostos & Taxas</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Lazer & Hobbies</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Mercado & Feira</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Petshop</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Veterinário</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Plano de Saúde</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Cuidados Pessoais</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Farmácia</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Táxi & Transporte</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Automóveis</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Prestações</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Viagens</span></li>
+                            
+                            
+                        </ul>
                     </div>
                     <div class="tab-pane" id="receitas" role="tabpanel">
                         <ul id="ulReceitas" class="list-group lista-visualizacao-categorias">
-                            <li class="list-group-item categoria-lista-dinamica"
-                                onclick="adicionarSubcategoriaEditavel(event)"><i class="fa fa-apple"
-                                    aria-hidden="true"></i><span> Aluguel</span></li>
-                            <li class="list-group-item categoria-lista-dinamica"
-                                onclick="adicionarSubcategoriaEditavel(event)"><i class="fa fa-glass color-custom"
-                                    aria-hidden="true"></i><span>Proventos</span></li>
-
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Empréstimos</span></li>
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Investimentos</span></li>                                
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Outras receitas</span></li>                        
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> Proventos</span></li>                            
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> 13º Salário</span></li>                            
+                            <li class="list-group-item categoria-lista-dinamica"><i class="fa fa-apple"></i><span> PLR - Participação nos Lucros e Resultados</span></li>                            
                         </ul>
-
                     </div>
                 </div>
             </div>
-        </main>
+        </main>      
+        
     </div>
 
     <footer>
