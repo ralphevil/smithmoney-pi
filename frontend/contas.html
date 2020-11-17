@@ -28,39 +28,40 @@
 
 <body>
     <button id="btnScrollToTop">
-        <i class="material-icons">keyboard_arrow_up</i>
+    <i class="material-icons">keyboard_arrow_up</i>
     </button>
 
     <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
-            <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
-                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
-                <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
-                <ul class="navbar-nav">
-                    <li>
-                        <div class="texto-avatar">
-                            <p><strong>Gagego Maciel</strong></p>
-                            <p class="texto-email">gagego.maciel@gmail.com</p>
-                            <ul class="texto-perfil">
-                                <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
-                                <li class="avatar-sair"><a href="./index.html">Sair</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar"></li>
+    <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
+        <div class="btn-menu">
+        <a><label for="btn-menu">☰</label></a>
+        </div>
+        <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+        <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+        <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
+        <ul class="navbar-nav">
+            <li>
+            <div class="texto-avatar">
+                <p><strong>Gagego Maciel</strong></p>
+                <p class="texto-email">gagego.maciel@gmail.com</p>
+                <ul class="texto-perfil">
+                <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
+                <li class="avatar-sair"><a href="./index.html">Sair</a></li>
                 </ul>
             </div>
-            </div>
-        </nav>
+            </li>
+            <li><img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar"></li>
+        </ul>
+        </div>
+        </div>
+    </nav>
     </header>
-    <div class="btn-menu">
-        <a><label for="btn-menu">☰ MENU</label></a>
-    </div>
+
     <div id="content" class="container-fluid p-5">
         <!-- Saldo Total -->
         <div class="row">
@@ -249,22 +250,17 @@
         </div>
     </div>
     
-    <footer class="mt-5">
-        <div class="container-flux mb-3">
-            <div class="row justify-content-center footer-social mx-0">
-                <ul>
-                    <li><a href="#"><img src="./resourses/img/facebook.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/instagram.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/twitter.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/youtube.png" alt="" class="social"></a></li>
-                </ul>
-            </div>
-            <div class="row justify-content-center my-4 mx-0">
-                <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos
-                    reservados</span>
-            </div>
-        </div>
-    </footer>
+    <footer class="footer">
+        <h6><strong>Social</strong></h6>
+        <ul>
+          <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
+          <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
+          <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
+          <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
+        </ul>
+        <span>2020 - 2020 © <strong style="color: #2669EE">Smith<span style="color: #04A922">Money</span></strong>.
+          Todos os direitos reservados</span>
+      </footer>
 
     <script src="./js/scripts.js"></script>
 </body>
