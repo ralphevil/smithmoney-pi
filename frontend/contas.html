@@ -58,150 +58,153 @@
             </div>
         </nav>
     </header>
+
     <div class="btn-menu">
-        <a><label for="btn-menu">☰ MENU</label></a>
+        <a><label for="btn-menu">☰</label></a>
     </div>
+
     <div id="content" class="container-fluid p-5">
-        <!-- Saldo Total -->
-        <div class="row container-fluid">
-            <div class="col-xl-3 col-lg-6">
-                <div class="card mb-5 shadow-sm border-0 shadow-hover">
-                    <div class="card-body d-flex">
-                    <div>
-                        <div class="circle rounded-circle bg-primary align-self-center d-flex mr-3">
-                        </div>
-                    </div>
-                    <div class="align-self-center">
-                        <h5 class="mb-0">Saldo Atual</h5>
-                        <br>
-                        <h5 class="mb-0">R$: 3200,00</h5>
-                        <small class="text-muted">Saldo Atual</small>
-                    </div>
-                    </div>                
+        <div class="topo-content">
+            <select name="mes" id="mes" class="select-date">
+                <option value="0">Selecione</option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+            </select>
+        </div>
+         <section class="descripiton-cards">
+            <div class="cards">
+                <div class="text-card">
+                    <p> <strong> Conta Corrente </strong></p>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#contaCorrente">Cadastrar Conta Corrente</button> 
                 </div>
-
-                <div class="w-100 mr-3 mb-5">
-                    <div>
-                        <button type="button" class="mb-0 btn btn-primary" data-toggle="modal" data-target="#exampleModal"><h3>+ Adicionar uma nova conta</h3></button>            
-                        
-                        <!-- + Nova Conta -->
-                        <form action="" id = "cadastroConta">
-                            <div class="modal fade nome" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title nome" id="exampleModalLabel">+ Nova Conta</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Nome da conta:</label>
-                                                <input class="form-control" id="exampleFormControlInput1" placeholder="Exemplo: Vaquinha emergência">
-                                            </div>                         
-                                            <div class="form-group">
-                                                <label for="exampleFormContrlInput1">Saldo atual:</label>
-                                                <input class="form-control" id="exampleFormControlInput2" placeholder="três reaix R$">
-                                            </div>
-                                            <div class="form-group">
-                                              <label for="exampleFormControlSelect1">Banco:</label>
-                                              <select class="form-control" id="exampleFormControlSelect1">
-                                                <option>Santarder</option>
-                                                <option>Banco do Brasil</option>
-                                                <option>Caixa</option>
-                                                <option>Bradesco</option>
-                                                <option>Vestidobank</option>
-                                                <option>Outros</option>
-                                              </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Tipo de conta</label>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option>Corrente</option>
-                                                    <option>Poupança</option>          
-                                                  </select>
-
-                                            </div>
-                                          </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        <button id="salvar" type="submit" class="btn btn-primary" xmlhttp; >Salvar Conta</button>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </form>
-                        
-                    <br>
-                    
-                    <div class="d-flex">
-                        
-                    </div>
-                    <br>
-                    <tr class="shadow-sm">
-                            
-                        </tr>
-                    </div>
+                <p class="total-receitas">R$ 5.000,00</p>
+            </div>
+            <div class="cards">
+                <div class="text-card">
+                    <p> <strong> Poupança </strong></p>
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#poupanca" >Cadastrar Poupança</button>
+                    </a> 
                 </div>
+                <p class="total-receitas">R$ 5.000,00</p>
             </div>
             
-        </div>
-        <!-- Saldo Total -->
-      <section class="py-3">
-        <div class="row">
-
-        
-
-            <div class="col-lg-4">
-                <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
-                    <div class="card-body">
-                    <h5 class="mb-0">Banco Santader</h5>
-                    <br>
-                    <small class="d-inline-block text-muted mb-0">12:30 - 15:45</small>
-                    <div class="d-flex">
-                        <div class="align-self-center">
-                            <h5 class="mb-0"> <small class="text-muted">Saldo Atual </small>R$: 3200,00</h5> 
-                        </div>
-                    </div>
-                    <br>
-                    <tr class="shadow-sm">    
-                            <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
-                                    class="icon ion-ios-brush-outline ml-2"></i></span></td>
-                            <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
-                                class="icon ion-md-settings ml-2"></i></span></td>
-                        </tr>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card d-inline-block border-0 shadow-sm shadow-hover w-100 mr-3 mb-5">
-                    <div class="card-body">
-                    <h5 class="mb-0">Banco Santader</h5>
-                    <br>
-                    <small class="d-inline-block text-muted mb-0">12:30 - 15:45</small>
-                    <div class="d-flex">
-                        <div class="align-self-center">
-                            <h5 class="mb-0"> <small class="text-muted">Saldo Atual </small>R$: 3200,00</h5> 
-                        </div>
-                    </div>
-                    <br>
-                    <tr class="shadow-sm">    
-                            <td class="shadow-sm"><span class="badge badge-secondary">Editar <i
-                                    class="icon ion-ios-brush-outline ml-2"></i></span></td>
-                            <td class="shadow-sm"><span class="badge badge-secondary">Excluir <i
-                                class="icon ion-md-settings ml-2"></i></span></td>
-                        </tr>
-                    </div>
-                </div>
-            </div>
-          </div>
         </section>
-    </div>
+        <!-- Saldo Total -->
+        <section class="table-card">
+            <div class="pending-despesas-card">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Tipo Conta</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Valor</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="color: #04A922; font-weight: bold;">Corrente</td>
+                        <td>09/09/2020</td>
+                        <td>Banco Santander</td>
+                        <td>Ativo</td>
+                        <td style="color: #D14803;"> - R$ 199,00</td>
+                        <td></td>
+
+                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
+                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
+                      </tr>
+                    </tbody>
+                </table>
+          </div>
+      </section>
   </div> 
+
+  <!-- Modal Corrente -->
+  <div class="modal fade" id="contaCorrente" tabindex="-1" role="dialog" aria-labelledby="contaCorrente" ModalLabel aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contaCorrente" ModalLabel>Nova Conta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="instituicao-name" class="col-form-label">Instituição Financeira:</label>
+              <input type="text" class="form-control" id="instituicao-name">
+            </div>
+            <div class="form-group">
+                <label for="conta-name" class="col-form-label">Nome da Conta:</label>
+                <input type="text" class="form-control" id="conta-name">
+              </div>
+              <div class="form-group">
+                <label for="saldo-name" class="col-form-label">Saldo Inicial</label>
+                <input type="number" class="form-control" id="saldo-name">
+              </div>
+            <div class="form-group">
+              <label for="descricao-text" class="col-form-label">Descrição:</label>
+              <textarea class="form-control" id="descricao-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--- Modal Poupança --->
+<div class="modal fade" id="poupanca" tabindex="-1" role="dialog" aria-labelledby="poupanca" ModalLabel aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="poupanca" ModalLabel>Nova Conta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="instituicao-name" class="col-form-label">Instituição Financeira:</label>
+              <input type="text" class="form-control" id="instituicao-name">
+            </div>
+            <div class="form-group">
+                <label for="conta-name" class="col-form-label">Nome da Conta:</label>
+                <input type="text" class="form-control" id="conta-name">
+              </div>
+              <div class="form-group">
+                <label for="saldo-name" class="col-form-label">Saldo Inicial</label>
+                <input type="number" class="form-control" id="saldo-name">
+              </div>
+            <div class="form-group">
+              <label for="descricao-text" class="col-form-label">Descrição:</label>
+              <textarea class="form-control" id="descricao-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
     
     <input type="checkbox" id="btn-menu" />
     <div class="container-menu">
