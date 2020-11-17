@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.smithmoney.dto.UsuarioDTO;
+import com.smithmoney.model.Login;
 import com.smithmoney.model.Usuario;
 import com.smithmoney.service.UsuarioService;
 
@@ -69,9 +71,9 @@ public class UsuarioController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteById(@PathVariable Long id){
-		this.usuarioService.delete(id);
+	@DeleteMapping
+	public ResponseEntity<Void> deleteById(@AuthenticationPrincipal Login login){
+		this.usuarioService.delete(login.getId());
 		return ResponseEntity.noContent().build();
 	}
 	

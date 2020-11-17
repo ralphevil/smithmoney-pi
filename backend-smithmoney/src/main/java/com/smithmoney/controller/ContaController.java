@@ -54,16 +54,18 @@ public class ContaController {
     public ResponseEntity<Conta> findById(@PathVariable Long id, @AuthenticationPrincipal Login login) {
 		Conta conta = this.contaService.findById(id);
 		if(login.getId()!= conta.getUsuario().getId()) {
-			throw new IllegalAcessException("Você não tem permissão para acessar os dados");
-		}else {
-			return ResponseEntity.ok(conta);
+			throw new IllegalAcessException("Você não tem permissão para acessar os dados da conta");
 		}
-        
+		return ResponseEntity.ok(conta);        
     }
 	
-	@DeleteMapping
-    public ResponseEntity<Void> deleteById(@AuthenticationPrincipal Login login) {
-        this.contaService.delete(login.getId());
+	@DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id, @AuthenticationPrincipal Login login) {
+		Conta conta = this.contaService.findById(id);
+		if(login.getId()!= conta.getUsuario().getId()) {
+			throw new IllegalAcessException("Você não tem permissão para excluir a conta");
+		}
+		this.contaService.delete(login.getId());
         return ResponseEntity.noContent().build();
     }
 }
