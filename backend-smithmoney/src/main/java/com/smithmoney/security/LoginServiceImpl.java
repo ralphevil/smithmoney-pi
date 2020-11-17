@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class LoginServiceImpl implements UserDetailsService {
 
-	private final LoginRepository loginRepository;
+private final LoginRepository loginRepository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

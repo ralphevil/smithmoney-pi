@@ -167,7 +167,18 @@ body {
     margin-top: -5em;
     padding: 2em;
     padding-top: 3em;
-    width: 35em;
+    width: 50%;
+    position: relative;
+    background-color: white;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.container-template2 {
+    margin-top: -5em;
+    padding: 2em;
+    padding-top: 3em;
+    width: 70%;
     position: relative;
     background-color: white;
     border-radius: 1em;
@@ -175,7 +186,7 @@ body {
 }
 
 #container-contato{
-    width: 70em;
+    width: 35em;
 }
 
 
