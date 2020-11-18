@@ -1,7 +1,5 @@
 package com.smithmoney.dto;
 
-import javax.validation.constraints.NotNull;
-
 import com.smithmoney.model.TipoConta;
 
 import lombok.AllArgsConstructor;

@@ -32,7 +32,8 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Login implements UserDetails{
 
-	
+	private static final long serialVersionUID = -1811742049892384095L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include

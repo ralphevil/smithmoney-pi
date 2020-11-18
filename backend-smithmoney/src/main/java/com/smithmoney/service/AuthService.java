@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.smithmoney.dto.JwtRequest;
 import com.smithmoney.dto.JwtResponse;
 import com.smithmoney.model.Login;
+import com.smithmoney.model.Usuario;
 import com.smithmoney.security.JwtUtil;
 
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ public class AuthService {
 
 	private final AuthenticationManager authenticationManager;
 	private final  LoginService loginService;
+	private final UsuarioService usuarioService;
 	private final JwtUtil jwtUtil;
 	
 	public JwtResponse authenticate(JwtRequest request) {
@@ -28,8 +30,9 @@ public class AuthService {
 				));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		final Login login = this.loginService.findByUsername(request.getUsername());
+		final Usuario user = this.usuarioService.findByEmail(request.getUsername());
 		final String token = jwtUtil.generateToken(login);
-		return JwtResponse.builder().token(token).build();
+		return JwtResponse.builder().token(token).user(user).build();
 
 	}
 }
