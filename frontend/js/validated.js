@@ -18,7 +18,16 @@ function validatedJwt(){
 
 function logout(){
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('user')
     validatedJwt();
+}
+
+function perfilHeader(){
+    const nomePerfil = document.querySelector(".texto-nome");
+    const emailPerfil = document.querySelector(".texto-email");
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    nomePerfil.innerHTML = `<strong>${user.nome}</strong>`;
+    emailPerfil.innerHTML = `${user.email}`;
 }
 
 validatedJwt();

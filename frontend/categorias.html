@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://use.fontawesome.com/3e9823b3fb.js"></script>
+  <script src="./js/validated.js"></script>
 </head>
 
 <body>
@@ -45,11 +46,11 @@
         <ul class="navbar-nav">
           <li>
             <div class="texto-avatar">
-              <p><strong>Gagego Maciel</strong></p>
-              <p class="texto-email">gagego.maciel@gmail.com</p>
+              <p class="texto-nome"></p>
+              <p class="texto-email"></p>
               <ul class="texto-perfil">
                 <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
-                <li class="avatar-sair"><a href="./index.html">Sair</a></li>
+                <li class="avatar-sair"><a href="#" onclick="logout()">Sair</a></li>
               </ul>
             </div>
           </li>
@@ -180,6 +181,7 @@
   </div>
 
   <script src="js/scripts.js"></script>
+  <script>perfilHeader();</script>
 </body>
 
 </html>

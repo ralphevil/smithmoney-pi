@@ -124,7 +124,10 @@
                     } else if (resp.status !== 200) {
                         reject("Não foi possível executar a operação.");
                     } else {
-                        resp.json().then(data => window.localStorage.setItem('token',data.token));
+                        resp.json().then(data => {
+                            window.localStorage.setItem('token',data.token);
+                            window.localStorage.setItem('user',JSON.stringify(data.user));
+                        });
                         window.location = "/dashboard.html";                    
                     }
                 })
