@@ -33,18 +33,15 @@
       <div class="btn-menu">
         <a><label for="btn-menu">☰</label></a>
       </div>
-      <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html"> 
-        <img img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar "float-left"  width=45 height=45 alt="avatar">
-        <span id="logo-text"></span>   
+      <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+        <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+        <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
       </a>
       <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
         <ul class="navbar-nav">
           <li>
             <div class="texto-avatar">
-
-                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
-                <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
-
+                <a href="#" onclick="logout()"><img src="./resourses/img/sair.svg" class="menu-icon">Sair</a>
             </div>
           </li>
         </ul>
@@ -69,20 +66,23 @@
     <section>
       <ul class="cards-despesas">
         <li>
-          
           <h2>Conta Corrente</h2>
-          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#contaCorrente">Cadastrar nova Conta Corrente</button> 
           <img src="./resourses/img/dinheiro.png" alt="">
           <p class="produto-preco">-R$ 5.000,00</p>
         </li>
         <li>
           <h2>Conta Poupança</h2>
-          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#poupanca" >Cadastrar nova Poupança</button>
+          <img src="./resourses/img/dinheiro.png" alt="">
+          <p class="produto-preco">R$ 3.000,00</p>
+        </li>
+        <li>
+          <h2>Carteira</h2>
           <img src="./resourses/img/dinheiro.png" alt="">
           <p class="produto-preco">R$ 3.000,00</p>
         </li>
         <li>
           <h2>Total Contas</h2>
+          <button type="button" class="btn btn-link" data-toggle="modal" data-target="#conta" >Cadastrar nova conta</button>
           <img src="./resourses/img/dinheiro.png" alt="">
           <p class="produto-preco">-R$ 2.500,00</p>
         </li>
@@ -95,9 +95,10 @@
           <tr>
             <th scope="col">Tipo Conta</th>
             <th scope="col">Data</th>
-            <th scope="col">Descrição</th>
+            <th scope="col">Banco</th>
+            <th scope="col">Nome da Conta</th>
+            <th scope="col">Saldo</th>
             <th scope="col">Status</th>
-            <th scope="col">Valor</th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -105,26 +106,26 @@
         </thead>
         <tbody>
           <tr>
-            <td style="color: #04A922; font-weight: bold;">Pago</td>
+            <td style="color: #04A922; font-weight: bold;">Corrente</td>
             <td>09/09/2020</td>
-            <td>Pagamento conta de Àgua</td>
-            <td>Moradia</td>
-            <td>Banco Itaú</td>
+            <td>Itau</td>
+            <td>Conta Free lance</td>
             <td style="color: #D14803;"> - R$ 199,00</td>
-            <td></td>
-            <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-            <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
+            <td>Ativo</td>
+            <td><a href="#"><img src="./resourses/img/verificar.svg" class="social" data-toggle="modal" data-target="#check" id="confirmar" alt="ação"></a></td>
+            <td><a href="#"><img src="./resourses/img/editar.svg" class="social"  alt=""></a></td>
+            <td><a href="#"><img src="./resourses/img/lixo-excluir.svg" class="social"  alt=""></a></td>
           </tr>
         </tbody>
       </table>
     </section>
 
-     <!-- Modal Corrente -->
-  <div class="modal fade" id="contaCorrente" tabindex="-1" role="dialog" aria-labelledby="contaCorrente" ModalLabel aria-hidden="true">
+     <!-- Modal Conta -->
+  <div class="modal fade" id="conta" tabindex="-1" role="dialog" aria-labelledby="conta" ModalLabel aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="contaCorrente" ModalLabel>Nova Conta</h5>
+          <h5 class="modal-title" id="conta" ModalLabel>Nova Conta</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -158,48 +159,33 @@
       </div>
     </div>
   </div>
-  <!--Fim Modal Corrente -->
+  <!--Fim Modal Conta -->
 
-<!--- Modal Poupança --->
-<div class="modal fade" id="poupanca" tabindex="-1" role="dialog" aria-labelledby="poupanca" ModalLabel aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="poupanca" ModalLabel>Nova Conta</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="conta-name" class="col-form-label">Banco:</label>
-              <select class="form-control">
-                <option>Instituição Financeira</option>
-              </select>
-            </div>
-            <div class="form-group">
-                <label for="conta-name" class="col-form-label">Nome da Conta:</label>
-                <input type="text" class="form-control" id="conta-name">
-              </div>
-              <div class="form-group">
-                <label for="saldo-name" class="col-form-label">Saldo Inicial</label>
-                <input type="number" class="form-control" id="saldo-name">
-              </div>
-            <div class="form-group">
-              <label for="descricao-text" class="col-form-label">Descrição:</label>
-              <textarea class="form-control" id="descricao-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Salvar</button>
-        </div>
+<!-- Modal Confirma-->
+<div class="modal fade" id="check" tabindex="-1" role="dialog" aria-labelledby="check" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="check">Deseja confirmar o pagamento?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select class="form-control" name="" id="opcao">
+          <option value="0" name="type" selected disabled>Selecione a opção</option>
+          <option value="Pagar" id="Pagar">Sim</option>
+          <option value="Voltar" id="Voltar">Não</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="nao" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-primary" id="sim" onclick="mudar_img();">Sim</button>
       </div>
     </div>
   </div>
-<!--- Fim Modal Poupança --->
+</div>
+<!-- Modal Confirma-->
 
     <footer class="footer">
       <h6><strong>Social</strong></h6>
@@ -217,17 +203,16 @@
     <div class="container-menu">
       <div class="cont-menu">
         <nav>
-          <a href="./dashboard.html"><img src="./resourses/img/menu.svg" class="menu-icon " />MENU</a>
-          <a href="./dashboard.html"><img src="./resourses/img/dashboard.svg" class="menu-icon " />Dashboard</a>
-          <a href="./contas.html"><img src="./resourses/img/contas.svg" class="menu-icon " />Contas</a>
-          <a href="./transacoes.html"><img src="./resourses/img/transacoes.svg" class="menu-icon " />Transações</a>
-          <a href="#"><img src="./resourses/img/relatorios.svg" class="menu-icon " />Relatórios</a>
-          <a href="./despesas.html"><img src="./resourses/img/despesas_2.svg" class="menu-icon " />Despesas</a>
-          <a href="./receitas.html"><img src="./resourses/img/receita_2.svg" class="menu-icon " />Receitas</a>
-          <a href="./categorias.html"><img src="./resourses/img/configuracao_2.svg"
-              class="menu-icon " />Configurações</a>
-          <a href="./editar-perfil.html"><img src="./resourses/img/carteira-de-identidade_br.svg" class="menu-icon">Perfil</a>
-          <a href="#" onclick="logout()"><img src="./resourses/img/sair.svg" class="menu-icon">Sair</a>
+          <p><img src="./resourses/img/Foto_Perfil.jpg" class="img-avatar"></p>
+          <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
+          <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
+          <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
+          <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
+          <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
+          <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
+          <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
+          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
+          <a href="./editar-perfil.html"><img src="./resourses/img/perfil.svg" class="menu-icon ">Perfil</a>
           <div class="footer-version">
             <sapn class="version">SmithMoney 1.0v</span>
           </div>
@@ -237,6 +222,7 @@
     </div>
     
     <script src="./js/scripts.js"></script>
+    <script src="./js/mudar-botoes.js"></script>
     <script>perfilHeader();</script>
 </body>
 </html>
