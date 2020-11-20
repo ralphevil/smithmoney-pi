@@ -113,8 +113,8 @@
             <td style="color: #D14803;"> - R$ 199,00</td>
             <td>Ativo</td>
             <td><a href="#"><img src="./resourses/img/verificar.svg" class="social" data-toggle="modal" data-target="#check" id="confirmar" alt="ação"></a></td>
-            <td><a href="#"><img src="./resourses/img/editar.svg" class="social"  alt=""></a></td>
-            <td><a href="#"><img src="./resourses/img/lixo-excluir.svg" class="social"  alt=""></a></td>
+            <td><a href="#"><img src="./resourses/img/editar.svg" class="social" data-toggle="modal" data-target="#editar-conta"   alt="editar conta"></a></td>
+            <td><a href="#"><img src="./resourses/img/lixo-excluir.svg" class="social" data-toggle="modal" data-target="#excluir"  alt="excluir conta"></a></td>
           </tr>
         </tbody>
       </table>
@@ -125,7 +125,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="conta" ModalLabel>Nova Conta</h5>
+          <h5 class="modal-title" id="conta" ModalLabel><strong> NOVA CONTA</strong></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -133,23 +133,40 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="instituicao-name" class="col-form-label">Banco:</label>
-              <select class="form-control">
-                <option>Instituição Financeira</option>
+              <label for="tipo-conta">Tipo de Conta</label>
+              <select class="form-control form-control-sm" name="tipo-conta" id="tipo-conta">
+                <option selected disabled>Escolha o tipo de conta...</option>
+                <option value="1">Conta Corrente</option>
+                <option value="2">Conta Poupança</option>
+                <option value="3">Carteira</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="banco">Banco</label>
+              </div>
+              <select class="custom-select" id="banco">
+                <option selected>Selecione...</option>
+                <option value="1">Itau</option>
+                <option value="2">Santander</option>
+                <option value="3">Nubank</option>
               </select>
             </div>
             <div class="form-group">
-                <label for="conta-name" class="col-form-label">Nome da Conta:</label>
-                <input type="text" class="form-control" id="conta-name">
-              </div>
-              <div class="form-group">
-                <label for="saldo-name" class="col-form-label">Saldo Inicial</label>
-                <input type="number" class="form-control" id="saldo-name">
-              </div>
-            <div class="form-group">
-              <label for="descricao-text" class="col-form-label">Descrição:</label>
-              <textarea class="form-control" id="descricao-text"></textarea>
+              <label for="conta-name" class="col-form-label">Data da Conta:</label>
+              <input class="form-control form-control-sm" type="date" id="conta-data">
             </div>
+            <div class="form-group">
+                <label for="conta-name" class="col-form-label">Nome da Conta:</label>
+                <input type="text" class="form-control form-control-sm" id="conta-name">
+            </div>
+              <label for="conta-saldo form-control-sm">Saldo Inicial:</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text ">R$</span>
+                </div>
+                <input type="text" name="conta-saldo" class="conta-saldo form-control" id="conta-saldo">
+              </div>
           </form>
         </div>
         <div class="modal-footer">
@@ -160,6 +177,64 @@
     </div>
   </div>
   <!--Fim Modal Conta -->
+
+  <!-- Modal Editar Conta -->
+  <div class="modal fade" id="editar-conta" tabindex="-1" role="dialog" aria-labelledby="editar-conta" ModalLabel aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editar-conta" ModalLabel><strong> EDITAR CONTA</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="editar-tipo-conta">Tipo de Conta</label>
+              <select class="form-control form-control-sm" name="editar-tipo-conta" id="editar-tipo-conta">
+                <option selected disabled>Escolha o tipo de conta...</option>
+                <option value="editar-tipo-1">Conta Corrente</option>
+                <option value="editar-tipo-2">Conta Poupança</option>
+                <option value="editar-tipo-3">Carteira</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="editar-banco">Banco</label>
+              </div>
+              <select class="custom-select" id="editar-select-banco">
+                <option selected>Selecione...</option>
+                <option value="editar-banco-1">Itau</option>
+                <option value="editar-banco-2">Santander</option>
+                <option value="editar-banco-3">Nubank</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="editar-data-conta" class="col-form-label">Data da Conta:</label>
+              <input class="form-control form-control-sm" type="date" id="editar-conta-data">
+            </div>
+            <div class="form-group">
+                <label for="editar-conta-name" class="col-form-label">Nome da Conta:</label>
+                <input type="text" class="form-control form-control-sm" id="editar-conta-name">
+              </div>
+              <label for="editar-conta-saldo">Saldo Inicial:</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend ">
+                  <span class="input-group-text">R$</span>
+                </div>
+                <input type="text" name="editar-conta-saldo" class="editar-conta-saldo form-control" id="editar-conta-saldo">
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Fim Modal Editar Conta -->
 
 <!-- Modal Confirma-->
 <div class="modal fade" id="check" tabindex="-1" role="dialog" aria-labelledby="check" aria-hidden="true">
@@ -185,7 +260,29 @@
     </div>
   </div>
 </div>
-<!-- Modal Confirma-->
+<!-- FIM Modal Confirma-->
+
+<!-- Modal Excluir -->
+<div class="modal fade" id="excluir" tabindex="-1" role="dialog" aria-labelledby="excluir" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="excluir">Excluir</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span>Deseja confirmar a exclusão da conta?</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="nao" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-primary" id="sim" >Sim</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FIM Modal Excluir -->
 
     <footer class="footer">
       <h6><strong>Social</strong></h6>
@@ -223,6 +320,8 @@
     
     <script src="./js/scripts.js"></script>
     <script src="./js/mudar-botoes.js"></script>
+    <script src="./js/contascript.js"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>  
     <script>perfilHeader();</script>
 </body>
 </html>
