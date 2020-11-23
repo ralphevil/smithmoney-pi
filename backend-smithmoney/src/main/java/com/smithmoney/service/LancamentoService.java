@@ -15,6 +15,7 @@ import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.exception.ObjectNotFoundException;
 import com.smithmoney.model.Conta;
 import com.smithmoney.model.Lancamento;
+import com.smithmoney.model.TipoLancamento;
 import com.smithmoney.model.Usuario;
 import com.smithmoney.repository.ContaRepository;
 import com.smithmoney.repository.LancamentoRepository;
@@ -89,8 +90,29 @@ public class LancamentoService {
 		this.lancamentoRepository.deleteById(id);
 	}
 	
-	public List<Lancamento> findAll(Long id){
-		return this.lancamentoRepository.findAll(id);
+	@Transactional
+	public List<Lancamento> findAllByUser(Long usuarioId){
+		return this.lancamentoRepository.findAllByUser(usuarioId);
+	}
+	
+	@Transactional
+	public List<Lancamento> findAllByMonth(Long usuarioId, int mes){
+		return this.lancamentoRepository.findAllByMonth(usuarioId, mes);
+	}
+	
+	@Transactional
+	public List<Lancamento> findAllByPaid(Long usuarioId, boolean pago){
+		return this.lancamentoRepository.findAllByPaid(usuarioId, pago);
+	}
+	
+	@Transactional
+	public List<Lancamento> findAllByType(Long usuarioId, TipoLancamento tipo){
+		return this.lancamentoRepository.findAllByType(usuarioId, tipo);
+	}
+	
+	@Transactional
+	public List<Lancamento> findAllByCategory(Long usuarioId, String categoria){
+		return this.lancamentoRepository.findAllByCategory(usuarioId, categoria);
 	}
 	
 	@Transactional

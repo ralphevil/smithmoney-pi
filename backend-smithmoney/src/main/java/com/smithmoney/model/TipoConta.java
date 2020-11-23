@@ -1,5 +1,5 @@
 package com.smithmoney.model;
 
 public enum TipoConta {
-	Corrente, Poupança
+	Corrente, Poupança, Carteira
 }

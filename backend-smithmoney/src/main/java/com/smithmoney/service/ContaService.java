@@ -8,11 +8,13 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.smithmoney.dto.ContaDTO;
+import com.smithmoney.dto.UsuarioDTO;
 import com.smithmoney.exception.ArgumentNotValidException;
 import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.exception.ObjectNotFoundException;
 import com.smithmoney.model.Conta;
 import com.smithmoney.model.Lancamento;
+import com.smithmoney.model.TipoConta;
 import com.smithmoney.model.TipoLancamento;
 import com.smithmoney.model.Usuario;
 import com.smithmoney.repository.ContaRepository;
@@ -35,6 +37,21 @@ public class ContaService {
 	public void delete(Long id) {
 		this.findById(id);
 		this.contaRepository.deleteById(id);
+	}
+	
+	@Transactional
+	public Conta update(ContaDTO contaDTO) {
+		Conta contaSalva = this.findById(contaDTO.getId());		
+		if(contaDTO.getNome() != null) contaSalva.setNome(contaDTO.getNome());
+		if(contaDTO.getTipoConta()!= null) contaSalva.setTipoConta(contaDTO.getTipoConta());
+		
+		if(contaDTO.getTipoConta() == TipoConta.Carteira) {
+			contaSalva.setBanco(null);
+		}else {
+			contaSalva.setBanco(contaDTO.getBanco());
+		}		
+		
+		return this.contaRepository.save(contaSalva);
 	}
 	
 	@Transactional
@@ -126,8 +143,8 @@ public class ContaService {
 		this.contaRepository.save(conta);
 	}
 	
-	public List<Conta> findAll(Long id){
-		return this.contaRepository.findAll(id);
+	public List<Conta> findAllByUser(Long usuarioId){
+		return this.contaRepository.findAllByUser(usuarioId);
 	}
 	
 	public Conta findById(Long id) {
@@ -139,6 +156,10 @@ public class ContaService {
     }
 	
 	public Conta createDTO(ContaDTO contaDTO, Long usuarioId) {
+		if(contaDTO.getTipoConta() == TipoConta.Carteira) {
+			contaDTO.setBanco(null);
+		}
+		
 		Conta conta = Conta.builder()
 				.nome(contaDTO.getNome())
 				.saldo(contaDTO.getSaldo())
