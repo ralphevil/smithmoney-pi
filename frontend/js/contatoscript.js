@@ -1,5 +1,5 @@
 let nome = document.querySelector("#nome");
-let emails = document.querySelector("#emails");
+let email = document.querySelector("#email");
 let assunto = document.querySelector("#assunto");
 let menssagem = document.querySelector("#menssagem");
 let formulario = document.querySelector("#formulario");
