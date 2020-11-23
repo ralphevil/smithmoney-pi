@@ -11,7 +11,7 @@ import com.smithmoney.model.Conta;
 @Repository
 public interface ContaRepository extends JpaRepository<Conta, Long> {
 
-	@Query(value = "select c from Conta c where usuario_id like %:id%")
-	List<Conta> findAll(Long id);
+	@Query(value = "select c from Conta c where usuario_id = :usuarioId")
+	List<Conta> findAllByUser(Long usuarioId);
 
 }

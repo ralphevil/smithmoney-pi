@@ -20,6 +20,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="./js/validated.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
@@ -76,6 +77,9 @@
         <option value="11">Novembro</option>
         <option value="12">Dezembro</option>
       </select>
+      
+      <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova despesa">+</button>
+
       <div class="dash-title">
         <h3>Despesas</h3>
       </div>
@@ -116,9 +120,9 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td style="color: #04A922; font-weight: bold;">Pago</td>
+        <tbody id="tabela-despesas">
+          <tr class="despesas">
+            <td style="color: #04A922; font-weight: bold;" class="info-valor">Pago</td>
             <td>09/09/2020</td>
             <td>Pagamento conta de Àgua</td>
             <td>Moradia</td>
@@ -128,7 +132,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #04A922; font-weight: bold;">Pago</td>
             <td>09/09/2020</td>
             <td>Pagamento conta de Luz</td>
@@ -139,7 +143,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #D14803; font-weight: bold;">Pendente</td>
             <td>09/09/2020</td>
             <td>Pagamento parcela do carro</td>
@@ -150,7 +154,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #D14803; font-weight: bold;">Pendente</td>
             <td>09/09/2020</td>
             <td>Pagamento mensalidade academia</td>
@@ -161,7 +165,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #D14803; font-weight: bold;">Pendente</td>
             <td>09/09/2020</td>
             <td>Pagamento mensalidade academia</td>
@@ -172,7 +176,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #04A922; font-weight: bold;">Pago</td>
             <td>09/09/2020</td>
             <td>Pagamento conta de Àgua</td>
@@ -183,7 +187,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #04A922; font-weight: bold;">Pago</td>
             <td>09/09/2020</td>
             <td>Pagamento conta de Luz</td>
@@ -194,7 +198,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #D14803; font-weight: bold;">Pendente</td>
             <td>09/09/2020</td>
             <td>Pagamento parcela do carro</td>
@@ -205,7 +209,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #D14803; font-weight: bold;">Pendente</td>
             <td>09/09/2020</td>
             <td>Pagamento mensalidade academia</td>
@@ -216,7 +220,7 @@
             <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
             <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
           </tr>
-          <tr>
+          <tr class="despesas">
             <td style="color: #D14803; font-weight: bold;">Pendente</td>
             <td>09/09/2020</td>
             <td>Pagamento mensalidade academia</td>
@@ -243,6 +247,51 @@
         Todos os direitos reservados</span>
     </footer>
 
+    <div id="modal-adiciona" class="modal-conteudo">
+      <div class="moda">
+        <button class="fechar" id="btn-fechar">X</button>
+        <h3>Nova Despesa</h3>
+        <form class="form-add" id="formulario-despesa">
+          <label for="valor">Valor</label>
+          <input type="text" name="valor" id="valor" class="input-padrao" placeholder="R$ 0,00">
+
+          <label for="data">Data</label>
+          <input type="date" name="data" id="data" class="input-padrao">
+
+          <label for="descricao">Descrição</label>
+          <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
+
+          <div>
+            <label for="categorias">Categorias</label>
+            <select name="select" class="select-padrao" id="categorias">
+              <option value="selecione">Selecione</option>
+              <option value="trasportes">Transportes</option> 
+              <option value="alimentacao" selected>Alimentação</option>
+              <option value="lazer">Lazer</option>
+              <option value="moradia">Moradia</option>
+              <option value="saude">Saúde</option>
+              <option value="viagens">Viagens</option>
+              <option value="educacao">Educação</option>              
+            </select>
+          </div>
+            
+          <div class="escolha">
+            <label for="contas">Contas</label>
+            <select name="select" class="select-padrao" id="contas">
+              <option value="selecione">Selecione</option>
+              <option value="itau">Itaú</option> 
+              <option value="santander">Santander</option>
+              <option value="bradesco">Bradesco</option>
+              <option value="inter">Banco Inter</option>
+              <option value="carteira" selected>carteira</option>
+            </select>
+          </div>
+
+          <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
+        </form>
+      </div>
+    </div>
+
     <input type="checkbox" id="btn-menu" />
     <div class="container-menu">
       <div class="cont-menu">
@@ -264,6 +313,8 @@
       </div>
     </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./js/despesas.js"></script>
     <script src="./js/scripts.js"></script>
     <script>perfilHeader();</script>
 </body>

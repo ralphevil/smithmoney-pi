@@ -582,6 +582,7 @@ body {
 .cards-despesas  li h2 {
     font-size: 26px;
     color: #3F3844;
+    transition: 1s;
 }
 
 .cards-despesas  li p {
@@ -617,9 +618,9 @@ body {
     border-radius: 6px;
     border: none;
 
-    -webkit-box-shadow: 2px 2px 7px #999; 
-    -moz-box-shadow: 2px 2px 7px #999;
-    box-shadow: 2px 2px 7px #999; 
+    -webkit-box-shadow: 3px 3px 7px #999; 
+    -moz-box-shadow: 3px 3px 7px #999;
+    box-shadow: 3px 3px 7px #999; 
 }
 
 .cards-receitas {
@@ -629,6 +630,7 @@ body {
 .cards-receitas  li h2 {
     font-size: 26px;
     color: #3F3844;
+    transition: 1s;
 }
 
 .cards-receitas  li p {
@@ -754,3 +756,180 @@ tbody tr:hover {
 }
 
 /* FIM DASHBOARD CONTENT */
+
+.btn-adiciona {
+    margin-top: 12px;
+    font-size: 26px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #2669EE;
+    color: #FFF;
+    border: none;
+    transition: 1s;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.btn-adiciona:focus {
+    outline-style: none;
+}
+
+.btn-adiciona:hover {
+    background: #52BE80;
+}
+
+.modal-conteudo {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo.mostrar {
+    display: flex;
+}
+
+.moda {
+    background: #FFF;
+    width: 40%;
+    min-width: 300px;
+    padding: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    position: relative;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mostrar .moda {
+    animation: modal 1s;
+}
+
+.fechar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    font-size: 1.2em;
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 1s;
+    outline: 0;
+}
+
+.fechar:focus {
+    outline-style: none;
+}
+
+.fechar:hover {
+    color: #F1948A;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: 2s;
+}
+
+.form-add {
+    margin: 40px 0;
+}
+
+.form-add label {
+    color: #767676;
+    font-weight: 500;
+    display: block;
+    font-size: 1em;
+    margin: 0 0 10px;
+ }
+
+.input-padrao {
+    display: block;
+    font-size: 16px;
+    margin: 0 0 20px;
+    padding: 10px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+}
+
+.input-padrao:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
+.escolha {
+    margin-top: 15px;
+}
+
+.select-padrao {
+    border: solid 1px #D5D8DC;
+    border-radius: 10px;
+    color:#000000;
+    padding: 15px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.vai {
+    border-radius: 10px;
+}
+
+.select-padrao:focus {
+    outline-style: none;
+   border-color: darkorchid;
+}
+
+.btn-addnova {
+    margin: 30px 0 0;
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #FFF;
+    background:#2ECC71;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 20px;
+    transition: 1s;
+}
+
+.btn-addnova:hover {
+    background: #186A3B;
+}
+
+.btn-addnova:focus {
+    outline-style: none;
+}
+
+.info-valor {
+    color: red;
+    text-align: center;
+    justify-content: center;
+}
+
+.info-status {
+    font-weight: bold;
+    color: #D14803;
+}

@@ -14,16 +14,5 @@ formulario.addEventListener("submit", function(event){
         menssagem: menssagem.value
     };
 
-    fetch("http://apiurl", {
-        method: "POST",
-        body: JSON.stringify(conteudo)
-    })
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(response) {
-        alert("Sua menságem foi enviada com sucesso! Agora é só aguardar, breve entaremos em contato, te mais. ^^")
-    })
-
 
 })
