@@ -22,6 +22,7 @@ import com.smithmoney.dto.LancamentoDTO;
 import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.model.Lancamento;
 import com.smithmoney.model.Login;
+import com.smithmoney.model.TipoLancamento;
 import com.smithmoney.service.LancamentoService;
 
 import lombok.AllArgsConstructor;
@@ -45,8 +46,32 @@ public class LancamentoController {
 	}	
 	
 	@GetMapping
-	public ResponseEntity<List<Lancamento>> findAll(@AuthenticationPrincipal Login login){
-		List<Lancamento> lancamentos = this.lancamentoService.findAll(login.getId());
+	public ResponseEntity<List<Lancamento>> findAllByUser(@AuthenticationPrincipal Login login){
+		List<Lancamento> lancamentos = this.lancamentoService.findAllByUser(login.getId());
+		return ResponseEntity.ok(lancamentos);
+	}
+	
+	@GetMapping("/mes/{mes}")
+	public ResponseEntity<List<Lancamento>> findAllByMonth(@PathVariable int mes, @AuthenticationPrincipal Login login){
+		List<Lancamento> lancamentos = this.lancamentoService.findAllByMonth(login.getId(), mes);
+		return ResponseEntity.ok(lancamentos);
+	}
+	
+	@GetMapping("/pago/{pago}")
+	public ResponseEntity<List<Lancamento>> findAllByPaid(@PathVariable boolean pago, @AuthenticationPrincipal Login login){
+		List<Lancamento> lancamentos = this.lancamentoService.findAllByPaid(login.getId(), pago);
+		return ResponseEntity.ok(lancamentos);
+	}
+	
+	@GetMapping("/tipo/{tipo}")
+	public ResponseEntity<List<Lancamento>> findAllByType(@PathVariable TipoLancamento tipo, @AuthenticationPrincipal Login login){
+		List<Lancamento> lancamentos = this.lancamentoService.findAllByType(login.getId(), tipo);
+		return ResponseEntity.ok(lancamentos);
+	}
+	
+	@GetMapping("/categoria/{categoria}")
+	public ResponseEntity<List<Lancamento>> findAllByCategory(@PathVariable String categoria, @AuthenticationPrincipal Login login){
+		List<Lancamento> lancamentos = this.lancamentoService.findAllByCategory(login.getId(), categoria);
 		return ResponseEntity.ok(lancamentos);
 	}
 	

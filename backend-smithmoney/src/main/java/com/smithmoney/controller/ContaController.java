@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.smithmoney.dto.ContaDTO;
+import com.smithmoney.dto.UsuarioDTO;
 import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.model.Conta;
+import com.smithmoney.model.Lancamento;
 import com.smithmoney.model.Login;
+import com.smithmoney.model.Usuario;
 import com.smithmoney.service.ContaService;
 
 import lombok.AllArgsConstructor;
@@ -45,8 +49,8 @@ public class ContaController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Conta>> findAll(@AuthenticationPrincipal Login login){
-		List<Conta> contas = this.contaService.findAll(login.getId());
+	public ResponseEntity<List<Conta>> findAllByUser(@AuthenticationPrincipal Login login){
+		List<Conta> contas = this.contaService.findAllByUser(login.getId());
 		return ResponseEntity.ok(contas);
 	}
 	
@@ -58,6 +62,17 @@ public class ContaController {
 		}
 		return ResponseEntity.ok(conta);        
     }
+		
+	@PatchMapping("/{id}")
+	public ResponseEntity<Conta> update(@PathVariable Long id, @Valid @RequestBody ContaDTO contaDTO, @AuthenticationPrincipal Login login){
+		Conta conta = this.contaService.findById(id);
+		if(login.getId() != conta.getUsuario().getId()) {
+			throw new IllegalAcessException("Você não tem permissão para atualizar os dados da conta");
+		}
+		contaDTO.setId(id);
+		this.contaService.update(contaDTO);
+		return ResponseEntity.noContent().build();
+	}
 	
 	@DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id, @AuthenticationPrincipal Login login) {

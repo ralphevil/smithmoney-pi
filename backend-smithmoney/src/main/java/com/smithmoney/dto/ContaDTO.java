@@ -13,15 +13,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ContaDTO {
 
-	
+	private Long id;
+		
 	private String nome;
-	
-	
+		
 	private double saldo;
-	
-	
+		
 	private String banco;
-	
-	
+		
 	private TipoConta tipoConta;
 }
