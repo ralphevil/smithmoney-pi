@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping("./api/contato")
+@RequestMapping("/api/contato")
 public class ContatoController {
 
-    @GetMapping(path = "/api/contato")
+    @GetMapping
     public String contato() {
         return "contato";
     }
