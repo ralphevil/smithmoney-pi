@@ -72,7 +72,7 @@ public class UsuarioController {
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteById(@AuthenticationPrincipal Login login){
+	public ResponseEntity<Void> delete(@AuthenticationPrincipal Login login){
 		this.usuarioService.delete(login.getId());
 		return ResponseEntity.noContent().build();
 	}

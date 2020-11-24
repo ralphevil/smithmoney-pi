@@ -1,6 +1,3 @@
-function formataMoeda(valor) {
-  return Number(valor).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-}
 
 let btnAdd = document.querySelector("#btn-adiciona");
 let btnFechar = document.querySelector('#btn-fechar');

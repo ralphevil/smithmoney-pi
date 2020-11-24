@@ -8,11 +8,11 @@ function validatedJwt(){
             }
         }).then(response => {
             if(!response.ok){
-                window.location = "/login.html";
+                window.location = "./login.html";
             }
         })
     }else{
-        window.location = "/login.html"; 
+        window.location = "./login.html"; 
     }
 }
 
