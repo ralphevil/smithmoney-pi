@@ -80,7 +80,7 @@ public class ContaController {
 		if(login.getId()!= conta.getUsuario().getId()) {
 			throw new IllegalAcessException("Você não tem permissão para excluir a conta");
 		}
-		this.contaService.delete(login.getId());
+		this.contaService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }

@@ -31,9 +31,15 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	private Long id;
+<<<<<<< HEAD
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
+=======
+		
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+>>>>>>> 2f3702a78cfbbde326aa0d15c6dd16c0c748b2a1
 	private TipoLancamento tipo;
 		
 	@Column(length = 60, nullable = false)
