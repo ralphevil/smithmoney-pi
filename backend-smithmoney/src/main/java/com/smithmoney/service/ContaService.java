@@ -43,13 +43,16 @@ public class ContaService {
 	public Conta update(ContaDTO contaDTO) {
 		Conta contaSalva = this.findById(contaDTO.getId());		
 		if(contaDTO.getNome() != null) contaSalva.setNome(contaDTO.getNome());
-		if(contaDTO.getTipo_Conta()!= null) contaSalva.setTipoConta(contaDTO.getTipo_Conta());
+				
+		if(contaDTO.getTipo_Conta() != contaSalva.getTipoConta()) {
+			if(contaDTO.getTipo_Conta() == TipoConta.Carteira) {
+				contaSalva.setBanco(null);
+			}else {
+				if(contaDTO.getBanco()!= null) contaSalva.setBanco(contaDTO.getBanco());
+			}
+		}
 		
-		if(contaDTO.getTipo_Conta() == TipoConta.Carteira) {
-			contaSalva.setBanco(null);
-		}else {
-			contaSalva.setBanco(contaDTO.getBanco());
-		}		
+		if(contaDTO.getTipo_Conta()!= null) contaSalva.setTipoConta(contaDTO.getTipo_Conta());
 		
 		return this.contaRepository.save(contaSalva);
 	}
