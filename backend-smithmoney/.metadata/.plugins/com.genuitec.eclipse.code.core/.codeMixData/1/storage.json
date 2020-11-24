@@ -1,0 +1,14 @@
+{
+    "telemetry.machineId": "853f3c6174b7f94b30f9ca7c462d747b05749b08cbdb2f92cf0fc57e207ad05e",
+    "openedPathsList": {
+        "workspaces3": [
+            {
+                "id": "25dbacc01e35139d5e2ae202430e5e3c",
+                "configURIPath": "file:///c%3A/Users/steer/Documents/pi-dh-out20/smithmoney-pi/backend-smithmoney/.metadata/codemix.code-workspace"
+            }
+        ],
+        "files2": []
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e"
+}

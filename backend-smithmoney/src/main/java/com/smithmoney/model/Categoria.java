@@ -2,6 +2,8 @@ package com.smithmoney.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +24,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 public class Categoria {
 
 	@Id
@@ -29,6 +32,10 @@ public class Categoria {
 	@EqualsAndHashCode.Include
 	private Long id;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private TipoLancamento tipo;
+		
 	@Column(length = 60, nullable = false)
 	private String categoria;
 }
