@@ -15,10 +15,10 @@ body {
 }
 
 .header {
-    background: #FFF;
-    -webkit-box-shadow: 1px 1px 7px #999; 
-    -moz-box-shadow: 1px 1px 7px #999;
-    box-shadow: 1px 1px 7px #999;    
+  background: #FFF;
+  -webkit-box-shadow: 1px 1px 7px #999; 
+  -moz-box-shadow: 1px 1px 7px #999;
+  box-shadow: 1px 1px 7px #999;    
 }
 .header a {
     margin-left: 20px;
@@ -185,14 +185,14 @@ body {
 }
 
 .container-template2 {
-    margin-top: -5em;
-    padding: 2em;
-    padding-top: 3em;
-    width: 70%;
-    position: relative;
-    background-color: white;
-    border-radius: 1em;
-    text-align: center;
+  margin-top: -5em;
+  padding: 2em;
+  padding-top: 3em;
+  width: 70%;
+  position: relative;
+  background-color: white;
+  border-radius: 1em;
+  text-align: center;
 }
 
 #container-contato{
@@ -212,10 +212,10 @@ body {
 }
 
 .container-template input, #container-perfil .form-control{
-    background-color: #F0F5F9;
-    height: 3em;
-    margin: 0 auto;
-    border: none;
+  background-color: #F0F5F9;
+  height: 3em;
+  margin: 0 auto;
+  border: none;
 }
 
 .container-template .btn-template{
@@ -233,30 +233,123 @@ body {
 }
 
 @keyframes treme {
-    0% {margin-left: 0;}
-    25% {margin-left: 5px;}
-    50% {margin-left: 0;}
-    75% {margin-left: -5px;}
-    100% {margin-left: 0;}
+  0% {margin-left: 0;}
+  25% {margin-left: 5px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -5px;}
+  100% {margin-left: 0;}
 }
 
 .texto-recupera {
-    color: #666;
-    font-size: 16px;
+  color: #666;
+  font-size: 16px;
 }
 
 /* FIM - LOGIN / CADASTRO / RECUPERAR-SENHA / REDEFINIR-SENHA / EDITAR-PERFIL / CATEGORIA / SOBRE / CONTATO  */
 
+.divisoria {
+  border: solid 1px #D5D8DC;
+  width: 90%;
+}
+
+.graficos-content {
+  display: flex;
+  margin: 30px auto;
+}
+
+.graficos {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  margin-left: 15px;
+  padding: 15px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 3px 3px 10px #999; 
+  -moz-box-shadow: 3px 3px 10px #999;
+  box-shadow: 3px 3px 10px #999; 
+}
+
+.graficos h4 {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.categoria-despesas {
+  width: 100%;
+  height: 100%;
+
+}
+
+.categoria-receitas {
+  width: 100%;
+  height: 100%;
+
+}
+
+.cards {
+  display: flex;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.text-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #FFF;
+  padding: 20px;
+  list-style: none;
+  border-radius: 16px;
+  -webkit-box-shadow: 3px 3px 10px #999; 
+  -moz-box-shadow: 3px 3px 10px #999;
+  box-shadow: 3px 3px 10px #999; 
+  transition: 1s;
+}
+
+.text-card:nth-child(1n) {
+  margin-left: 15px;
+}
+
+.text-card:hover {
+  transform: scale(1.06);
+}
+
+.text-card h4 {
+  font-weight: 600;
+  color: #B2BABB;
+}
+
+.text-card p {
+  font-size: 24px;
+  transition: 1s;
+  margin: 20px 0 auto;
+}
+
+.grid {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin-left: 15px;
+}
+
+.img-cards {
+  width: 100%;
+}
+
 /* HEANDER TELAS */
 .img-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
 .texto-avatar {
-    text-align: right;
-    margin-right: 15px;
+  text-align: right;
+  margin-right: 15px;
 }
 
 .texto-avatar p {
@@ -264,8 +357,8 @@ body {
 }
 
 .texto-email {
-    font-size: 12px;
-    color: #666;
+  font-size: 14px;
+  color: #666;
 }
 
 .texto-avatar p strong {
@@ -276,37 +369,26 @@ body {
     display: flex;
 }
 
-.texto-perfil li {
-    margin-left: 25px;
-}
-
 .texto-perfil {
     list-style: none;
 }
 
 .avatar-perfil {
-    font-size: 14px;
-    color: #2669EE;
+    color: rgba(52, 152, 219, 0.6);
+    transition: 1s;
 }
 
-.avatar-perfil a {
-    text-decoration: none;
+.avatar-perfil:hover {
+    color: rgba(52, 152, 219, 0.1);
 }
 
-.avatar-perfil a:hover {
-    text-decoration: underline;
-    font-weight: bold;
+.avatar-sair a {
+    color: red;
+    transition: 1s;
 }
 
-.avatar-sair  a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #DF2F09;
-}
-
-.avatar-sair  a:hover {
-    text-decoration: underline;
-    font-weight: bold;
+.avatar-sair a:hover {
+    color: darkred;
 }
 
 /* FIM HEADER TELAS*/
@@ -529,8 +611,7 @@ body {
 
 /* INICIO DASHBOARD CONTENT */
 .conteudo {
-    max-width: 1300px;
-    height: 100vh;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -571,33 +652,33 @@ body {
     margin-left: 25px;
     box-sizing: border-box;
   
-    border-radius: 6px;
+    border-radius: 16px;
     border: none;
 
-    -webkit-box-shadow: 2px 2px 7px #999; 
-    -moz-box-shadow: 2px 2px 7px #999;
-    box-shadow: 2px 2px 7px #999; 
+    -webkit-box-shadow: 3px 3px 10px #999; 
+    -moz-box-shadow: 3px 3px 10px #999;
+    box-shadow: 3px 3px 10px #999; 
 }
 
 .cards-despesas  li h2 {
     font-size: 26px;
     color: #3F3844;
-    transition: 1s;
 }
 
 .cards-despesas  li p {
     font-size: 22px;
     font-weight: bold;
     margin: 10px 0 0;
-    color: #cc2333;
+    color: #F44336;
+    transition: 1s;
 }
 
 .cards-despesas  li:hover {
     background: #F7F9F9;
 }
 
-.cards-despesas  li:hover h2 {
-    font-size: 30px;
+.cards-despesas  li:hover p {
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -861,6 +942,25 @@ tbody tr:hover {
     margin: 0 0 10px;
  }
 
+ .input-valor {
+    display: block;
+    font-size: 20px;
+    color: #F44336;
+    margin: 0 0 20px;
+    padding: 10px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+ }
+
+ .input-valor:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
 .input-padrao {
     display: block;
     font-size: 16px;
@@ -925,8 +1025,6 @@ tbody tr:hover {
 
 .info-valor {
     color: red;
-    text-align: center;
-    justify-content: center;
 }
 
 .info-status {
