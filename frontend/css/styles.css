@@ -69,7 +69,7 @@ body {
     text-decoration: none;
     color: #000000;
     font-size: 16px;
-    transition: all 0.3s ease;
+    transition: all 1s ease;
     border-bottom: 2px solid transparent;
 } 
 
@@ -79,8 +79,8 @@ body {
 
 #navbarSite a.nav-link:hover {
     color: #2669EE !important;
-    border-bottom: 2px solid #2669EE;
-    padding-bottom: 5px;
+    border-bottom: 1px solid #2669EE;
+    padding-bottom: 3px;
 }
 
 .map-responsive {
@@ -247,9 +247,19 @@ body {
 
 /* FIM - LOGIN / CADASTRO / RECUPERAR-SENHA / REDEFINIR-SENHA / EDITAR-PERFIL / CATEGORIA / SOBRE / CONTATO  */
 
-.divisoria {
-  border: solid 1px #D5D8DC;
-  width: 90%;
+.grafico-balanco {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  margin: 40px 10px;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 3px 3px 10px #999; 
+  -moz-box-shadow: 3px 3px 10px #999;
+  box-shadow: 3px 3px 10px #999; 
 }
 
 .graficos-content {
@@ -280,13 +290,11 @@ body {
 .categoria-despesas {
   width: 100%;
   height: 100%;
-
 }
 
 .categoria-receitas {
   width: 100%;
   height: 100%;
-
 }
 
 .cards {
@@ -880,6 +888,7 @@ tbody tr:hover {
 .moda {
     background: #FFF;
     width: 40%;
+    height: 90%;
     min-width: 300px;
     padding: 40px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);

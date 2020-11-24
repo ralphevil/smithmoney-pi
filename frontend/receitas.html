@@ -203,6 +203,60 @@
         Todos os direitos reservados</span>
     </footer>
 
+    <div id="modal-adiciona" class="modal-conteudo">
+      <div class="moda">
+        <button class="fechar" id="btn-fechar">X</button>
+        <h3>Nova Despesa</h3>
+        <form class="form-add" id="formulario-despesa">
+          <label for="valor">Valor</label>
+          <input type="text" name="valor" id="valor" class="input-valor" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="R$ 0,00">
+
+          <label for="data">Data</label>
+          <input type="date" name="data" id="data" class="input-padrao">
+
+          <label for="descricao">Descrição</label>
+          <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
+
+          <div>
+            <label for="categorias">Categorias</label>
+            <select name="select" class="select-padrao" id="categorias">
+              <option value="selecione" selected>Selecione</option>
+              <option>Transportes</option> 
+              <option>Alimentação</option>
+              <option>Lazer</option>
+              <option>Moradia</option>
+              <option>Saúde</option>
+              <option>Viagens</option>
+              <option>Educação</option>              
+            </select>
+          </div>
+            
+          <div class="escolha">
+            <label for="contas">Contas</label>
+            <select name="select" class="select-padrao" id="contas">
+              <option value="selecione" selected>Selecione</option>
+              <option>Itaú</option> 
+              <option>Santander</option>
+              <option>Bradesco</option>
+              <option>Banco Inter</option>
+              <option>carteira</option>
+            </select>
+          </div>
+
+          <div class="escolha">
+            <label for="contas">Tipo do Lançamento</label>
+            <select name="select" class="select-padrao" id="tipo-contas">
+              <option value="selecione" selected>Selecione</option>
+              <option>Despesa</option> 
+              <option>Receita</option>
+            </select>
+          </div>
+
+          <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
+        </form>
+      </div>
+    </div>
+
     <input type="checkbox" id="btn-menu" />
     <div class="container-menu">
         <div class="cont-menu">
@@ -223,6 +277,7 @@
         </div>
     </div> 
     
+    <script src="./js/receitas.js"></script>
     <script src="./js/scripts.js"></script>
     <script>perfilHeader();</script>
 </body>

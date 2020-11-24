@@ -137,86 +137,34 @@
       </div>
     </section>
 
-    <section class="table-card">
-      <h3>Despesas pendentes</h3>
-      <div class="pending-expenses-card">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Status</th>
-              <th scope="col">Data</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Categoria</th>
-              <th scope="col">Conta</th>
-              <th scope="col">Valor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="color: #D14803; font-weight: bold;">Pendente</td>
-              <td>09/09/2020</td>
-              <td>Pagamento conta de Àgua</td>
-              <td>Moradia</td>
-              <td>Banco Itaú</td>
-              <td style="color: #D14803;"> - R$ 199,00</td>
-              <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-            </tr>
-            <tr>
-              <td style="color: #D14803; font-weight: bold;">Pendente</td>
-              <td>09/09/2020</td>
-              <td>Pagamento conta de Luz</td>
-              <td>Moradia</td>
-              <td>Banco Itaú</td>
-              <td style="color: #D14803;"> - R$ 169,00</td>
-              <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-            </tr>
-            <tr>
-              <td style="color: #D14803; font-weight: bold;">Pendente</td>
-              <td>09/09/2020</td>
-              <td>Pagamento parcela do carro</td>
-              <td>Transporte</td>
-              <td>Banco Itaú</td>
-              <td style="color: #D14803;"> - R$ 699,00</td>
-              <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-            </tr>
-            <tr>
-              <td style="color: #D14803; font-weight: bold;">Pendente</td>
-              <td>09/09/2020</td>
-              <td>Pagamento mensalidade academia</td>
-              <td>Saúde</td>
-              <td>Banco Itaú</td>
-              <td style="color: #D14803;"> - R$ 99,00</td>
-              <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-            </tr>
-            <tr>
-              <td style="color: #D14803; font-weight: bold;">Pendente</td>
-              <td>09/09/2020</td>
-              <td>Pagamento Gás</td>
-              <td>Moradia</td>
-              <td>Banco Itaú</td>
-              <td style="color: #D14803;"> - R$ 199,00</td>
-              <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-              <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-            </tr>
-          </tbody>
-        </table>
+    <section class="grafico-balanco">
+      <div>
+        <h4>Balanço Mensal</h4>
+        <canvas class="balanco"></canvas>
       </div>
     </section>
-    <section class="balance">
-      <h3>Balanço mensal</h3>
-      <div class="balanco-card">
 
-      </div>
+    <section>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Conta</th>
+            <th scope="col">Valor</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="tabela-pendencia">
+          
+        </tbody>
+      </table>
     </section>
+
     <footer>
       <div class="footer">
         <h5><strong>Social</strong></h5>
@@ -272,6 +220,15 @@
           </select>
         </div>
 
+        <div class="escolha">
+          <label for="contas">Tipo do Lançamento</label>
+          <select name="select" class="select-padrao" id="tipo-contas">
+            <option value="selecione" selected>Selecione</option>
+            <option>Despesa</option> 
+            <option>Receita</option>
+          </select>
+        </div>
+
         <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
       </form>
     </div>
@@ -311,7 +268,7 @@
     }
 
     perfilHeader();
-  </script>
+  </script> 
 
   <script src="./js/dashboard.js"></script>
   <script src="./js/Chart.min.js"></script>
