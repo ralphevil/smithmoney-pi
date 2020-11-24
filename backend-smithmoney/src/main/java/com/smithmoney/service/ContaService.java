@@ -43,9 +43,9 @@ public class ContaService {
 	public Conta update(ContaDTO contaDTO) {
 		Conta contaSalva = this.findById(contaDTO.getId());		
 		if(contaDTO.getNome() != null) contaSalva.setNome(contaDTO.getNome());
-		if(contaDTO.getTipoConta()!= null) contaSalva.setTipoConta(contaDTO.getTipoConta());
+		if(contaDTO.getTipo_Conta()!= null) contaSalva.setTipoConta(contaDTO.getTipo_Conta());
 		
-		if(contaDTO.getTipoConta() == TipoConta.Carteira) {
+		if(contaDTO.getTipo_Conta() == TipoConta.Carteira) {
 			contaSalva.setBanco(null);
 		}else {
 			contaSalva.setBanco(contaDTO.getBanco());
@@ -156,7 +156,7 @@ public class ContaService {
     }
 	
 	public Conta createDTO(ContaDTO contaDTO, Long usuarioId) {
-		if(contaDTO.getTipoConta() == TipoConta.Carteira) {
+		if(contaDTO.getTipo_Conta() == TipoConta.Carteira) {
 			contaDTO.setBanco(null);
 		}
 		
@@ -164,7 +164,7 @@ public class ContaService {
 				.nome(contaDTO.getNome())
 				.saldo(contaDTO.getSaldo())
 				.banco(contaDTO.getBanco())
-				.tipoConta(contaDTO.getTipoConta())
+				.tipoConta(contaDTO.getTipo_Conta())
 				.usuario(
 						Usuario.builder()
 							.id(usuarioId)

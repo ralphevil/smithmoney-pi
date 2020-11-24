@@ -21,5 +21,5 @@ public class ContaDTO {
 		
 	private String banco;
 		
-	private TipoConta tipoConta;
+	private TipoConta tipo_Conta;
 }

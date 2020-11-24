@@ -37,26 +37,20 @@
             <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
             <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-            <span class="navbar-toggler-icon"></span>
-          </button>
           <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
             <ul class="navbar-nav">
               <li>
                 <div class="texto-avatar">
-                  <p class="texto-nome"></p>
-                  <p class="texto-email"></p>
-                  <ul class="texto-perfil">
-                    <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
-                    <li class="avatar-sair"><a href="#" onclick="logout()">Sair</a></li>
-                  </ul>
+                    <a href="#" onclick="logout()"><img src="./resourses/img/sair_01.svg" class="menu-icon"> <span style="color: #2669EE;">Sair</span> </a>
                 </div>
               </li>
-              <li><img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar"></li>
             </ul>
           </div>
           </div>
+          </div>
         </nav>
+      </header>
+
     <main>
         <div id="template" class="justify-content-center">
             <div id="background-template-perfil">
@@ -170,59 +164,36 @@
         </div>
     </main>
 
-   <footer>
-        <div class="footer">
-            <h5><strong>Social</strong></h5>
-            <ul>
-                <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
-                <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
-                <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
-                <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
-            </ul>
-            <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos reservados</span>
-        </div>
-    </footer>
+    <footer class="footer">
+        <h6 style="text-indent:0;"><strong> Social</strong></h6>
+        <ul style="text-indent: -3em;">
+          <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
+          <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
+          <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
+          <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
+        </ul>
+        <span>2020 - 2020 © <strong style="color: #2669EE">Smith<span style="color: #04A922">Money</span></strong>.
+          Todos os direitos reservados</span>
+      </footer>
 
-    <!--<footer class="mt-5">
-        <div class="container-flux mb-3">
-            <div class="row justify-content-center footer-social mx-0">
-                <ul>
-                    <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
-                </ul>
-            </div>
-            <div class="row justify-content-center my-4 mx-0">
-                <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos
-                    reservados</span>
-            </div>
-        </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    </footer>
-
-    
-=======
-=======
->>>>>>> 43dc8138e760d66eb3406fb0ce7d86e73bc0f969
-    </footer> -->
     <input type="checkbox" id="btn-menu" />
     <div class="container-menu">
         <div class="cont-menu">
-            <nav>
-                <p>MENU</p>
-                <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
-                <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
-                <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
-                <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
-                <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
-                <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
-                <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
-                <div class="footer-version">
-                    <span class="version">Smith<span style="color:#00B0F0">Money</span></span>
-                </div>
-            </nav>
+        <nav>
+          <p><img src="./resourses/img/Foto_Perfil.jpg" class="img-avatar"></p>
+          <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
+          <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
+          <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
+          <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
+          <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
+          <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
+          <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
+          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
+          <a href="./editar-perfil.html"><img src="./resourses/img/perfil.svg" class="menu-icon ">Perfil</a>
+          <div class="footer-version">
+            <sapn class="version">SmithMoney 1.0v</span>
+          </div>
+        </nav>
             <label for="btn-menu">✖️</label>
         </div>
     </div> 
