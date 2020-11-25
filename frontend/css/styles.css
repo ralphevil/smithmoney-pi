@@ -1044,3 +1044,21 @@ tbody tr:hover {
     font-weight: bold;
     color: #D14803;
 }
+
+
+.add-button-container {
+    text-align: right;
+    margin-top: 10px;
+
+}
+
+
+button.add-categoria {
+    background-color: #0468A9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border: none;
+    font-size: 29px;
+    border-radius: 36px;
+    color: #ffffff;
+    width: 47px;
+}
