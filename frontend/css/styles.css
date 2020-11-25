@@ -568,6 +568,7 @@ body {
     background-color: white;
     border-radius: 1em;
     width: 40em;
+    box-shadow: 2px -8px 20px 0px;
 }
 
 #img-perfil{
@@ -583,6 +584,7 @@ body {
    object-position: center;
    display: flex;
    position: relative;
+
 }
 
 #img-perfil {
@@ -607,10 +609,12 @@ body {
     border-radius: 50%;
     background-color: #f0f0f0;
     color: #666;
+    transition: 1s;
 
 }
 
 .btn-img-select:hover {
+
     background-color: #0468A9;
     color: #fafafa;
 }
