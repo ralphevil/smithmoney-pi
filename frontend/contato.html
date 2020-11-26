@@ -58,7 +58,7 @@
                 <div id="background-template">
                     <h3><strong>Contate-nos</strong></h3>
                 </div>  
-                <form id = "formulario" method="POST">
+                <form onsubmit="enviarContato(event, this)">
                     <section class="form-section">
                         <div  class="container container-template">
                             <div class="row d-flex justify-content-center">
@@ -88,7 +88,7 @@
                                         <div class="form-group">
                                             <input id="assunto" type="text" class="form-control" placeholder="Assunto">
                                         </div>
-                                        <textarea id="menssagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <textarea id="mensagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                     </div>
                                     
                                     <div class="form-row">
