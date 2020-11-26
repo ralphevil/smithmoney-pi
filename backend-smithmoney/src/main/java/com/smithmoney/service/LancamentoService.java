@@ -111,6 +111,13 @@ public class LancamentoService {
 	}
 	
 	@Transactional
+	public Double totalByType(Long usuarioId, TipoLancamento tipo){
+		List<Lancamento> lancamentos = this.lancamentoRepository.findAllByType(usuarioId, tipo);
+		Double totalValue = lancamentos.stream().mapToDouble(x->x.getValor()).sum();
+		return totalValue;
+	}
+	
+	@Transactional
 	public List<Lancamento> findAllByCategory(Long usuarioId, String categoria){
 		return this.lancamentoRepository.findAllByCategory(usuarioId, categoria);
 	}
