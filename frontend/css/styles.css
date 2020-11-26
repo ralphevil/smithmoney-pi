@@ -20,6 +20,7 @@ body {
   -moz-box-shadow: 1px 1px 7px #999;
   box-shadow: 1px 1px 7px #999;    
 }
+
 .header a {
     margin-left: 20px;
 }
@@ -304,6 +305,42 @@ body {
   padding: 15px;
 }
 
+.card-dash {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 16px;
+    background: #FFF;
+    list-style: none;
+    -webkit-box-shadow: 3px 3px 10px #999; 
+    -moz-box-shadow: 3px 3px 10px #999;
+    box-shadow: 3px 3px 10px #999; 
+    transition: 1s;
+}
+
+.card-dash:hover {
+    transform: scale(1.02);
+}
+
+.card-dash:nth-child(1n) {
+    margin-left: 15px;
+}
+
+.card-dash a {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-dash a:hover {
+    text-decoration: none;
+}
+
+.card-dash p {
+    font-size: 22px;
+    transition: 1s;
+    margin: 20px 0 auto;
+  }
+
 .text-card {
   width: 100%;
   display: flex;
@@ -323,7 +360,7 @@ body {
 }
 
 .text-card:hover {
-  transform: scale(1.06);
+  transform: scale(1.02);
 }
 
 .text-card h4 {
@@ -515,10 +552,11 @@ body {
 .footer-version {
     display:flex;
     justify-content: center;
-    margin-top: 40%;
+    margin-top: 60%;
 }
 
 .version {
+    font-size: 14px;
     color: #FFF;
 }
 
@@ -814,9 +852,13 @@ body {
 }
 
 .table {
-    margin: 50px auto;
+    margin: 30px 10px 200px 10px;
     background: #FFF;
     border-radius: 16px;
+    -webkit-box-shadow: 3px 3px 10px #999; 
+    -moz-box-shadow: 3px 3px 10px #999;
+    box-shadow: 3px 3px 10px #999; 
+    transition: 1s;
 }
 
 tbody tr {
@@ -826,6 +868,18 @@ tbody tr {
 tbody tr:hover {
     background: #EBF5FB;
     border-radius: 5px;
+}
+
+.tabela-dash {
+    background: #FFF;
+    margin-left: 25px;
+    padding: 15px;
+}
+
+.titulo-tabela {
+    margin: 0 0 0 25px;
+    color: #0000008A;
+
 }
 
 .balanco-card {
@@ -852,6 +906,7 @@ tbody tr:hover {
 
 .btn-adiciona {
     margin-top: 12px;
+    margin-right: 53px;
     font-size: 26px;
     padding: 5px;
     width: 50px;
@@ -892,9 +947,7 @@ tbody tr:hover {
 .moda {
     background: #FFF;
     width: 40%;
-    height: 90%;
-    min-width: 300px;
-    padding: 40px;
+    padding: 30px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     position: relative;
@@ -960,7 +1013,7 @@ tbody tr:hover {
     font-size: 20px;
     font-weight: 600;
     color: #F44336;
-    margin: 0 0 20px;
+    margin: 0;
     padding: 10px 30px;
     width: 100%;
     height: 10%;
@@ -978,7 +1031,7 @@ tbody tr:hover {
 .input-padrao {
     display: block;
     font-size: 16px;
-    margin: 0 0 20px;
+    margin: 0;
     padding: 10px;
     width: 100%;
     height: 10%;
@@ -993,6 +1046,10 @@ tbody tr:hover {
     border-bottom-color: darkorchid;
 }
 
+.inputs-form {
+    margin-top: 25px;
+}
+
 .escolha {
     margin-top: 15px;
 }
@@ -1003,7 +1060,8 @@ tbody tr:hover {
     color:#000000;
     padding: 15px;
     width: 100%;
-    font-size: 18px;
+    height: 47px;
+    font-size: 14px;
 }
 
 .vai {
@@ -1018,7 +1076,7 @@ tbody tr:hover {
 .btn-addnova {
     margin: 30px 0 0;
     width: 100%;
-    height: 60px;
+    height: 50px;
     border-radius: 10px;
     border: none;
     color: #FFF;
@@ -1046,6 +1104,11 @@ tbody tr:hover {
     color: #4CAF50;
 }
 
+.status-efetuada {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
 .status-pendente {
     font-weight: bold;
     color: #D14803;
@@ -1054,7 +1117,6 @@ tbody tr:hover {
 .status-invisivel {
     display: none;
 }
-
 
 .add-button-container {
     text-align: right;
@@ -1076,18 +1138,18 @@ button.add-categoria {
     width: 80%;
 }
 
-.btn-pagar {
+.btn-efetuar {
     background: transparent;
     border: none;
     border-radius: 50%;
 }   
 
-.btn-pagar:hover {
+.btn-efetuar:hover {
     background: #D5F5E3;
     transform: scale(1.1);
 }
 
-.btn-pagar:focus {
+.btn-efetuar:focus {
     outline-style: none;
 }
 
@@ -1098,7 +1160,7 @@ button.add-categoria {
 }   
 
 .btn-altera:hover {
-    background: #D5F5E3;
+    background: #D6EAF8;
     transform: scale(1.1);
 }
 
@@ -1113,7 +1175,7 @@ button.add-categoria {
 }   
 
 .btn-deleta:hover {
-    background: #D5F5E3;
+    background: #FADBD8;
     transform: scale(1.1);
 }
 
@@ -1132,4 +1194,19 @@ button.add-categoria {
 
 input::placeholder {
     color: #F44336;
+}
+
+.divisoria {
+    margin: 15px auto;
+    width: 95%;
+}
+
+.erro-texto {
+    margin: 0;
+    font-size: 12px;
+    color: #FF6D00;
+}
+
+.erro-invisivel {
+    display: none;
 }

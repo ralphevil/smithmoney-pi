@@ -147,20 +147,29 @@
         <button class="fechar" id="btn-fechar">X</button>
         <h3>Novo Lançamento</h3>
         <form class="form-add" id="formulario-lancamento">
-          <label for="valor">Valor</label>
-          <span class="cifrao">R$ </span>
-          <input type="text" name="valor" id="valor" class="input-valor" placeholder="0,00">
-
-          <label for="data">Data</label>
-          <input type="date" name="data" id="data" class="input-padrao">
-
-          <label for="descricao">Descrição</label>
-          <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
-
           <div>
+            <label for="valor">Valor</label>
+            <span class="cifrao">R$ </span>
+            <input type="text" name="valor" id="valor" class="input-valor" placeholder="0,00">
+            <span class="erro-invisivel" id="erro-valor">Deve ter um valor maior que 0</span>
+          </div>
+          
+          <div class="inputs-form">
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data" class="input-padrao">
+            <span class="erro-invisivel" id="erro-data">Deve informar uma data</span>
+          </div>
+  
+          <div class="inputs-form">
+            <label for="descricao"  class="label-form">Descrição</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
+            <span class="erro-invisivel" id="erro-descricao">Deve informar uma descrição</span>
+          </div>
+        
+          <div class="inputs-form">
             <label for="categorias">Categorias</label>
             <select name="categoria" class="select-padrao" id="categoria">
-              <option value="selecione" selected>Selecione</option>
+              <option selected>Selecione</option>
               <option>Transportes</option> 
               <option>Alimentação</option>
               <option>Lazer</option>
@@ -169,29 +178,32 @@
               <option>Viagens</option>
               <option>Educação</option>              
             </select>
+            <span class="erro-invisivel" id="erro-categoria">Deve selecionar uma categoria</span>
           </div>
             
           <div class="escolha">
             <label for="contas">Contas</label>
             <select name="conta" class="select-padrao" id="conta">
-              <option value="selecione" selected>Selecione</option>
+              <option selected>Selecione</option>
               <option>Itaú</option> 
               <option>Santander</option>
               <option>Bradesco</option>
               <option>Banco Inter</option>
               <option>carteira</option>
             </select>
+            <span class="erro-invisivel" id="erro-contas">Deve informar uma conta</span>
           </div>
-
+  
           <div class="escolha">
             <label for="contas">Tipo do Lançamento</label>
             <select name="tipolancamento" class="select-padrao" id="tipolancamento">
-              <option value="selecione" selected>Selecione</option>
+              <option selected>Selecione</option>
               <option>Despesa</option> 
               <option>Receita</option>
             </select>
+            <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo do lançamento</span>
           </div>
-
+  
           <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
         </form>
       </div>
@@ -205,14 +217,12 @@
           <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
           <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
           <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
-          <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
-          <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
           <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
           <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
-          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
+          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Categorias</a>
           <a href="./editar-perfil.html"><img src="./resourses/img/perfil.svg" class="menu-icon ">Perfil</a>
           <div class="footer-version">
-            <sapn class="version">SmithMoney 1.0v</span>
+            <sapn class="version">SmithMoney v1.0</span>
           </div>
         </nav>
         <label for="btn-menu">✖️</label>
