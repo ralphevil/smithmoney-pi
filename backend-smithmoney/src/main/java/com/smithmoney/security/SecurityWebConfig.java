@@ -45,6 +45,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter  {
 			.antMatchers(HttpMethod.POST, "/api/auth/forgot-password").permitAll()
 			.antMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
 			.antMatchers(HttpMethod.POST, "/upload").permitAll()			
+			.antMatchers(HttpMethod.POST, "/api/contato").permitAll()			
 			.antMatchers("/image/**").permitAll()			
 			.antMatchers("/files/**").permitAll()			
 				.anyRequest().authenticated()
