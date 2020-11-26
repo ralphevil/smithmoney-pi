@@ -70,7 +70,7 @@
         <option value="12">Dezembro</option>
       </select>
       
-      <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova despesa">+</button>
+      <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar novo Lançamento">+</button>
 
       <div class="dash-title">
         <h3>Despesas</h3>
@@ -145,10 +145,11 @@
     <div id="modal-adiciona" class="modal-conteudo">
       <div class="moda">
         <button class="fechar" id="btn-fechar">X</button>
-        <h3>Nova Despesa</h3>
-        <form class="form-add" id="formulario-despesa">
+        <h3>Novo Lançamento</h3>
+        <form class="form-add" id="formulario-lancamento">
           <label for="valor">Valor</label>
-          <input type="text" name="valor" id="valor" class="input-valor" onkeypress="$(this).mask('R$ 999.990,00')" placeholder="R$ 0,00">
+          <span class="cifrao">R$ </span>
+          <input type="text" name="valor" id="valor" class="input-valor" placeholder="0,00">
 
           <label for="data">Data</label>
           <input type="date" name="data" id="data" class="input-padrao">
@@ -158,7 +159,7 @@
 
           <div>
             <label for="categorias">Categorias</label>
-            <select name="select" class="select-padrao" id="categorias">
+            <select name="categoria" class="select-padrao" id="categoria">
               <option value="selecione" selected>Selecione</option>
               <option>Transportes</option> 
               <option>Alimentação</option>
@@ -172,7 +173,7 @@
             
           <div class="escolha">
             <label for="contas">Contas</label>
-            <select name="select" class="select-padrao" id="contas">
+            <select name="conta" class="select-padrao" id="conta">
               <option value="selecione" selected>Selecione</option>
               <option>Itaú</option> 
               <option>Santander</option>
@@ -184,7 +185,7 @@
 
           <div class="escolha">
             <label for="contas">Tipo do Lançamento</label>
-            <select name="select" class="select-padrao" id="tipo-contas">
+            <select name="tipolancamento" class="select-padrao" id="tipolancamento">
               <option value="selecione" selected>Selecione</option>
               <option>Despesa</option> 
               <option>Receita</option>
@@ -223,5 +224,6 @@
     <script src="./js/despesas.js"></script>
     <script src="./js/scripts.js"></script>
     <script>perfilHeader();</script>
+    <script src="./js/jquery.mask.js"></script>
 </body>
 </html>
