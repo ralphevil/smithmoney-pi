@@ -69,6 +69,12 @@ public class LancamentoController {
 		return ResponseEntity.ok(lancamentos);
 	}
 	
+	@GetMapping("/tipo/{tipo}/total")
+	public ResponseEntity<Double> totalByType(@PathVariable TipoLancamento tipo, @AuthenticationPrincipal Login login){
+		Double totalValue = this.lancamentoService.totalByType(login.getId(), tipo);
+		return ResponseEntity.ok(totalValue);
+	}
+	
 	@GetMapping("/categoria/{categoria}")
 	public ResponseEntity<List<Lancamento>> findAllByCategory(@PathVariable String categoria, @AuthenticationPrincipal Login login){
 		List<Lancamento> lancamentos = this.lancamentoService.findAllByCategory(login.getId(), categoria);
