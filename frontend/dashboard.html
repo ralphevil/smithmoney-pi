@@ -210,13 +210,13 @@
           <label for="categorias">Categorias</label>
           <select name="categoria" class="select-padrao" id="categoria">
             <option selected>Selecione</option>
-            <option>Transportes</option> 
-            <option>Alimentação</option>
-            <option>Lazer</option>
+            <option value="1">Alimentação</option> 
+            <option value="2">Salário</option>
+            <!--<option>Lazer</option>
             <option>Moradia</option>
             <option>Saúde</option>
             <option>Viagens</option>
-            <option>Educação</option>              
+            <option>Educação</option> -->           
           </select>
           <span class="erro-invisivel" id="erro-categoria">Deve selecionar uma categoria</span>
         </div>
@@ -225,18 +225,17 @@
           <label for="contas">Contas</label>
           <select name="conta" class="select-padrao" id="conta">
             <option selected>Selecione</option>
-            <option value="1">Itaú</option> 
-            <option value="2">Santander</option>
-            <option value="3">Bradesco</option>
-            <option value="4">Banco Inter</option>
-            <option value="5">carteira</option>
+            <option value="1">Santander</option> 
+            <option value="2">Itaú</option>
+            <option value="4">Bradesco</option>
+            <option value="5">Inter</option>
           </select>
           <span class="erro-invisivel" id="erro-contas">Deve informar uma conta</span>
         </div>
 
         <div class="escolha">
           <label for="contas">Tipo do Lançamento</label>
-          <select name="tipolancamento" class="select-padrao" id="tipolancamento">
+          <select name="tipolancamento" class="select-padrao" id="tipo">
             <option selected>Selecione</option>
             <option>Despesa</option> 
             <option>Receita</option>

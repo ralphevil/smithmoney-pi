@@ -1098,6 +1098,9 @@ tbody tr:hover {
 .info-valor {
     color: red;
 }
+.info-valorReceita {
+    color: #4CAF50;
+}
 
 .status-paga {
     font-weight: bold;
@@ -1208,5 +1211,9 @@ input::placeholder {
 }
 
 .erro-invisivel {
+    display: none;
+}
+
+.oculta-tabela {
     display: none;
 }

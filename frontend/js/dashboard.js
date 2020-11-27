@@ -163,7 +163,7 @@ function iniciaModal(modalId) {
         validado = false;
       }
       if (form.tipolancamento.value === "Selecione") {
-        adicionaMensageErro(campoTipoLancamento, "tipolancamento");
+        adicionaMensageErro(campoTipoLancamento, "tipo");
         removeMensagemErro(campoTipoLancamento);
         validado = false;
       }
@@ -184,18 +184,16 @@ function iniciaModal(modalId) {
 
       if (camposSemErros) {
         let lancamento = {
-          valor: parseFloat(form.valor.value),
+          valor: parseFloat(form.valor.value.toString().replace(/\./g,'').replace(',', '.')),
           dataVencimento: form.data.value,
           descricao: form.descricao.value,
-          categoria: form.categoria.value,
-          contaId: 0,
-          tipo: form.tipolancamento.value,
-          id: 0,
-          pago: true 
+          categoriaId: parseInt(form.categoria.value),
+          contaId: parseInt(form.conta.value),
+          tipo: form.tipo.value
         }
         console.log(lancamento);
         form.reset(); 
-        //salvaLancamento(lancamento);
+        salvaLancamento(lancamento);
       }
     });
 

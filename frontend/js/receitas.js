@@ -22,8 +22,11 @@ function iniciaModal(modalId) {
 }
 
 (function() {
+  const token = window.localStorage.getItem('token');
+
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:3333/receitas");
+  xhr.open("GET", "http://localhost:8080/api/lancamentos");
+  xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 
   xhr.addEventListener("load", function() {
     let resposta = xhr.responseText;
@@ -33,12 +36,16 @@ function iniciaModal(modalId) {
     let status;
     let classe;
     receitas.map((receita) => {
-      (!receita.recebido) ? status = "Pendente" : status = "Efetuada";
+      (receita.pago == true) ? status = "Efetuada": status = "Pendente";
       (status == "Efetuada") ? classe = "status-efetuada" : classe = "status-pendente";
-      let buscaReceitas = obtemDadosDespesas(receita);
-      let trReceitas = montaTr(buscaReceitas);
-      let tabelaReceitas = document.querySelector("#tabela-receitas");
-      tabelaReceitas.appendChild(trReceitas);
+      
+      if (receita.categoria.tipo == "Receita") {
+        let buscaReceitas = obtemDadosDespesas(receita);
+        let trReceitas = montaTr(buscaReceitas);
+        let tabelaReceitas = document.querySelector("#tabela-receitas");
+        tabelaReceitas.appendChild(trReceitas);
+        console.log(receita.pago);
+      }
     });
 
     function obtemDadosDespesas(receita) {
@@ -46,15 +53,17 @@ function iniciaModal(modalId) {
         valor: receita.valor,
         data: receita.dataVencimento,
         descricao: receita.descricao,
-        categorias: receita.categoria,
-        conta: receita.conta
+        categorias: receita.categoria.categoria,
+        conta: receita.conta.nome,
+        id: receita.id,
+        pago: false
       }
       return receitas;
     }
-
+    
     function montaTr(receita) {
       let statusRecebido;
-      (!receita.pago) ? statusRecebido = "img-controler" : statusRecebido = "status-invisivel";
+      (receita.pago == true) ? statusRecebido = "img-controler" : statusRecebido = "status-invisivel";
 
       let tdEfetiva = document.createElement("td");
       let tdAltera = document.createElement("td");
@@ -70,12 +79,13 @@ function iniciaModal(modalId) {
       let trDespesa = document.createElement("tr");
       trDespesa.classList.add("receitas");
     
+      trDespesa.appendChild(montaTd(receita.id, "oculta-tabela"));
       trDespesa.appendChild(montaTd(status, classe));
       trDespesa.appendChild(montaTd(receita.data, "info-data"));
       trDespesa.appendChild(montaTd(receita.descricao, "info-descricao"));
       trDespesa.appendChild(montaTd(receita.categorias, "info-categoria"));
       trDespesa.appendChild(montaTd(receita.conta, "info-conta"));
-      trDespesa.appendChild(montaTd(receita.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valor"));
+      trDespesa.appendChild(montaTd(receita.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valorReceita"));
       
       tdEfetiva.appendChild(btnEfetiva);
       trDespesa.appendChild(tdEfetiva);
@@ -195,30 +205,78 @@ function iniciaModal(modalId) {
       }
     });
 
-    let btnPagar = document.querySelectorAll(".btn-efetuar");
-    let btnEditar = document.querySelectorAll(".btn-altera");
-    let btnDelete = document.querySelectorAll(".btn-deleta");
+    let tdId = document.querySelector(".btn-efetuar");
+    tdId.setAttribute('onclick', efetivaReceita());
 
-    btnPagar.forEach(function(item) {
+    function efetivaReceita() {
+      $(document).on("click", ".btn-efetuar", function(){
+        let pegaIdReceita = $(this).parent().parent().find(".oculta-tabela").text();
+        console.log(pegaIdReceita);
+        let efetivado = {
+          pago: true
+        }
+
+        fetch("http://localhost:8080/api/lancamentos/"+pegaIdReceita, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': 'Bearer ' + token
+            },
+            body:JSON.stringify(efetivado),
+        }).then(response => {
+            if(response.ok) {
+              toastr.success("Receita efetivada com sucesso!");
+            } else {
+              toastr.error("Ocorreu um erro no envio dos dados!");
+            }
+        });
+      });
+    }
+
+    /*function efetivaReceita(receita) {
+      fetch("http://localhost:8080/api/lancamentos/" + receitaId, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization': 'Bearer ' + token
+          },
+          body:JSON.stringify(receita),
+      }).then(response => {
+          if(response.ok) {
+            toastr.success("Receita efetivada com sucesso!");
+          } else {
+            toastr.error("Ocorreu um erro no envio dos dados!");
+          }
+      });
+    } */
+
+    
+
+
+
+    //let btnEfetivar = document.querySelectorAll(".btn-efetuar");
+    //let btnEditar = document.querySelectorAll(".btn-altera");
+    //let btnDelete = document.querySelectorAll(".btn-deleta");
+    
+    /*btnEfetivar.forEach(function(item) {
+      item.addEventListener("click", function() {
+   
+      });
+    }); */
+
+    /*btnEditar.forEach(function(item) {
       item.addEventListener("click", function() {
         toastr.success("Dados salvo com sucesso!");
         toastr.error("Dados salvo com sucesso!");
       });
-    });
+    }); */
 
-    btnEditar.forEach(function(item) {
+    /*btnDelete.forEach(function(item) {
       item.addEventListener("click", function() {
         toastr.success("Dados salvo com sucesso!");
         toastr.error("Dados salvo com sucesso!");
       });
-    });
-
-    btnDelete.forEach(function(item) {
-      item.addEventListener("click", function() {
-        toastr.success("Dados salvo com sucesso!");
-        toastr.error("Dados salvo com sucesso!");
-      });
-    });
+    });*/
   });
 
   $(document).ready(function(){
