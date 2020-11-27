@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.smithmoney.model.Categoria;
+import com.smithmoney.model.TipoLancamento;
 import com.smithmoney.service.CategoriaService;
 
 @RestController
@@ -59,6 +60,12 @@ public class CategoriaController {
 			Categoria categoria = this.categoriaService.findById(id);
 			
 			return ResponseEntity.ok(categoria);
+		}
+		
+		@GetMapping("/tipo/{tipo}")
+		public ResponseEntity<List<Categoria>> findAllByType(@PathVariable TipoLancamento tipo) {			
+			List<Categoria> categorias = this.categoriaService.findAllByType(tipo);			
+			return ResponseEntity.ok(categorias);
 		}
 		
 		@GetMapping
