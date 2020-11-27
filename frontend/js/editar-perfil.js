@@ -13,7 +13,7 @@ function carregarPerfil(){
     fetch("http://localhost:8080/api/usuarios/id/"+user.id, {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+token
+            'Authorization': 'Bearer ' + token
         },
         method: 'GET'
     }).then(response=>response.json())

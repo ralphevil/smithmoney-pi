@@ -201,19 +201,22 @@ function iniciaModal(modalId) {
 
     btnPagar.forEach(function(item) {
       item.addEventListener("click", function() {
-        alert("Pago com sucesso!");
+        toastr.success("Dados salvo com sucesso!");
+        toastr.error("Dados salvo com sucesso!");
       });
     });
 
     btnEditar.forEach(function(item) {
       item.addEventListener("click", function() {
-        alert("Pago com sucesso!");
+        toastr.success("Dados salvo com sucesso!");
+        toastr.error("Dados salvo com sucesso!");
       });
     });
 
     btnDelete.forEach(function(item) {
       item.addEventListener("click", function() {
-        alert("Pago com sucesso!");
+        toastr.success("Dados salvo com sucesso!");
+        toastr.error("Dados salvo com sucesso!");
       });
     });
   });
@@ -228,13 +231,17 @@ function iniciaModal(modalId) {
   xhr.send();
 })();
 
+/*$(document).ready( function(){
+  $('.btn-addnova').click( function(){
+    toastr.error("Dados salvo com sucesso!");
+  });
+});
+
 $(document).ready( function(){
   $('.btn-addnova').click( function(){
     toastr.success("Dados salvo com sucesso!");
-  } );
-
-} );
-
+  });
+}); */
 toastr.options = {
   "closeButton": true,
   "debug": false,

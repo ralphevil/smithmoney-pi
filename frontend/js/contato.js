@@ -7,7 +7,7 @@ let mensagemCampo = document.querySelector("#mensagem");
 function enviarContato(event, form) {
     event.preventDefault();
 
-    if(nomeCampo.value == "" || emailCampo.value == "" || assuntoCampo.value == "" || mensagemCampo.value == "") {
+    if (nomeCampo.value == "" || emailCampo.value == "" || assuntoCampo.value == "" || mensagemCampo.value == "") {
         alert("Favor preencher todos os campos.")
     } else {
 
@@ -15,22 +15,22 @@ function enviarContato(event, form) {
         const email = form.email.value;
         const assunto = form.assunto.value;
         const mensagem = form.mensagem.value;
-    
+
         const dados = {
-            nome:nome,
-            email:email,
-            assunto:assunto,
-            mensagem:mensagem
+            nome: nome,
+            email: email,
+            assunto: assunto,
+            mensagem: mensagem
         }
-    
+
         fetch("http://localhost:8080/api/contato", {
             method: "POST",
-            body:JSON.stringify(dados),
+            body: JSON.stringify(dados),
             headers: {
                 "Content-Type": "application/json"
             }
         }).then(response => {
-            if(response.ok) {
+            if (response.ok) {
                 alert("Mensagem enviada com sucesso! ^^")
             } else {
                 alert("Vixe, deu ruim T-T")
@@ -39,5 +39,5 @@ function enviarContato(event, form) {
 
     }
 
-    
+
 }

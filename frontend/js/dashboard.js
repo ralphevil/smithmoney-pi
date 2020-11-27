@@ -24,6 +24,8 @@ function iniciaModal(modalId) {
 }
 
 (function() {
+  const token = window.localStorage.getItem('token');
+
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "http://localhost:3333/despesas");
   xhr.addEventListener("load", function() {
@@ -182,17 +184,37 @@ function iniciaModal(modalId) {
 
       if (camposSemErros) {
         let lancamento = {
-          valor: form.valor.value,
-          data: form.data.value,
+          valor: parseFloat(form.valor.value),
+          dataVencimento: form.data.value,
           descricao: form.descricao.value,
           categoria: form.categoria.value,
-          conta: form.conta.value,
-          tipo: form.tipolancamento.value 
+          contaId: 0,
+          tipo: form.tipolancamento.value,
+          id: 0,
+          pago: true 
         }
         console.log(lancamento);
         form.reset(); 
+        //salvaLancamento(lancamento);
       }
     });
+
+    function salvaLancamento(lancamento) {
+      fetch("http://localhost:8080/api/lancamentos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization': 'Bearer ' + token
+          },
+          body:JSON.stringify(lancamento),
+      }).then(response => {
+          if(response.ok) {
+            toastr.success("Lançamento salvo com sucesso!");
+          } else {
+            toastr.error("Ocorreu um erro no envio dos dados!");
+          }
+      });
+    }
 
     let btnPagar = document.querySelectorAll(".btn-efetuar");
     let btnEditar = document.querySelectorAll(".btn-altera");
@@ -200,19 +222,22 @@ function iniciaModal(modalId) {
 
     btnPagar.forEach(function(item) {
       item.addEventListener("click", function() {
-        alert("Pago com sucesso!");
+        toastr.success("Lançamento salvo com sucesso!");
+        toastr.error("Ocorreu um erro no envio dos dados!");
       });
     });
 
     btnEditar.forEach(function(item) {
       item.addEventListener("click", function() {
-        alert("Pago com sucesso!");
+        toastr.success("Lançamento salvo com sucesso!");
+        toastr.error("Ocorreu um erro no envio dos dados!");
       });
     });
 
     btnDelete.forEach(function(item) {
       item.addEventListener("click", function() {
-        alert("Pago com sucesso!");
+        toastr.success("Lançamento salvo com sucesso!");
+        toastr.error("Ocorreu um erro no envio dos dados!");
       });
     });
   });
@@ -226,3 +251,32 @@ function iniciaModal(modalId) {
 
   xhr.send();
 })();
+
+/*$(document).ready( function(){
+  $('.btn-addnova').click( function(){
+    toastr.error("Dados salvo com sucesso!");
+  });
+});
+
+$(document).ready( function(){
+  $('.btn-addnova').click( function(){
+    toastr.success("Dados salvo com sucesso!");
+  });
+}); */
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "3000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
