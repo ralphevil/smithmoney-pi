@@ -13,6 +13,7 @@ import com.smithmoney.dto.LancamentoDTO;
 import com.smithmoney.exception.ArgumentNotValidException;
 import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.exception.ObjectNotFoundException;
+import com.smithmoney.model.Categoria;
 import com.smithmoney.model.Conta;
 import com.smithmoney.model.Lancamento;
 import com.smithmoney.model.TipoLancamento;
@@ -29,13 +30,21 @@ public class LancamentoService {
 	private final LancamentoRepository lancamentoRepository;
 	private final ContaRepository contaRepository;
 	private final ContaService contaService;
+	private final CategoriaService categoriaService;
 	
 	@Transactional
 	public Lancamento create(LancamentoDTO lancamentoDTO, Long usuarioId) {
+		Categoria categoria = this.categoriaService.findById(lancamentoDTO.getCategoriaId());
 		Conta conta = this.contaService.findById(lancamentoDTO.getContaId());
+		
 		if(conta.getUsuario().getId() != usuarioId) {
 			throw new IllegalAcessException("Você não tem permissão para acessar a conta bancária");
 		}
+		
+		if(lancamentoDTO.getTipo() != categoria.getTipo()) {
+			throw new ArgumentNotValidException("Categoria não corresponde ao tipo de lançamento");
+		}
+		
 		Lancamento lancamento = createDTO(lancamentoDTO, usuarioId);		
 		return this.lancamentoRepository.save(lancamento);
 	}
@@ -55,14 +64,22 @@ public class LancamentoService {
 		if(lancamentoDTO.getContaId() == null) lancamentoDTO.setContaId(lancamentoNovo.getConta().getId());
 		Conta conta = this.contaService.findById(lancamentoDTO.getContaId());
 
-		if(lancamentoDTO.getDescricao() != null) lancamentoNovo.setDescricao(lancamentoDTO.getDescricao());
-		if(lancamentoDTO.getCategoria() != null) lancamentoNovo.setCategoria(lancamentoDTO.getCategoria());
+		if(lancamentoDTO.getCategoriaId() == null) lancamentoDTO.setCategoriaId(lancamentoNovo.getCategoria().getId());
+		Categoria categoria = this.categoriaService.findById(lancamentoDTO.getCategoriaId());
+		
+		if(lancamentoDTO.getDescricao() != null) lancamentoNovo.setDescricao(lancamentoDTO.getDescricao());		
 		if(lancamentoDTO.getDataVencimento() != null) lancamentoNovo.setDataVencimento(lancamentoDTO.getDataVencimento());
 		if(lancamentoDTO.getValor() != 0) lancamentoNovo.setValor(lancamentoDTO.getValor());
 		if(lancamentoDTO.getTipo() != null) lancamentoNovo.setTipo(lancamentoDTO.getTipo());
 		if(lancamentoDTO.getPago() != null) lancamentoNovo.setPago(lancamentoDTO.getPago());
 		lancamentoNovo.setConta(conta);
-
+		
+		if(lancamentoNovo.getTipo() == categoria.getTipo()) {
+			lancamentoNovo.setCategoria(categoria);
+		}else {
+			throw new ArgumentNotValidException("Categoria não corresponde ao tipo de lançamento");
+		}
+		
 		//ATUALIZAR SALDO
 		this.contaService.updateSaldo(lancamentoSalvo, lancamentoNovo);
 
@@ -118,8 +135,8 @@ public class LancamentoService {
 	}
 	
 	@Transactional
-	public List<Lancamento> findAllByCategory(Long usuarioId, String categoria){
-		return this.lancamentoRepository.findAllByCategory(usuarioId, categoria);
+	public List<Lancamento> findAllByCategory(Long usuarioId, Long categoriaId){
+		return this.lancamentoRepository.findAllByCategory(usuarioId, categoriaId);
 	}
 	
 	@Transactional
@@ -134,13 +151,12 @@ public class LancamentoService {
 	
 	public Lancamento createDTO(LancamentoDTO lancamentoDTO, Long usuarioId) {
 		LocalDate dataAtual = LocalDate.now();
-		lancamentoDTO.setPago(false);
-		if(lancamentoDTO.getDataVencimento().isBefore(dataAtual)) {
-			throw new DateTimeException("Data de vencimento inválida");
-		}else {			
+		lancamentoDTO.setPago(false);			
 			Lancamento lancamento = Lancamento.builder()
 					.descricao(lancamentoDTO.getDescricao())
-					.categoria(lancamentoDTO.getCategoria())
+					.categoria(Categoria.builder()
+								.id(lancamentoDTO.getCategoriaId())
+								.build())
 					.dataAtual(dataAtual)
 					.dataVencimento(lancamentoDTO.getDataVencimento())
 					.valor(lancamentoDTO.getValor())
@@ -153,10 +169,7 @@ public class LancamentoService {
 							.id(usuarioId)
 							.build())
 					.build();
-			return lancamento;
-		}		
-		
-		
+			return lancamento;		
 	}
 	
 }

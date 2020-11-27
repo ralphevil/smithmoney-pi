@@ -75,9 +75,9 @@ public class LancamentoController {
 		return ResponseEntity.ok(totalValue);
 	}
 	
-	@GetMapping("/categoria/{categoria}")
-	public ResponseEntity<List<Lancamento>> findAllByCategory(@PathVariable String categoria, @AuthenticationPrincipal Login login){
-		List<Lancamento> lancamentos = this.lancamentoService.findAllByCategory(login.getId(), categoria);
+	@GetMapping("/categoria/{categoriaId}")
+	public ResponseEntity<List<Lancamento>> findAllByCategory(@PathVariable Long categoriaId, @AuthenticationPrincipal Login login){
+		List<Lancamento> lancamentos = this.lancamentoService.findAllByCategory(login.getId(), categoriaId);
 		return ResponseEntity.ok(lancamentos);
 	}
 	

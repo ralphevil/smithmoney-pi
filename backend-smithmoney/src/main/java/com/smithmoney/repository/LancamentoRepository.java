@@ -24,7 +24,7 @@ public interface LancamentoRepository extends JpaRepository<Lancamento, Long> {
 	@Query(value = "select l from Lancamento l where usuario_id = :usuarioId and tipo = :tipo")
 	List<Lancamento> findAllByType(Long usuarioId, TipoLancamento tipo);
 	
-	@Query(value = "select l from Lancamento l where usuario_id = :usuarioId and categoria = :categoria")
-	List<Lancamento> findAllByCategory(Long usuarioId, String categoria);
+	@Query(value = "select l from Lancamento l where usuario_id = :usuarioId and categoria_id = :categoriaId")
+	List<Lancamento> findAllByCategory(Long usuarioId, Long categoriaId);
 	
 }

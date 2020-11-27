@@ -31,7 +31,6 @@ public class CategoriaController {
 		}
 		
 		@PostMapping
-		@Transactional
 		public ResponseEntity<Void> create(@Valid @RequestBody Categoria categoria) {
 			
 			categoria = this.categoriaService.create(categoria);

@@ -43,9 +43,6 @@ public class Lancamento {
 	@Column(length = 100, nullable = false)
 	private String descricao;
 	
-	@Column(length = 20, nullable = false)
-	private String categoria;
-	
 	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
 	@Column(length = 10, nullable = false)
 	private LocalDate dataAtual;
@@ -67,6 +64,10 @@ public class Lancamento {
 	@ManyToOne
 	@JoinColumn(name = "conta_id", nullable = false)
 	private Conta conta;
+	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id", nullable = false)
+	private Categoria categoria;
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id", nullable = false)

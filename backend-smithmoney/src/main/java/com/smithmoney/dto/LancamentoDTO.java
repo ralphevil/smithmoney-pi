@@ -20,7 +20,7 @@ public class LancamentoDTO {
 	
 	private String descricao;
 	
-	private String categoria;
+	private Long categoriaId;
 	
 	private LocalDate dataVencimento;
 

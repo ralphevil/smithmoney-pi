@@ -24,18 +24,14 @@ import lombok.Setter;
 @Setter
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
 public class Categoria {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	private Long id;
-
 		
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
-
 	private TipoLancamento tipo;
 		
 	@Column(length = 60, nullable = false)
