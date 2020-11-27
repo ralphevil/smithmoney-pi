@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.smithmoney.exception.ArgumentNotValidException;
 import com.smithmoney.exception.ObjectNotFoundException;
 import com.smithmoney.model.Categoria;
+import com.smithmoney.model.TipoLancamento;
 import com.smithmoney.repository.CategoriaRepository;
 
 import lombok.AllArgsConstructor;
@@ -37,6 +38,11 @@ public class CategoriaService {
 	@Transactional
 	public List<Categoria> findAll(){
 		return this.categoriaRepository.findAll();
+	}
+	
+	@Transactional
+	public List<Categoria> findAllByType(TipoLancamento tipo){
+		return this.categoriaRepository.findAllByType(tipo);
 	}
 	
 	@Transactional

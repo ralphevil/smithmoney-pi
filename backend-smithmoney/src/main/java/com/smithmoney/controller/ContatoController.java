@@ -21,9 +21,7 @@ public class ContatoController {
 	private final ContatoService contatoService;
 	
     @PostMapping
-    public ResponseEntity<Void> contato(@RequestBody ContatoDTO contatoDTO) {
-    	
-    	
+    public ResponseEntity<Void> contato(@RequestBody ContatoDTO contatoDTO) {    	
     	this.contatoService.sendContact(contatoDTO);
     	return ResponseEntity.noContent().build();
     }
