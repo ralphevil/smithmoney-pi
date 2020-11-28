@@ -27,3 +27,21 @@ function fazerLogin(event, form) {
         }
       })
   }
+
+  function validatedLogin(){
+    const token = window.localStorage.getItem('token');
+    if(token){
+        fetch('http://localhost:8080/api/auth/valid',{
+            method: 'GET',
+            headers:{
+                'Authorization': 'Bearer ' + token
+            }
+        }).then(response => {
+            if(response.ok){
+                window.location = "./dashboard.html";
+            }
+        })
+    }
+ }
+
+ validatedLogin()

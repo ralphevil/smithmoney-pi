@@ -29,7 +29,9 @@ function perfilHeader(){
     const user = JSON.parse(window.localStorage.getItem("user"));
     nomePerfil.innerHTML = `<strong>${user.nome}</strong>`;
     emailPerfil.innerHTML = `${user.email}`;
-    fotoPerfil.setAttribute("src",url+"/"+user.foto);
+    if(user.foto){
+        fotoPerfil.setAttribute("src",url+"/"+user.foto);
+    }    
 }
 
 validatedJwt();

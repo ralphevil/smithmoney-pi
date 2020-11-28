@@ -6,7 +6,6 @@ let mensagemCampo = document.querySelector("#mensagem");
 
 function enviarContato(event, form) {
     event.preventDefault();
-
     if (nomeCampo.value == "" || emailCampo.value == "" || assuntoCampo.value == "" || mensagemCampo.value == "") {
         alert("Favor preencher todos os campos.")
     } else {
