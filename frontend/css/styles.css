@@ -1171,18 +1171,18 @@ button.add-categoria {
     outline-style: none;
 }
 
-.btn-deleta {
+.btn-deletar {
     background: transparent;
     border: none;
     border-radius: 50%;
 }   
 
-.btn-deleta:hover {
+.btn-deletar:hover {
     background: #FADBD8;
     transform: scale(1.1);
 }
 
-.btn-deleta:focus {
+.btn-deletar:focus {
     outline-style: none;
 }
 

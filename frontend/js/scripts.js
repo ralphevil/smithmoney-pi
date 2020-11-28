@@ -12,7 +12,6 @@ function scrollFunction() {
     }
 }
 
-
 //function adicionarSubcategoriaEditavel(evento) {
  //  var subcategoriaEditavel = document.createElement("INPUT");
  //  subcategoriaEditavel.classList.add("subcategoria-editavel");

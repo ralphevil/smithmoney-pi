@@ -15,6 +15,7 @@ function iniciaModal(modalId) {
         setTimeout(function() {
           modal.classList.remove('mostrar');
           modal.classList.remove('fadeOut');
+          window.location.reload();
         }, 1000)
       }
     });
@@ -31,7 +32,6 @@ function iniciaModal(modalId) {
   xhr.addEventListener("load", function() {
     let resposta = xhr.responseText;
     let receitas = JSON.parse(resposta);
-    console.log(receitas);
 
     let status;
     let classe;
@@ -44,7 +44,6 @@ function iniciaModal(modalId) {
         let trReceitas = montaTr(buscaReceitas);
         let tabelaReceitas = document.querySelector("#tabela-receitas");
         tabelaReceitas.appendChild(trReceitas);
-        console.log(receita.pago);
       }
     });
 
@@ -56,14 +55,14 @@ function iniciaModal(modalId) {
         categorias: receita.categoria.categoria,
         conta: receita.conta.nome,
         id: receita.id,
-        pago: false
+        pago: receita.pago
       }
       return receitas;
     }
     
     function montaTr(receita) {
       let statusRecebido;
-      (receita.pago == true) ? statusRecebido = "img-controler" : statusRecebido = "status-invisivel";
+      (receita.pago == true) ? statusRecebido = "status-invisivel" : statusRecebido = "img-controler";
 
       let tdEfetiva = document.createElement("td");
       let tdAltera = document.createElement("td");
@@ -109,7 +108,7 @@ function iniciaModal(modalId) {
       imgDeleta.classList.add("img-controler");
       btnDeleta.title = "Deletar";
       btnDeleta.appendChild(imgDeleta);
-      btnDeleta.classList.add("btn-deleta");
+      btnDeleta.classList.add("btn-deletar");
     
       return trDespesa;
     }
@@ -193,25 +192,70 @@ function iniciaModal(modalId) {
 
       if (camposSemErros) {
         let lancamento = {
-          valor: form.valor.value,
-          data: form.data.value,
+          valor: parseFloat(form.valor.value.toString().replace(/\./g,'').replace(',', '.')),
+          dataVencimento: form.data.value,
           descricao: form.descricao.value,
-          categoria: form.categoria.value,
-          conta: form.conta.value,
-          tipo: form.tipolancamento.value 
+          categoriaId: parseInt(form.categoria.value),
+          contaId: parseInt(form.conta.value),
+          tipo: form.tipo.value,
+          editado: form.editarReceita.value,
+          editadoId: form.editarReceitaId.value
         }
-        console.log(lancamento);
         form.reset(); 
+        
+        if (form.editarReceita.value === "Editado") {
+          salvaLancamentoEditado(lancamento, form.editarReceitaId.value);
+          setTimeout(function() {
+            window.location.reload();
+          }, 3000);
+        } else {
+          salvaLancamento(lancamento);
+        }
       }
     });
 
-    let tdId = document.querySelector(".btn-efetuar");
-    tdId.setAttribute('onclick', efetivaReceita());
+    function salvaLancamento(lancamento) {
+      fetch("http://localhost:8080/api/lancamentos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization': 'Bearer ' + token
+          },
+          body:JSON.stringify(lancamento),
+      }).then(response => {
+          if(response.ok) {
+            toastr.success("Lançamento salvo com sucesso!");
+          } else {
+            toastr.error("Ocorreu um erro no envio dos dados!");
+          }
+      });
+    }
+
+    function salvaLancamentoEditado(lancamento, pegaIdReceitaEditado) {
+      fetch("http://localhost:8080/api/lancamentos/"+pegaIdReceitaEditado, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': 'Bearer ' + token
+        },
+        body:JSON.stringify(lancamento),
+      }).then(response => {
+          if(response.ok) {
+            toastr.success("Receita editada com sucesso!");
+          } else {
+            toastr.error("Ocorreu um erro no envio dos dados!");
+            console.log(response.status);
+          }
+      });
+    }
+
+    let tdIdEfetiva = document.querySelector(".btn-efetuar");
+    tdIdEfetiva.setAttribute('onclick', efetivaReceita());
 
     function efetivaReceita() {
       $(document).on("click", ".btn-efetuar", function(){
         let pegaIdReceita = $(this).parent().parent().find(".oculta-tabela").text();
-        console.log(pegaIdReceita);
+        
         let efetivado = {
           pago: true
         }
@@ -226,59 +270,77 @@ function iniciaModal(modalId) {
         }).then(response => {
             if(response.ok) {
               toastr.success("Receita efetivada com sucesso!");
+              setTimeout(function() {
+                window.location.reload();
+              }, 3000);
             } else {
               toastr.error("Ocorreu um erro no envio dos dados!");
+              console.log(response.status);
             }
         });
       });
     }
 
-    /*function efetivaReceita(receita) {
-      fetch("http://localhost:8080/api/lancamentos/" + receitaId, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            'Authorization': 'Bearer ' + token
-          },
-          body:JSON.stringify(receita),
-      }).then(response => {
-          if(response.ok) {
-            toastr.success("Receita efetivada com sucesso!");
-          } else {
-            toastr.error("Ocorreu um erro no envio dos dados!");
+    let tdIdEditar = document.querySelector(".btn-altera");
+    tdIdEditar.setAttribute('onclick', editarReceita());
+
+    function editarReceita() {
+      $(document).on("click", ".btn-altera", function(){
+        let pegaIdReceita = $(this).parent().parent().find(".oculta-tabela").text();
+        receitas.map((item) => {
+          if (item.categoria.tipo == "Receita") {
+            if (pegaIdReceita == item.id) {
+              setTimeout(function() {
+                iniciaModal('modal-adiciona');
+              }, 500);
+
+              let modalValor = document.querySelector("#valor");
+              let campoValor = item.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+              let novoValor = campoValor.replace("R$", " ");
+              modalValor.value = novoValor;
+              let modalData = document.querySelector("#data");
+              modalData.value = item.dataVencimento;
+              let modalDescricao = document.querySelector("#descricao");
+              modalDescricao.value = item.descricao;
+              let editado = document.querySelector("#editarReceita");
+              editado.value = "Editado";
+              let editadoId = document.querySelector("#editarReceitaId");
+              editadoId.value = pegaIdReceita;
+            }
           }
+        });
       });
-    } */
+    }
 
-    
+    let tdIdDeletar = document.querySelector(".btn-deletar");
+    tdIdDeletar.setAttribute('onclick', deletarReceita());
 
+    function deletarReceita() {
+      $(document).on("click", ".btn-deletar", function(){
+        let pegaIdReceita = $(this).parent().parent().find(".oculta-tabela").text();
 
-
-    //let btnEfetivar = document.querySelectorAll(".btn-efetuar");
-    //let btnEditar = document.querySelectorAll(".btn-altera");
-    //let btnDelete = document.querySelectorAll(".btn-deleta");
-    
-    /*btnEfetivar.forEach(function(item) {
-      item.addEventListener("click", function() {
-   
+        fetch("http://localhost:8080/api/lancamentos/"+pegaIdReceita, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': 'Bearer ' + token
+            },
+        }).then(response => {
+            if(response.ok) {
+              toastr.success("Receita deletada com sucesso!");
+              setTimeout(function() {
+                window.location.reload();
+              }, 3000);
+            } else {
+              toastr.error("Ocorreu um erro no envio dos dados!");
+              console.log(response.status);
+            }
+        });
       });
-    }); */
-
-    /*btnEditar.forEach(function(item) {
-      item.addEventListener("click", function() {
-        toastr.success("Dados salvo com sucesso!");
-        toastr.error("Dados salvo com sucesso!");
-      });
-    }); */
-
-    /*btnDelete.forEach(function(item) {
-      item.addEventListener("click", function() {
-        toastr.success("Dados salvo com sucesso!");
-        toastr.error("Dados salvo com sucesso!");
-      });
-    });*/
+    }
   });
 
+ 
   $(document).ready(function(){
     $('.input-valor').mask('000.000,00', {reverse: true});
     $(".input-valor").change(function(){
@@ -288,6 +350,7 @@ function iniciaModal(modalId) {
   
   xhr.send();
 })();
+
 
 /*$(document).ready( function(){
   $('.btn-addnova').click( function(){
