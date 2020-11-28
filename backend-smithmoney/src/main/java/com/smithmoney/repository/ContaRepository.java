@@ -7,11 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.smithmoney.model.Conta;
+import com.smithmoney.model.Lancamento;
+import com.smithmoney.model.TipoLancamento;
 
 @Repository
 public interface ContaRepository extends JpaRepository<Conta, Long> {
 
 	@Query(value = "select c from Conta c where usuario_id = :usuarioId")
 	List<Conta> findAllByUser(Long usuarioId);
-
+	
 }
