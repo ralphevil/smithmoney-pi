@@ -388,9 +388,10 @@ body {
 
 /* HEANDER TELAS */
 .img-avatar {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .texto-avatar {
@@ -613,6 +614,7 @@ body {
 #img-perfil{
     position: relative;
     margin-top: -7em;
+    object-fit: cover;
 }
 
 .img-perfil-container {

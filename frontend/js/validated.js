@@ -25,9 +25,11 @@ function logout(){
 function perfilHeader(){
     const nomePerfil = document.querySelector(".texto-nome");
     const emailPerfil = document.querySelector(".texto-email");
+    const fotoPerfil = document.querySelector(".img-avatar");
     const user = JSON.parse(window.localStorage.getItem("user"));
     nomePerfil.innerHTML = `<strong>${user.nome}</strong>`;
     emailPerfil.innerHTML = `${user.email}`;
+    fotoPerfil.setAttribute("src",url+"/"+user.foto);
 }
 
 validatedJwt();

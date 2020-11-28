@@ -252,7 +252,7 @@
   <div class="container-menu">
     <div class="cont-menu">
       <nav>
-        <p><img src="./resourses/img/Foto_Perfil.jpg" class="img-avatar"></p>
+        <p><img src="./resourses/img/usericon.png" class="img-avatar"></p>
         <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
         <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
         <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
@@ -266,21 +266,7 @@
       </nav>
       <label for="btn-menu">✖️</label>
     </div>
-  </div>
-
-  <script>
-    function recuperaUsuario() {
-      const token = window.localStorage.getItem('token');
-      const dados = getPayload(token);
-
-      function getPayload(token) {
-        var payload = token.split('.')[1];
-        return JSON.parse(window.atob(payload));
-      };
-    }
-    perfilHeader();
-  </script> 
-  
+  </div>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="./js/dashboard.js"></script>
@@ -288,5 +274,6 @@
   <script src="./js/scripts.js"></script>
   <script src="./js/graficos.js"></script>
   <script src="./js/jquery.mask.js"></script>
+  <script>perfilHeader();</script>
 </body>
 </html>
