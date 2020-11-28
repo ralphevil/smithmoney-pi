@@ -1,4 +1,3 @@
-
 let btnAdd = document.querySelector("#btn-adiciona");
 let btnFechar = document.querySelector('#btn-fechar');
 
@@ -17,6 +16,7 @@ function iniciaModal(modalId) {
         setTimeout(function() {
           modal.classList.remove('mostrar');
           modal.classList.remove('fadeOut');
+          window.location.reload();
         }, 1000)
       }
     });
@@ -27,36 +27,42 @@ function iniciaModal(modalId) {
   const token = window.localStorage.getItem('token');
 
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:3333/despesas");
+  xhr.open("GET", "http://localhost:8080/api/lancamentos");
+  xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+
   xhr.addEventListener("load", function() {
     let resposta = xhr.responseText;
-    let despesas = JSON.parse(resposta);
-    
+    let lancamentosPendentes = JSON.parse(resposta);
+
     let status;
     let classe;
-    despesas.map((despesa) => {
+    lancamentosPendentes.map((pendentes) => {
       (!despesa.pago) ? status = "Pendente" : status = "Paga";
       (status == "Paga") ? classe = "status-paga" : classe = "status-pendente";
-      if (!despesa.pago) {
-        let buscaDespesa = obtemDadosDespesas(despesa);
-        let trDespesas = montaTr(buscaDespesa);
-        let tabelaDespesas = document.querySelector("#tabela-pendencia");
-        tabelaDespesas.appendChild(trDespesas);
+
+      if (pendentes.pago == false) {
+        let buscaPendentes = obtemDadosDespesas(pendentes);
+        let trPendentes = montaTr(buscaPendentes);
+        let tabelaPendentes = document.querySelector("#tabela-pendencia");
+        tabelaPendentes.appendChild(trPendentes);
       }
     });
 
-    function obtemDadosDespesas(despesa) {
+    function obtemDadosDespesas(pendentes) {
       let despesas = {
-        valor: despesa.valor,
-        data: despesa.dataVencimento,
-        descricao: despesa.descricao,
-        categorias: despesa.categoria,
-        conta: despesa.conta
+        valor: pendentes.valor,
+        data: pendentes.dataVencimento,
+        descricao: pendentes.descricao,
+        categorias: pendentes.categoria.categoria,
+        conta: pendentes.conta.nome,
+        id: pendentes.id,
+        pago: pendentes.pago,
+        tipo: pendentes.categoria.tipo
       }
       return despesas;
     }
 
-    function montaTr(despesa) {
+    function montaTr(pendentes) {
       let tdEfetiva = document.createElement("td");
       let tdAltera = document.createElement("td");
       let tdDeleta = document.createElement("td");
@@ -71,13 +77,19 @@ function iniciaModal(modalId) {
       let imgDeleta = document.createElement("img");
 
       trDespesa.classList.add("despesas");
+
+      let dataInput = pendentes.data;
+      data = new Date(dataInput);
+      dataFormatada = data.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
     
+      trDespesa.appendChild(montaTd(pendentes.id, "oculta-tabela"));
       trDespesa.appendChild(montaTd(status, classe));
-      trDespesa.appendChild(montaTd(despesa.data, "info-data"));
-      trDespesa.appendChild(montaTd(despesa.descricao, "info-descricao"));
-      trDespesa.appendChild(montaTd(despesa.categorias, "info-categoria"));
-      trDespesa.appendChild(montaTd(despesa.conta, "info-conta"));
-      trDespesa.appendChild(montaTd(despesa.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valor"));
+      trDespesa.appendChild(montaTd(dataFormatada, "info-data"));
+      trDespesa.appendChild(montaTd(pendentes.descricao, "info-descricao"));
+      trDespesa.appendChild(montaTd(pendentes.tipo, "info-tipo"));
+      trDespesa.appendChild(montaTd(pendentes.categorias, "info-categoria"));
+      trDespesa.appendChild(montaTd(pendentes.conta, "info-conta"));
+      trDespesa.appendChild(montaTd(pendentes.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valor"));
 
       tdEfetiva.appendChild(btnEfetiva);
       trDespesa.appendChild(tdEfetiva);
@@ -100,7 +112,7 @@ function iniciaModal(modalId) {
       imgDeleta.classList.add("img-controler");
       btnDeleta.title = "Deletar";
       btnDeleta.appendChild(imgDeleta);
-      btnDeleta.classList.add("btn-deleta");
+      btnDeleta.classList.add("btn-deletar");
     
       return trDespesa;
     }
@@ -189,11 +201,20 @@ function iniciaModal(modalId) {
           descricao: form.descricao.value,
           categoriaId: parseInt(form.categoria.value),
           contaId: parseInt(form.conta.value),
-          tipo: form.tipo.value
+          tipo: form.tipo.value,
+          editado: form.editarLancamento.value,
+          editadoId: form.editarLancamentoId.value
         }
-        console.log(lancamento);
         form.reset(); 
-        salvaLancamento(lancamento);
+
+        if (form.editarLancamento.value === "Editado") {
+          salvaLancamentoEditado(lancamento, form.editarLancamentoId.value);
+          setTimeout(function() {
+            window.location.reload();
+          }, 3000);
+        } else {
+          salvaLancamento(lancamento);
+        }
       }
     });
 
@@ -214,30 +235,113 @@ function iniciaModal(modalId) {
       });
     }
 
-    let btnPagar = document.querySelectorAll(".btn-efetuar");
-    let btnEditar = document.querySelectorAll(".btn-altera");
-    let btnDelete = document.querySelectorAll(".btn-deleta");
-
-    btnPagar.forEach(function(item) {
-      item.addEventListener("click", function() {
-        toastr.success("Lançamento salvo com sucesso!");
-        toastr.error("Ocorreu um erro no envio dos dados!");
+    function salvaLancamentoEditado(lancamento, pegaIdReceitaEditado) {
+      fetch("http://localhost:8080/api/lancamentos/"+pegaIdReceitaEditado, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': 'Bearer ' + token
+        },
+        body:JSON.stringify(lancamento),
+      }).then(response => {
+          if(response.ok) {
+            toastr.success("Receita editada com sucesso!");
+          } else {
+            toastr.error("Ocorreu um erro no envio dos dados!");
+            console.log(response.status);
+          }
       });
-    });
+    }
 
-    btnEditar.forEach(function(item) {
-      item.addEventListener("click", function() {
-        toastr.success("Lançamento salvo com sucesso!");
-        toastr.error("Ocorreu um erro no envio dos dados!");
-      });
-    });
+    let tdIdEfetiva = document.querySelector(".btn-efetuar");
+    tdIdEfetiva.setAttribute('onclick', efetivaLancamento());
 
-    btnDelete.forEach(function(item) {
-      item.addEventListener("click", function() {
-        toastr.success("Lançamento salvo com sucesso!");
-        toastr.error("Ocorreu um erro no envio dos dados!");
+    function efetivaLancamento() {
+      $(document).on("click", ".btn-efetuar", function(){
+        let pegaIdLancamento = $(this).parent().parent().find(".oculta-tabela").text();
+        
+        let efetivado = {
+          pago: true
+        }
+
+        fetch("http://localhost:8080/api/lancamentos/" + pegaIdLancamento, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': 'Bearer ' + token
+            },
+            body:JSON.stringify(efetivado),
+        }).then(response => {
+            if(response.ok) {
+              toastr.success("Lançamento efetivado com sucesso!");
+              setTimeout(function() {
+                window.location.reload();
+              }, 3000);
+            } else {
+              toastr.error("Ocorreu um erro no envio dos dados!");
+              console.log(response.status);
+            }
+        });
       });
-    });
+    }
+
+    let tdIdEditar = document.querySelector(".btn-altera");
+    tdIdEditar.setAttribute('onclick', editarLancamento());
+
+    function editarLancamento() {
+      $(document).on("click", ".btn-altera", function(){
+        let pegaIdLancamento = $(this).parent().parent().find(".oculta-tabela").text();
+        lancamentosPendentes.map((item) => {
+          if (item.categoria.tipo === "Receita" || item.categoria.tipo === "Despesa") {
+            if (pegaIdLancamento == item.id) {
+              setTimeout(function() {
+                iniciaModal('modal-adiciona');
+              }, 500);
+
+              let modalValor = document.querySelector("#valor");
+              let campoValor = item.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+              let novoValor = campoValor.replace("R$", " ");
+              modalValor.value = novoValor;
+              let modalData = document.querySelector("#data");
+              modalData.value = item.dataVencimento;
+              let modalDescricao = document.querySelector("#descricao");
+              modalDescricao.value = item.descricao;
+              let editado = document.querySelector("#editarLancamento");
+              editado.value = "Editado";
+              let editadoId = document.querySelector("#editarLancamentoId");
+              editadoId.value = pegaIdLancamento;
+            }
+          }
+        });
+      });
+    }
+
+    let tdIdDeletar = document.querySelector(".btn-deletar");
+    tdIdDeletar.setAttribute('onclick', deletarLancamento());
+
+    function deletarLancamento() {
+      $(document).on("click", ".btn-deletar", function(){
+        let pegaIdLancamento = $(this).parent().parent().find(".oculta-tabela").text();
+
+        fetch("http://localhost:8080/api/lancamentos/" + pegaIdLancamento, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': 'Bearer ' + token
+            },
+        }).then(response => {
+            if(response.ok) {
+              toastr.success("Lançamento deletado com sucesso!");
+              setTimeout(function() {
+                window.location.reload();
+              }, 3000);
+            } else {
+              toastr.error("Ocorreu um erro no envio dos dados!");
+              console.log(response.status);
+            }
+        });
+      });
+    }
   });
 
   $(document).ready(function(){
@@ -250,17 +354,6 @@ function iniciaModal(modalId) {
   xhr.send();
 })();
 
-/*$(document).ready( function(){
-  $('.btn-addnova').click( function(){
-    toastr.error("Dados salvo com sucesso!");
-  });
-});
-
-$(document).ready( function(){
-  $('.btn-addnova').click( function(){
-    toastr.success("Dados salvo com sucesso!");
-  });
-}); */
 toastr.options = {
   "closeButton": true,
   "debug": false,

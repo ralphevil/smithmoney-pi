@@ -81,9 +81,13 @@ function iniciaModal(modalId) {
       let trDespesa = document.createElement("tr");
       trDespesa.classList.add("despesas");
 
+      let dataInput = despesa.data;
+      data = new Date(dataInput);
+      dataFormatada = data.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+
       trDespesa.appendChild(montaTd(despesa.id, "oculta-tabela"));
       trDespesa.appendChild(montaTd(status, classe));
-      trDespesa.appendChild(montaTd(despesa.data, "info-data"));
+      trDespesa.appendChild(montaTd(dataFormatada, "info-data"));
       trDespesa.appendChild(montaTd(despesa.descricao, "info-descricao"));
       trDespesa.appendChild(montaTd(despesa.categorias, "info-categoria"));
       trDespesa.appendChild(montaTd(despesa.conta, "info-conta"));

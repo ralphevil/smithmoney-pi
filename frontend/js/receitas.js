@@ -77,10 +77,14 @@ function iniciaModal(modalId) {
 
       let trDespesa = document.createElement("tr");
       trDespesa.classList.add("receitas");
+
+      let dataInput = receita.data;
+      data = new Date(dataInput);
+      dataFormatada = data.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
     
       trDespesa.appendChild(montaTd(receita.id, "oculta-tabela"));
       trDespesa.appendChild(montaTd(status, classe));
-      trDespesa.appendChild(montaTd(receita.data, "info-data"));
+      trDespesa.appendChild(montaTd(dataFormatada, "info-data"));
       trDespesa.appendChild(montaTd(receita.descricao, "info-descricao"));
       trDespesa.appendChild(montaTd(receita.categorias, "info-categoria"));
       trDespesa.appendChild(montaTd(receita.conta, "info-conta"));
