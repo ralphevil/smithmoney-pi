@@ -34,19 +34,13 @@ public class UsuarioController {
 	private final UsuarioService usuarioService;
 	
 	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll(){
-		List<Usuario> usuarioTodos = this.usuarioService.findAll();
-		return ResponseEntity.ok(usuarioTodos);
-	}
-	
-	@GetMapping("/id/{id}")
-	public ResponseEntity<Usuario> findById(@PathVariable Long id){
-		Usuario usuario = this.usuarioService.findById(id);
+	public ResponseEntity<Usuario> getUser(@AuthenticationPrincipal Login login){
+		Usuario usuario = this.usuarioService.findById(login.getId());
 		return ResponseEntity.ok(usuario);
 	}
 	
 	@GetMapping("/email/{email}")
-	public ResponseEntity<Usuario> findById(@PathVariable String email){
+	public ResponseEntity<Usuario> findByEmail(@PathVariable String email){
 		Usuario usuario = this.usuarioService.findByEmail(email);
 		return ResponseEntity.ok(usuario);
 	}
@@ -64,9 +58,9 @@ public class UsuarioController {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@PatchMapping("/{id}")
-	public ResponseEntity<Usuario> update(@PathVariable Long id, @Valid @RequestBody UsuarioDTO usuarioDTO){
-		usuarioDTO.setId(id);
+	@PatchMapping
+	public ResponseEntity<Usuario> update(@AuthenticationPrincipal Login login, @Valid @RequestBody UsuarioDTO usuarioDTO){
+		usuarioDTO.setId(login.getId());
 		this.usuarioService.update(usuarioDTO);
 		return ResponseEntity.noContent().build();
 	}

@@ -48,6 +48,11 @@ public class Usuario {
 	@Column(length = 10)
 	private LocalDate dataNascimento;
 	
+	@Column(length = 11)
+	private String celular;
+	
+	private String foto;
+	
 	@Column(length = 10)
 	private String genero;
 	

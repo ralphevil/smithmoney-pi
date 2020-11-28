@@ -39,6 +39,8 @@ public class UsuarioService {
 		if(usuarioDTO.getEmail()!= null) usuarioSalvo.setEmail(usuarioDTO.getEmail());
 		if(usuarioDTO.getDataNascimento() != null) usuarioSalvo.setDataNascimento(usuarioDTO.getDataNascimento());
 		if(usuarioDTO.getGenero() != null) usuarioSalvo.setGenero(usuarioDTO.getGenero());
+		if(usuarioDTO.getCelular() != null) usuarioSalvo.setCelular(usuarioDTO.getCelular());
+		if(usuarioDTO.getFoto() != null) usuarioSalvo.setFoto(usuarioDTO.getFoto());
 		
 		return this.usuarioRepository.save(usuarioSalvo);
 	}
