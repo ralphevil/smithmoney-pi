@@ -6,9 +6,10 @@ let celular = document.getElementById("celular");
 let foto = document.getElementById("img-perfil");
 let body = document.getElementsByTagName("body")[0];
 let user = JSON.parse(window.localStorage.getItem('user'));
-let fotoPerfil;
 const imgInput = document.getElementById("img-select");
 const token = window.localStorage.getItem('token');
+
+let fotoPerfil;
 
 body.addEventListener("load",carregarPerfil());
 
@@ -80,6 +81,36 @@ function editarPerfil(event, form){
         method: 'PATCH',
         body: JSON.stringify(dados)
     }).then(response=>{
-        if (response.ok) alert("Deu certo")
+        if (response.ok){
+            toastr.success("Perfil atualizado com sucesso!");
+            let dadosStorage = JSON.parse(window.localStorage.getItem("user"));
+            dadosStorage.nome = dados.nome;
+            dadosStorage.genero = dados.genero;
+            dadosStorage.dataNascimento = dados.dataNascimento;
+            dadosStorage.celular = dados.celular;
+            if(dados.foto) dadosStorage.foto = dados.foto;
+            window.localStorage.setItem("user",JSON.stringify(dadosStorage)); 
+            perfilHeader();         
+        }else{
+            toastr.error("Ocorreu um erro ao atualizar o perfil!");
+        }
     })
 }
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "3000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }

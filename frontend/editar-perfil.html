@@ -20,6 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/validated.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
@@ -105,7 +106,6 @@
                                 <a class="btn btn-primary" href="/redefinir-senha.html">Alterar Senha</a>
                             </div>
                             <div class="col-sm-9 d-flex justify-content-end">
-                                <a class="btn btn-primary" href="/login.html">Sair</a>
                                 <button type="submit" id="salvar" class="btn btn-primary ml-2">Salvar</button>
                             </div>
                         </div>
@@ -131,24 +131,23 @@
     <div class="container-menu">
         <div class="cont-menu">
         <nav>
-          <p><img src="./resourses/img/Foto_Perfil.jpg" class="img-avatar"></p>
+          <p><img src="./resourses/img/usericon.png" class="img-avatar"></p>
           <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
           <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
           <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
-          <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
-          <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
           <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
           <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
-          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
+          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Categorias</a>
           <a href="./editar-perfil.html"><img src="./resourses/img/perfil.svg" class="menu-icon ">Perfil</a>
           <div class="footer-version">
-            <sapn class="version">SmithMoney 1.0v</span>
+            <sapn class="version">SmithMoney v1.0</span>
           </div>
         </nav>
             <label for="btn-menu">✖️</label>
         </div>
     </div> 
     <script src="https://kit.fontawesome.com/085936f32a.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/editar-perfil.js"></script>
     <script>perfilHeader();</script>
