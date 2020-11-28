@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.smithmoney.dto.BalancoLancamentoDTO;
 import com.smithmoney.dto.LancamentoDTO;
 import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.model.Lancamento;
@@ -69,10 +70,10 @@ public class LancamentoController {
 		return ResponseEntity.ok(lancamentos);
 	}
 	
-	@GetMapping("/tipo/{tipo}/total")
-	public ResponseEntity<Double> totalByType(@PathVariable TipoLancamento tipo, @AuthenticationPrincipal Login login){
-		Double totalValue = this.lancamentoService.totalByType(login.getId(), tipo);
-		return ResponseEntity.ok(totalValue);
+	@GetMapping("/mes/{mes}/tipo/{tipo}/total")
+	public ResponseEntity<BalancoLancamentoDTO> totalByType(@PathVariable int mes, TipoLancamento tipo, @AuthenticationPrincipal Login login){
+		BalancoLancamentoDTO balanco = this.lancamentoService.totalByType(login.getId(), mes, tipo);
+		return ResponseEntity.ok(balanco);
 	}
 	
 	@GetMapping("/categoria/{categoriaId}")

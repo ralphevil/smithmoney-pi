@@ -1,6 +1,5 @@
 package com.smithmoney.service;
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.smithmoney.dto.BalancoLancamentoDTO;
 import com.smithmoney.dto.LancamentoDTO;
 import com.smithmoney.exception.ArgumentNotValidException;
 import com.smithmoney.exception.IllegalAcessException;
@@ -128,11 +128,14 @@ public class LancamentoService {
 	}
 	
 	@Transactional
-	public Double totalByType(Long usuarioId, TipoLancamento tipo){
-		List<Lancamento> lancamentos = this.lancamentoRepository.findAllByType(usuarioId, tipo);
-		Double totalValue = lancamentos.stream().mapToDouble(x->x.getValor()).sum();
-		return totalValue;
+	public BalancoLancamentoDTO totalByType(Long usuarioId, int mes, TipoLancamento tipo){
+		List<Lancamento> lancamentos = this.lancamentoRepository.totalByType(usuarioId, mes, tipo);
+		Double total = lancamentos.stream().mapToDouble(x->x.getValor()).sum();
+		Double pago = lancamentos.stream().filter(c->c.getPago()).mapToDouble(x->x.getValor()).sum();
+		Double pendente = lancamentos.stream().filter(c->!c.getPago()).mapToDouble(x->x.getValor()).sum();
+		return BalancoLancamentoDTO.builder().total(total).pago(pago).pendente(pendente).build();
 	}
+	
 	
 	@Transactional
 	public List<Lancamento> findAllByCategory(Long usuarioId, Long categoriaId){

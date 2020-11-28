@@ -32,6 +32,11 @@ public class UsuarioDTO {
 	
     @Size(max = 10)
 	private String genero;
+    
+    @Size(min = 11, max = 11)
+    private String celular;
+    
+    private String foto;
 	
     @Size(min =6)
 	private String password;
