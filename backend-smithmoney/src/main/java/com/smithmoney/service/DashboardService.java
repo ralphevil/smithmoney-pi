@@ -38,7 +38,7 @@ public class DashboardService {
 		return DashboardDTO.builder().contaTotal(contaTotal).despesaTotal(despesaTotal).receitaTotal(receitaTotal).total(total).build();
 	}
 	
-	public List<BalancoCategoriaDTO> getCategoryDashboard(Long usuarioId, int mes){
+	public List<BalancoCategoriaDTO> getAllCategoryDashboard(Long usuarioId, int mes){
 		List<BalancoCategoriaDTO> balancoCategoria = new ArrayList<>();
 		List<Categoria> categorias = this.categoriaRepository.findAll();
 		List<Lancamento> lancamentos = this.lancamentoRepository.findAllByMonth(usuarioId, mes);
@@ -47,6 +47,22 @@ public class DashboardService {
 		categorias.stream().forEach(categoria->{
 			String nomeCategoria = categoria.getCategoria();
 			Double totalCategoria = lancamentos.stream().filter(l->l.getCategoria().equals(categoria)).mapToDouble(x->x.getValor()).sum();
+			balancoCategoria.add(BalancoCategoriaDTO.builder().categoria(nomeCategoria).total(totalCategoria).build());
+		});
+		
+		return balancoCategoria;
+	}
+	
+	public List<BalancoCategoriaDTO> getCategoryDashboard(Long usuarioId, int mes, TipoLancamento tipo){
+		List<BalancoCategoriaDTO> balancoCategoria = new ArrayList<>();
+		List<Categoria> categorias = this.categoriaRepository.findAll();
+		List<Lancamento> lancamentos = this.lancamentoRepository.totalByType(usuarioId, mes, tipo);
+		
+		
+		categorias.stream().forEach(categoria->{
+			String nomeCategoria = categoria.getCategoria();
+			Double totalCategoria = lancamentos.stream().filter(l->l.getCategoria().equals(categoria)).mapToDouble(x->x.getValor()).sum();
+			if(totalCategoria > 0)
 			balancoCategoria.add(BalancoCategoriaDTO.builder().categoria(nomeCategoria).total(totalCategoria).build());
 		});
 		

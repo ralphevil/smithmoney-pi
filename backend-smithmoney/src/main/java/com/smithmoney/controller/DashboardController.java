@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smithmoney.dto.BalancoCategoriaDTO;
 import com.smithmoney.dto.DashboardDTO;
 import com.smithmoney.model.Login;
+import com.smithmoney.model.TipoLancamento;
 import com.smithmoney.service.DashboardService;
 
 import lombok.AllArgsConstructor;
@@ -32,8 +33,14 @@ public class DashboardController {
 	}
 	
 	@GetMapping("/categoria/mes/{mes}")
-	public ResponseEntity<List<BalancoCategoriaDTO>> getCategoryDashboard(@PathVariable int mes, @AuthenticationPrincipal Login login){
-		List<BalancoCategoriaDTO> balanco = this.dashboardService.getCategoryDashboard(login.getId(), mes);
+	public ResponseEntity<List<BalancoCategoriaDTO>> getAllCategoryDashboard(@PathVariable int mes, @AuthenticationPrincipal Login login){
+		List<BalancoCategoriaDTO> balanco = this.dashboardService.getAllCategoryDashboard(login.getId(), mes);
+		return ResponseEntity.ok(balanco);
+	}
+	
+	@GetMapping("/categoria/mes/{mes}/tipo/{tipo}")
+	public ResponseEntity<List<BalancoCategoriaDTO>> getCategoryDashboard(@PathVariable int mes, TipoLancamento tipo, @AuthenticationPrincipal Login login){
+		List<BalancoCategoriaDTO> balanco = this.dashboardService.getCategoryDashboard(login.getId(), mes, tipo);
 		return ResponseEntity.ok(balanco);
 	}
 }
