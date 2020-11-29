@@ -1125,6 +1125,26 @@ tbody tr:hover {
     border-bottom-color: darkorchid;
 }
 
+.input-saldo {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F44336;
+    margin: 0;
+    padding: 10px 30px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+ }
+
+ .input-saldo:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
 .input-padrao {
     display: block;
     font-size: 16px;
@@ -1195,7 +1215,16 @@ tbody tr:hover {
 .info-valorDespesa {
     color: red;
 }
+
+.info-saldo {
+    color: red;
+}
+
 .info-valorReceita {
+    color: #4CAF50;
+}
+
+.info-saldoConta {
     color: #4CAF50;
 }
 

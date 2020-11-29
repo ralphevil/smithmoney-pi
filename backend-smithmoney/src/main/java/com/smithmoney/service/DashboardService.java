@@ -1,13 +1,17 @@
 package com.smithmoney.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.smithmoney.dto.BalancoCategoriaDTO;
 import com.smithmoney.dto.DashboardDTO;
+import com.smithmoney.model.Categoria;
 import com.smithmoney.model.Conta;
 import com.smithmoney.model.Lancamento;
 import com.smithmoney.model.TipoLancamento;
+import com.smithmoney.repository.CategoriaRepository;
 import com.smithmoney.repository.ContaRepository;
 import com.smithmoney.repository.LancamentoRepository;
 
@@ -19,8 +23,9 @@ public class DashboardService {
 	
 	private final ContaRepository contaRepository;
 	private final LancamentoRepository lancamentoRepository;
+	private final CategoriaRepository categoriaRepository;
 
-	public DashboardDTO getDashboard(Long usuarioId, int mes) {
+	public DashboardDTO getTotalDashboard(Long usuarioId, int mes) {
 		List<Conta> contas = this.contaRepository.findAllByUser(usuarioId);
 		List<Lancamento> despesas = this.lancamentoRepository.totalByType(usuarioId, mes, TipoLancamento.Despesa);
 		List<Lancamento> receitas = this.lancamentoRepository.totalByType(usuarioId, mes, TipoLancamento.Receita);
@@ -31,5 +36,36 @@ public class DashboardService {
 		Double total = receitaTotal - despesaTotal;
 		
 		return DashboardDTO.builder().contaTotal(contaTotal).despesaTotal(despesaTotal).receitaTotal(receitaTotal).total(total).build();
+	}
+	
+	public List<BalancoCategoriaDTO> getAllCategoryDashboard(Long usuarioId, int mes){
+		List<BalancoCategoriaDTO> balancoCategoria = new ArrayList<>();
+		List<Categoria> categorias = this.categoriaRepository.findAll();
+		List<Lancamento> lancamentos = this.lancamentoRepository.findAllByMonth(usuarioId, mes);
+		
+		
+		categorias.stream().forEach(categoria->{
+			String nomeCategoria = categoria.getCategoria();
+			Double totalCategoria = lancamentos.stream().filter(l->l.getCategoria().equals(categoria)).mapToDouble(x->x.getValor()).sum();
+			balancoCategoria.add(BalancoCategoriaDTO.builder().categoria(nomeCategoria).total(totalCategoria).build());
+		});
+		
+		return balancoCategoria;
+	}
+	
+	public List<BalancoCategoriaDTO> getCategoryDashboard(Long usuarioId, int mes, TipoLancamento tipo){
+		List<BalancoCategoriaDTO> balancoCategoria = new ArrayList<>();
+		List<Categoria> categorias = this.categoriaRepository.findAll();
+		List<Lancamento> lancamentos = this.lancamentoRepository.totalByType(usuarioId, mes, tipo);
+		
+		
+		categorias.stream().forEach(categoria->{
+			String nomeCategoria = categoria.getCategoria();
+			Double totalCategoria = lancamentos.stream().filter(l->l.getCategoria().equals(categoria)).mapToDouble(x->x.getValor()).sum();
+			if(totalCategoria > 0)
+			balancoCategoria.add(BalancoCategoriaDTO.builder().categoria(nomeCategoria).total(totalCategoria).build());
+		});
+		
+		return balancoCategoria;
 	}
 }

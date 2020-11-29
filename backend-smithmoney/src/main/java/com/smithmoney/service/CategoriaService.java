@@ -23,19 +23,6 @@ public class CategoriaService {
 	private final CategoriaRepository categoriaRepository;
 	
 	@Transactional
-	public Categoria create(Categoria categoria) {
-		categoria.setId(null);
-		return this.categoriaRepository.save(categoria);
-	}
-	
-	@Transactional
-	public void deleteById(Long id) {
-		this.findById(id);
-
-		this.categoriaRepository.deleteById(id);
-	}
-	
-	@Transactional
 	public List<Categoria> findAll(){
 		return this.categoriaRepository.findAll();
 	}
@@ -54,16 +41,5 @@ public class CategoriaService {
 		return this.categoriaRepository.findById(id)
 				.orElseThrow( () -> new ObjectNotFoundException("Categoria de id " + id + " não foi encontrado"));
 	}
-	
-	@Transactional
-	public Categoria update(Categoria novo) {
-
-		Categoria antigo = this.findById(novo.getId());
-
-			antigo.setCategoria(novo.getCategoria());
-
-			return this.categoriaRepository.save(antigo);
-
-		}
 
 }

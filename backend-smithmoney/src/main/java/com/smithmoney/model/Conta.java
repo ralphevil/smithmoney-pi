@@ -46,7 +46,6 @@ public class Conta {
 	@Column(nullable = false)
 	private double saldo;
 	
-	@Column
 	private String banco;
 	
 	@Column(name = "tipo_conta", nullable = false)

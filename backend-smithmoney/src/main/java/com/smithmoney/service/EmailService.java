@@ -23,6 +23,9 @@ public class EmailService {
 	
 	@Value("${api.email.from.name}")
 	private String name;
+	
+	@Value("${api.frontend.url}")
+	private String url;
 
 	public void sendEmail(Mail mail, String token) {
 		try {
@@ -40,7 +43,7 @@ public class EmailService {
 			}
 			
 			helper.setTo(mail.getToEmail());
-			helper.setText("Olá siga este link para redefinir sua senha: http://localhost:5501/redefinir-senha.html?token="+token);
+			helper.setText("Olá siga este link para redefinir sua senha: "+url+"/redefinir-senha.html?token="+token);
 			helper.setSubject(mail.getSubject());
 			helper.setFrom(mail.getFromEmail(), mail.getFromName());
 			

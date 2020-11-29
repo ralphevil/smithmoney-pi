@@ -7,7 +7,7 @@ let mensagemCampo = document.querySelector("#mensagem");
 function enviarContato(event, form) {
     event.preventDefault();
     if (nomeCampo.value == "" || emailCampo.value == "" || assuntoCampo.value == "" || mensagemCampo.value == "") {
-        alert("Favor preencher todos os campos.")
+        toastr.error("Preencha todos os campos!");
     } else {
 
         const nome = form.nome.value;
@@ -30,9 +30,16 @@ function enviarContato(event, form) {
             }
         }).then(response => {
             if (response.ok) {
-                alert("Mensagem enviada com sucesso! ^^")
+                toastr.success("Sua mensagem foi enviada com sucesso!",null,{
+                    onHidden: function(){
+                        nomeCampo.value = "";
+                        emailCampo.value = "";
+                        assuntoCampo.value = "";
+                        mensagemCampo.value = "";
+                    }
+                });
             } else {
-                alert("Vixe, deu ruim T-T")
+                toastr.error("Ocorreu uma falha no envio da mensagem!");
             }
         })
 
@@ -40,3 +47,21 @@ function enviarContato(event, form) {
 
 
 }
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "2000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }

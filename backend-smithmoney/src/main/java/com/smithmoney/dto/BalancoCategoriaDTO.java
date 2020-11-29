@@ -11,13 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BalancoContaDTO {
+public class BalancoCategoriaDTO {
 
+	private String categoria;
+	
 	private Double total;
-	
-	private Double corrente;
-	
-	private Double poupanca;
-	
-	private Double carteira;
 }
