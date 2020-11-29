@@ -37,7 +37,7 @@ public class ContatoService {
 					
 			helper.setTo(address);
 			helper.setText(contato.getMensagem());
-			helper.setSubject(contato.getAssunto() + " - Contato");
+			helper.setSubject(contato.getAssunto() + " - Contato ("+contato.getEmail()+")");
 			helper.setFrom(address, contato.getNome());
 			
 			emailSender.send(message);
