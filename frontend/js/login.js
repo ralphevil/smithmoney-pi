@@ -13,17 +13,17 @@ function fazerLogin(event, form) {
       method: "POST",
       body: JSON.stringify(dados)
     })
-      .then(resp => {
-        if (resp.status == 401) {
-          window.location = "/login.html";
-        } else if (resp.status !== 200) {
-          reject("Não foi possível executar a operação.");
-        } else {
-          resp.json().then(data => {
+      .then(response => {
+        if(response.ok){
+          response.json().then(data => {
             window.localStorage.setItem('token', data.token);
             window.localStorage.setItem('user', JSON.stringify(data.user));
+            window.location = "/dashboard.html";
           });
-          window.location = "/dashboard.html";
+        }else{
+          toastr.error("Login ou senha inválidos!");
+          form.username.value = "";
+          form.password.value = "";
         }
       })
   }
@@ -45,3 +45,21 @@ function fazerLogin(event, form) {
  }
 
  validatedLogin()
+
+ toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "2000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
