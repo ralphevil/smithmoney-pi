@@ -54,10 +54,8 @@
 
   <div class="conteudo">
     <div class="topo-content">
-      <select name="conta-select" id="conta-select" class="select-date">
-        <option disabled value="0">Selecione</option>
-        <option value="1">Ativo</option>
-      </select>
+
+      <h3></h3>
 
       <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova conta">+</button>
 
@@ -66,7 +64,7 @@
       </div>
     </div>
 
-    <section>
+<!--     <section>
       <ul class="cards-despesas">
         <li>
           <h2>Conta Corrente</h2>
@@ -87,6 +85,47 @@
           <h2>Total Contas</h2>
           <img src="./resourses/img/dinheiro.png" alt="">
           <p style="color: #04A922;" class="produto-preco">-R$ 2.500,00</p>
+        </li>
+      </ul>
+    </section> -->
+
+    <section class="descripiton-cards">
+      <ul class="cards">
+        <li class="text-card">
+          <div>
+            <h4>Conta Corrente</h4>
+            <p style="color: #3498DB " id="conta-corrente">R$ 0,00</p>
+          </div>
+          <div class="grid">
+            <img src="./resourses/img/despesas-despesa.png" alt="Dinheiro" class="img-cards">
+          </div>
+        </li>
+        <li class="text-card">
+          <div>
+            <h4>Conta Poupança</h4>
+            <p style="color: #B03A2E" id="conta-poupanca">R$ 0,00</p>
+          </div>
+          <div class="grid">
+            <img src="./resourses/img/relatorios.svg" alt="Dinheiro" class="img-cards">
+          </div>
+        </li>
+        <li class="text-card">
+          <div>
+            <h4>Carteira</h4>
+            <p id="conta-carteira">R$ 0,00</p>
+          </div>
+          <div class="grid">
+            <img src="./resourses/img/carteira-digital.svg" alt="Dinheiro" class="img-cards">
+          </div>
+          <li class="text-card">
+            <div>
+              <h4>Total</h4>
+              <p id="conta-total">R$ 0,00</p>
+            </div>
+            <div class="grid">
+              <img src="./resourses/img/totais.png" alt="Dinheiro" class="img-cards">
+            </div>
+          </li>
         </li>
       </ul>
     </section>
@@ -196,7 +235,6 @@
 
             if(optionSelect == "Carteira" ){
                 document.getElementById('banco').value = "Carteira";
-                document.getElementById('banco').readOnly = true;
                 document.getElementById("banco-form").hidden = true;
   
             }else{
