@@ -39,7 +39,7 @@ function iniciaModal(modalId) {
 
     contas.map((conta) => {
 
-      if (conta.tipoConta == 'Corrente'|| conta.tipoConta == 'Poupanca' || conta.tipoConta == 'Carteira' ) {
+      if (conta.id > 0 ){ 
         let buscaConta = obtemDadosContas(conta);
         let trContas = montaTr(buscaConta);
         let tabelaContas = document.querySelector("#tabela-contas");
@@ -71,7 +71,7 @@ function iniciaModal(modalId) {
       trConta.classList.add("contas");
 
       trConta.appendChild(montaTd(conta.id, "oculta-tabela"));
-      trConta.appendChild(montaTd(conta.tipoConta, "info-tipo_Conta"));
+      trConta.appendChild(montaTd(conta.tipoConta, "info-tipoConta"));
       trConta.appendChild(montaTd(conta.banco, "info-banco"));
       trConta.appendChild(montaTd(conta.nome, "info-nome"));
       trConta.appendChild(montaTd(conta.saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-saldo"));
@@ -173,11 +173,10 @@ function iniciaModal(modalId) {
 
       if (camposSemErros) {
         let conta = {
-          id: form.id.value,
           saldo: parseFloat(form.saldo.value.toString().replace(/\./g,'').replace(',', '.')),
           nome: form.nome.value,
           banco: form.banco.value,
-          tipoConta: form.tipoConta.value,
+          tipo_Conta: form.tipoConta.value,
           editado: form.editarConta.value,
           editadoId: form.editarContaId.value 
         }
@@ -230,38 +229,6 @@ function iniciaModal(modalId) {
       });
     }
 
-/*     let tdIdEfetiva = document.querySelector(".btn-efetuar");
-    tdIdEfetiva.setAttribute('onclick', efetivaConta());
-
-    function efetivaConta() {
-      $(document).on("click", ".btn-efetuar", function(){
-        let pegaIdConta = $(this).parent().parent().find(".oculta-tabela").text();
-        
-        let efetivado = {
-          pago: true
-        }
-
-        fetch("http://localhost:8080/api/contas/" + pegaIdConta, {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-              'Authorization': 'Bearer ' + token
-            },
-            body:JSON.stringify(efetivado),
-        }).then(response => {
-            if(response.ok) {
-              toastr.success("Despesa efetivada com sucesso!");
-              setTimeout(function() {
-                window.location.reload();
-              }, 3000);
-            } else {
-              toastr.error("Ocorreu um erro no envio dos dados!");
-              console.log(response.status);
-            }
-        });
-      });
-    }
- */
     let tdIdEditar = document.querySelector(".btn-altera");
     tdIdEditar.setAttribute('onclick', editarConta());
 
@@ -282,6 +249,8 @@ function iniciaModal(modalId) {
               modalNome.value = item.nome;
               let modalBanco = document.querySelector("#banco");
               modalBanco.value = item.banco;
+              let modalConta = document.querySelector("#tipoConta");
+              modalConta.value = item.tipo_Conta;
               let editado = document.querySelector("#editarConta");
               editado.value = "Editado";
               let editadoId = document.querySelector("#editarContaId");

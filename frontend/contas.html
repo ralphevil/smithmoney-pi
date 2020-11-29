@@ -130,14 +130,14 @@
         <h3>Nova Conta</h3>
         <form class="form-add" id="formulario-contas">
           <div class="escolha">
-            <label for="tipo_Conta"> <strong> Tipo da Conta</strong> </label>
-            <select name="tipo_Conta" class="select-padrao" id="tipoConta" onchange="validarForm()">
+            <label for="tipoConta"> <strong> Tipo da Conta</strong> </label>
+            <select name="tipoConta" class="select-padrao" id="tipoConta" onchange="validarForm()">
               <option selected>Selecione</option>
               <option value="Corrente">Conta Corrente</option> 
               <option value="Poupanca">Conta Poupança</option>
               <option value="Carteira">Carteira</option>
             </select>
-            <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo de Conta</span>
+            <span class="erro-invisivel" id="erro-tipoConta">Deve informar o tipo de Conta</span>
           </div>
           <br>
           <div>
@@ -191,13 +191,17 @@
 
     <script>
       function validarForm() { 
-            var optionSelect = document.getElementById("tipoConta").value;
+            var optionSelect = document.getElementById("tipo_Conta").value;
 
-            if(optionSelect == "3" ){ 
+            if(optionSelect == "Carteira" ){ 
                 document.getElementById("banco-form").hidden = true;
+                
             }else{
                 document.getElementById("banco-form").hidden = false;
             }
+
+
+            
       }
     </script>
 
