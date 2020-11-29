@@ -89,6 +89,11 @@ setTimeout(function() {
   window.localStorage.removeItem('mes');
 }, 3000);
 
+function pegaTipoLancamento() {
+  window.location = "./receitas.html";
+   console.log("Chegou aqui");
+ }
+
 fetch(`http://localhost:8080/api/lancamentos/mes/${mesTotal}/tipo/{tipo}/total?tipo=Despesa`, {
   headers: {
       'Content-Type': 'application/json',
@@ -139,6 +144,17 @@ xhr.addEventListener("load", function () {
     }
   });
 
+  let temLancamento = document.querySelector(".info-valorDespesa");
+  let tableSemLancamento = document.querySelector(".table");
+  let divSemLancamento = document.querySelector(".div-imgSem")
+  if (!temLancamento) {
+    tableSemLancamento.classList.add("semLancamento");
+    divSemLancamento.classList.remove("semLancamento"); 
+  } else {
+    tableSemLancamento.classList.remove(".comLancamento");
+    divSemLancamento.classList.add("semLancamento");
+  }
+
   function obtemDadosLancamento(despesa) {
     let despesas = {
       valor: despesa.valor,
@@ -176,7 +192,7 @@ xhr.addEventListener("load", function () {
     trDespesa.appendChild(montaTd(despesa.descricao, "info-descricao"));
     trDespesa.appendChild(montaTd(despesa.categorias, "info-categoria"));
     trDespesa.appendChild(montaTd(despesa.conta, "info-conta"));
-    trDespesa.appendChild(montaTd(despesa.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valor"));
+    trDespesa.appendChild(montaTd(despesa.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valorDespesa"));
 
     tdEfetiva.appendChild(btnEfetiva);
     trDespesa.appendChild(tdEfetiva);
