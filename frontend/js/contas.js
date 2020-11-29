@@ -247,6 +247,8 @@ function iniciaModal(modalId) {
                 iniciaModal('modal-adiciona');
               }, 500);
 
+              let modalTipoConta = document.querySelector("#tipoConta");
+              modalTipoConta.value = item.tipoConta;
               let modalSaldo = document.querySelector("#saldo");
               let campoSaldo = item.saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
               let novoSaldo = campoSaldo.replace("R$", " ");
