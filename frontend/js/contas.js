@@ -125,18 +125,18 @@ function iniciaModal(modalId) {
     }
 
     function validaCampos(form) {
-      let campoSaldo = "#erro-saldo";
+     let campoSaldo = "#erro-saldo";
       let campoNome = "#erro-nome";
       let campoTipoConta = "#erro-tipoConta";
       let campoBanco = "#erro-banco";
 
       let validado = true;
 
-      if (form.saldo.value == 0) {
+       if (form.saldo.value == 0) {
         adicionaMensageErro(campoSaldo, "saldo");
         removeMensagemErro(campoSaldo);
         validado = false;
-      } 
+      }  
 
       if (form.nome.value === "") {
         adicionaMensageErro(campoNome, "nome");
@@ -249,8 +249,8 @@ function iniciaModal(modalId) {
               modalNome.value = item.nome;
               let modalBanco = document.querySelector("#banco");
               modalBanco.value = item.banco;
-              let modalConta = document.querySelector("#tipoConta");
-              modalConta.value = item.tipo_Conta;
+              let modalConta = document.querySelector("#tipo_Conta");
+              modalConta.value = item.tipo_Conta
               let editado = document.querySelector("#editarConta");
               editado.value = "Editado";
               let editadoId = document.querySelector("#editarContaId");
