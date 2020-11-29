@@ -56,10 +56,9 @@
       <select name="conta-select" id="conta-select" class="select-date">
         <option disabled value="0">Selecione</option>
         <option value="1">Ativo</option>
-        <option value="2">Fevereiro</option>
       </select>
 
-      <button type="button" class="btn-adiciona" data-toggle="modal" data-target="#conta-saldo" >+</button>
+      <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova conta">+</button>
 
       <div class="dash-title">
         <h3>Contas</h3>
@@ -70,7 +69,7 @@
       <ul class="cards-despesas">
         <li>
           <h2>Conta Corrente</h2>
-          <img src="./resourses/img/carteira-de-identidade_br.svg" alt="">
+          <img src="./resourses/img/dinheiro.png"  alt="">
           <p class="produto-preco">-R$ 5.000,00</p>
         </li>
         <li>
@@ -95,196 +94,22 @@
       <table class="table">
         <thead>
           <tr>
+            <th scope="col" style="display: none;">id</th>
             <th scope="col">Tipo Conta</th>
-            <th scope="col">Data</th>
             <th scope="col">Banco</th>
             <th scope="col">Nome da Conta</th>
             <th scope="col">Saldo</th>
-            <th scope="col">Status</th>
-            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td style="color: #04A922; font-weight: bold;">Corrente</td>
-            <td>09/09/2020</td>
-            <td>Itau</td>
-            <td>Conta Free lance</td>
-            <td style="color: #D14803;"> - R$ 199,00</td>
-            <td>Ativo</td>
-            <td><a href="#"><img src="./resourses/img/verificar.svg" class="social" data-toggle="modal" data-target="#check" id="confirmar" alt="ação"></a></td>
-            <td><a href="#"><img src="./resourses/img/editar.svg" class="social" data-toggle="modal" data-target="#editar-conta"   alt="editar conta"></a></td>
-            <td><a href="#"><img src="./resourses/img/lixo-excluir.svg" class="social" data-toggle="modal" data-target="#excluir"  alt="excluir conta"></a></td>
-          </tr>
+        <tbody id="tabela-contas">
+ 
+          <!-- monta tabela -->
+
         </tbody>
       </table>
     </section>
-
-     <!-- Modal Conta -->
-  <div class="modal fade" id="conta-saldo" tabindex="-1" role="dialog" aria-labelledby="conta" ModalLabel aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="conta" ModalLabel><strong> NOVA CONTA</strong></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="tipo-conta">Tipo de Conta</label>
-              <select class="form-control form-control-sm" name="tipo-conta" id="tipo-conta">
-                <option selected disabled>Escolha o tipo de conta...</option>
-                <option value="1">Conta Corrente</option>
-                <option value="2">Conta Poupança</option>
-                <option value="3">Carteira</option>
-              </select>
-            </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="banco">Banco</label>
-              </div>
-              <select class="custom-select" id="banco">
-                <option selected>Selecione...</option>
-                <option value="1">Itau</option>
-                <option value="2">Santander</option>
-                <option value="3">Nubank</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="conta-name" class="col-form-label">Data da Conta:</label>
-              <input class="form-control form-control-sm" type="date" id="conta-data">
-            </div>
-            <div class="form-group">
-                <label for="conta-name" class="col-form-label">Nome da Conta:</label>
-                <input type="text" class="form-control form-control-sm" id="conta-name">
-            </div>
-              <label for="conta-saldo form-control-sm">Saldo Inicial:</label>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text ">R$</span>
-                </div>
-                <input type="text" name="conta-saldo" class="conta-saldo form-control" id="conta-saldo">
-              </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Salvar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Fim Modal Conta -->
-
-  <!-- Modal Editar Conta -->
-  <div class="modal fade" id="editar-conta" tabindex="-1" role="dialog" aria-labelledby="editar-conta" ModalLabel aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editar-conta" ModalLabel><strong> EDITAR CONTA</strong></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="editar-tipo-conta">Tipo de Conta</label>
-              <select class="form-control form-control-sm" name="editar-tipo-conta" id="editar-tipo-conta">
-                <option selected disabled>Escolha o tipo de conta...</option>
-                <option value="editar-tipo-1">Conta Corrente</option>
-                <option value="editar-tipo-2">Conta Poupança</option>
-                <option value="editar-tipo-3">Carteira</option>
-              </select>
-            </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="editar-banco">Banco</label>
-              </div>
-              <select class="custom-select" id="editar-select-banco">
-                <option selected>Selecione...</option>
-                <option value="editar-banco-1">Itau</option>
-                <option value="editar-banco-2">Santander</option>
-                <option value="editar-banco-3">Nubank</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="editar-data-conta" class="col-form-label">Data da Conta:</label>
-              <input class="form-control form-control-sm" type="date" id="editar-conta-data">
-            </div>
-            <div class="form-group">
-                <label for="editar-conta-name" class="col-form-label">Nome da Conta:</label>
-                <input type="text" class="form-control form-control-sm" id="editar-conta-name">
-              </div>
-              <label for="editar-conta-saldo">Saldo Inicial:</label>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend ">
-                  <span class="input-group-text">R$</span>
-                </div>
-                <input type="text" name="editar-conta-saldo" class="editar-conta-saldo form-control" id="editar-conta-saldo">
-              </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Salvar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-<!--Fim Modal Editar Conta -->
-
-<!-- Modal Confirma-->
-<div class="modal fade" id="check" tabindex="-1" role="dialog" aria-labelledby="check" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="check">Deseja confirmar o pagamento?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <select class="form-control" name="" id="opcao">
-          <option value="0" name="type" selected disabled>Selecione a opção</option>
-          <option value="Pagar" id="Pagar">Sim</option>
-          <option value="Voltar" id="Voltar">Não</option>
-        </select>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="nao" data-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary" id="sim" onclick="mudar_img();">Sim</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- FIM Modal Confirma-->
-
-<!-- Modal Excluir -->
-<div class="modal fade" id="excluir" tabindex="-1" role="dialog" aria-labelledby="excluir" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="excluir">Excluir</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <span>Deseja confirmar a exclusão da conta?</span>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="nao" data-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary" id="sim" >Sim</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- FIM Modal Excluir -->
 
     <footer class="footer">
       <h6 style="text-indent:0;"><strong> Social</strong></h6>
@@ -298,11 +123,56 @@
         Todos os direitos reservados</span>
     </footer>
 
+    <!-- Modal -->
+    <div id="modal-adiciona" class="modal-conteudo">
+      <div class="moda">
+        <button class="fechar" id="btn-fechar">X</button>
+        <h3>Nova Conta</h3>
+        <form class="form-add" id="formulario-contas">
+          <div class="escolha">
+            <label for="tipo_Conta"> <strong> Tipo da Conta</strong> </label>
+            <select name="tipo_Conta" class="select-padrao" id="tipoConta" onchange="validarForm()">
+              <option selected>Selecione</option>
+              <option value="Corrente">Conta Corrente</option> 
+              <option value="Poupanca">Conta Poupança</option>
+              <option value="Carteira">Carteira</option>
+            </select>
+            <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo de Conta</span>
+          </div>
+          <br>
+          <div>
+            <label for="saldo"> <strong> Saldo Inicial </strong></label>
+            <span class="cifrao">R$ </span>
+            <input type="text" name="saldo" id="saldo" class="input-saldo" placeholder="0,00">
+            <span class="erro-invisivel" id="erro-saldo">Deve ter um valor maior que 0</span>
+          </div>
+
+          <div class="inputs-form" id="banco-form">
+            <label for="banco"  class="label-form"> <strong> Nome do Banco </strong></label>
+            <textarea name="banco" id="banco" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui a instituição Bancaria"></textarea>
+            <span class="erro-invisivel" id="erro-descricao">Deve informar uma instituição Bancária</span>
+          </div>
+
+          <div class="inputs-form">
+            <label for="nome"  class="label-form"> <strong> Descrição </strong></label>
+            <textarea name="nome" id="nome" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
+            <span class="erro-invisivel" id="erro-nome">Deve informar uma descrição</span>
+          </div>
+                    
+          <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
+          <input type="hidden" id="editarConta" name="editarConta" class="editarConta">
+          <input type="hidden" id="editarContaId" name="editarContaId" class="editarContaId">
+        </form>
+      </div>
+    </div>
+
+    <!-- Fim Modal -->
+
     <input type="checkbox" id="btn-menu" />
     <div class="container-menu">
       <div class="cont-menu">
         <nav>
-          <p><img src="./resourses/img/usericon.png" class="img-avatar"></p>
+          <p><img src="./resourses/img/Foto_Perfil.jpg" class="img-avatar"></p>
           <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
           <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
           <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
@@ -318,10 +188,26 @@
       </div>
     </div>
     
+
+    <script>
+      function validarForm() { 
+            var optionSelect = document.getElementById("tipoConta").value;
+
+            if(optionSelect == "3" ){ 
+                document.getElementById("banco-form").hidden = true;
+            }else{
+                document.getElementById("banco-form").hidden = false;
+            }
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./js/contas.js"></script>
     <script src="./js/scripts.js"></script>
-    <script src="./js/mudar-botoes.js"></script>
-    <script src="./js/contascript.js"></script>
-    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>  
+    <script src="./js/jquery.mask.js"></script>
     <script>perfilHeader();</script>
+
+    
 </body>
 </html>
