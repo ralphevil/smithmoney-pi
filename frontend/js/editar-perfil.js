@@ -73,7 +73,7 @@ function editarPerfil(event, form){
         foto: fotoPerfil
     }  
 
-    fetch(url+"/api/usuarios/", {
+    fetch(url + "/api/usuarios/", {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer '+token

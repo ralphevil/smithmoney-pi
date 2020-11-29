@@ -54,20 +54,20 @@
 
   <div class="conteudo">
     <div class="topo-content">
-      <select name="cars" id="cars" class="select-date">
-        <option value="0">Selecione</option>
-        <option value="1">Janeiro</option>
-        <option value="2">Fevereiro</option>
-        <option value="3">Março</option>
-        <option value="4">Abril</option>
-        <option value="5">Maio</option>
-        <option value="6">Junho</option>
-        <option value="7">Julho</option>
-        <option value="8">Agosto</option>
-        <option value="9">Setembro</option>
-        <option value="10">Outubro</option>
-        <option value="11">Novembro</option>
-        <option value="12">Dezembro</option>
+      <select id="select-date" class="select-date" onChange="pegaMes()">
+        <option>Selecione</option>
+        <option value="0" id="janeiro">Janeiro</option>
+        <option value="1" id="fevereiro">Fevereiro</option>
+        <option value="2" id="marco">Março</option>
+        <option value="3" id="abril">Abril</option>
+        <option value="4" id="maio">Maio</option>
+        <option value="5" id="junho">Junho</option>
+        <option value="6" id="julho">Julho</option>
+        <option value="7" id="agosto">Agosto</option>
+        <option value="8" id="setembro">Setembro</option>
+        <option value="9" id="outubro">Outubro</option>
+        <option value="10" id="novembro">Novembro</option>
+        <option value="11" id="dezembro">Dezembro</option>
       </select>
       
       <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar novo Lançamento">+</button>
@@ -82,7 +82,7 @@
         <li class="text-card">
           <div>
             <h4>Despesas Pendentes</h4>
-            <p style="color: #3498DB ">R$ 0,00</p>
+            <p style="color: #3498DB " id="despesa-pendente">R$ 0,00</p>
           </div>
           <div class="grid">
             <img src="./resourses/img/despesas-despesa.png" alt="Dinheiro" class="img-cards">
@@ -91,7 +91,7 @@
         <li class="text-card">
           <div>
             <h4>Despesas Pagas</h4>
-            <p style="color: #B03A2E">R$ 0,00</p>
+            <p style="color: #B03A2E" id="despesa-paga">R$ 0,00</p>
           </div>
           <div class="grid">
             <img src="./resourses/img/relatorios.svg" alt="Dinheiro" class="img-cards">
@@ -100,7 +100,7 @@
         <li class="text-card">
           <div>
             <h4>Total</h4>
-            <p>R$ 0,00</p>
+            <p id="despesa-total">R$ 0,00</p>
           </div>
           <div class="grid">
             <img src="./resourses/img/totais.png" alt="Dinheiro" class="img-cards">

@@ -681,6 +681,10 @@ body {
     font-weight: 600;
 }
 
+.select-date:focus {
+    outline-style: none;
+}
+
 .dash-title {
     margin: 20px 10px;
     font-size: 32px;
