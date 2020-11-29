@@ -371,6 +371,7 @@ body {
 
 .text-card p {
   font-size: 24px;
+  font-weight: 600;
   transition: 1s;
   margin: 20px 0 auto;
 }
@@ -395,7 +396,19 @@ body {
   object-fit: cover;
 }
 
-.texto-avatar {
+.texto-nome {
+    font-size: 22px !important;
+    color: #F39C12 !important;
+}
+
+.texto-email {
+    font-size: 14px !important;
+    color: #3498DB !important; 
+}
+
+
+
+/*.texto-avatar {
   text-align: right;
   margin-right: 15px;
 }
@@ -428,7 +441,7 @@ body {
 
 .avatar-perfil:hover {
     color: rgba(52, 152, 219, 0.1);
-}
+} */
 
 .avatar-sair a {
     color: red;
@@ -669,7 +682,7 @@ body {
     margin: 0 auto;
 }
 
-.select-date {
+.select-dateDash {
     margin: 20px 10px;
     width: 200px;
     height: 40px;
@@ -679,11 +692,88 @@ body {
     border: none;
     font-size: 18px;
     font-weight: 600;
+    color: #FFF;
+    background: #2962FF;
 }
 
-.select-date:focus {
+.select-tipoReceitas {
+    margin: 20px 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #229954;
+}
+
+.select-tipoReceitas:focus {
     outline-style: none;
 }
+
+.select-tipoReceitas:hover {
+    background: #27AE60;
+}
+
+.select-tipoDespesas {
+    margin: 20px 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #A93226;
+}
+
+.select-tipoDespesas:focus {
+    outline-style: none;
+}
+
+.select-tipoDespesas:hover {
+    background: #C0392B;
+}
+
+.optionCoresDash {
+    border: 1px solid blue;
+    background: #FFF;
+    color: #000000;
+}
+
+.select-dateDash:focus {
+    outline-style: none;
+}
+
+.select-date {
+    margin: 20px 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    transition: 1s;
+}
+
+.select-date {
+    outline-style: none;
+}
+
+.optionCores {
+    border: 1px solid blue;
+    background: #FFF;
+    color: #000000;
+}
+
 
 .dash-title {
     margin: 20px 10px;
@@ -1122,7 +1212,7 @@ tbody tr:hover {
     outline-style: none;
 }
 
-.info-valor {
+.info-valorDespesa {
     color: red;
 }
 
@@ -1251,5 +1341,29 @@ input::placeholder {
 }
 
 .oculta-tabela {
+    display: none;
+}
+
+.div-imgSem {
+    width: 350px;
+    margin: 20px auto;
+}
+
+.div-imgSem p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9E9E9E;
+}
+
+.img-sem {
+    width: 100%;
+    opacity: 0.5;
+}
+
+.semLancamento {
+    display: none;
+}
+
+.comLancamento {
     display: none;
 }

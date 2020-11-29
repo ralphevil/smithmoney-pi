@@ -55,26 +55,26 @@
   <div class="conteudo">
     <div class="topo-content">
       <select id="select-date" class="select-date" onChange="pegaMes()">
-        <option>Selecione</option>
-        <option value="0" id="janeiro">Janeiro</option>
-        <option value="1" id="fevereiro">Fevereiro</option>
-        <option value="2" id="marco">Março</option>
-        <option value="3" id="abril">Abril</option>
-        <option value="4" id="maio">Maio</option>
-        <option value="5" id="junho">Junho</option>
-        <option value="6" id="julho">Julho</option>
-        <option value="7" id="agosto">Agosto</option>
-        <option value="8" id="setembro">Setembro</option>
-        <option value="9" id="outubro">Outubro</option>
-        <option value="10" id="novembro">Novembro</option>
-        <option value="11" id="dezembro">Dezembro</option>
+        <option class="optionCoresReceitas" value="0" id="janeiro">Janeiro</option>
+        <option class="optionCoresReceitas" value="1" id="fevereiro">Fevereiro</option>
+        <option class="optionCoresReceitas" value="2" id="marco">Março</option>
+        <option class="optionCoresReceitas" value="3" id="abril">Abril</option>
+        <option class="optionCoresReceitas" value="4" id="maio">Maio</option>
+        <option class="optionCoresReceitas" value="5" id="junho">Junho</option>
+        <option class="optionCoresReceitas" value="6" id="julho">Julho</option>
+        <option class="optionCoresReceitas" value="7" id="agosto">Agosto</option>
+        <option class="optionCoresReceitas" class="optionCoresReceitas" value="8" id="setembro">Setembro</option>
+        <option class="optionCoresReceitas" value="9" id="outubro">Outubro</option>
+        <option class="optionCoresReceitas" value="10" id="novembro">Novembro</option>
+        <option class="optionCoresReceitas" value="11" id="dezembro">Dezembro</option>
       </select>
 
       <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova receita">+</button>
 
-      <div class="dash-title">
-        <h3>Receitas</h3>
-      </div>
+      <select name="select-tipo" class="select-tipoReceitas" id="select-tipo" onChange="pegaTipoLancamento()">
+        <option style="background: #229954; color: #FFF;" selected>Receitas</option>
+        <option style="background: #C0392B ; color: #FFF;" class="optionCoresReceitas">Despesas</option>
+      </select>
     </div>
 
     <section class="descripiton-cards">
@@ -82,7 +82,7 @@
         <li class="text-card">
           <div>
             <h4>Receitas Pendentes</h4>
-            <p style="color: #3498DB " id="despesa-pendente">R$ 0,00</p>
+            <p style="color: #196F3D;" id="despesa-pendente">R$ 0,00</p>
           </div>
           <div class="grid">
             <img src="./resourses/img/receita-tempo.png" alt="Dinheiro" class="img-cards">
@@ -91,7 +91,7 @@
         <li class="text-card">
           <div>
             <h4>Receitas Recebidas</h4>
-            <p style="color: #B03A2E" id="despesa-paga">R$ 0,00</p>
+            <p style="color: #196F3D;" id="despesa-paga">R$ 0,00</p>
           </div>
           <div class="grid">
             <img src="./resourses/img/receita.png" alt="Dinheiro" class="img-cards">
@@ -129,19 +129,11 @@
           
         </tbody>
       </table>
+      <div id="div-imgSem" class="div-imgSem semLancamento">
+        <img src="./resourses/img/sem-lancamento.png" alt="" class="img-sem">
+        <p>Você não possui receitas nesse período</p>
+      </div>
     </section>
-
-    <footer class="footer">
-      <h6 style="text-indent:0;"><strong> Social</strong></h6>
-      <ul style="text-indent: -3em;">
-        <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
-        <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
-        <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
-        <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
-      </ul>
-      <span>2020 - 2020 © <strong style="color: #2669EE">Smith<span style="color: #04A922">Money</span></strong>.
-        Todos os direitos reservados</span>
-    </footer>
 
     <div id="modal-adiciona" class="modal-conteudo">
       <div class="moda">
@@ -172,7 +164,7 @@
             <select name="categoria" class="select-padrao" id="categoria">
               <option selected>Selecione</option>
               <option value="1">Alimentação</option> 
-              <option value="2">Salário</option>
+              <option value="22">Salário</option>
               <!--<option>Lazer</option>
               <option>Moradia</option>
               <option>Saúde</option>

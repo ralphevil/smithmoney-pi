@@ -25,7 +25,7 @@ function cadastrarUsuario(event, form) {
                 }   
             });            
           }else{
-            toastr.success("Ocorreu um erro ao realizar o cadastro!");
+            toastr.error("Ocorreu um erro ao realizar o cadastro!");
           }
         })
     }else{

@@ -88,9 +88,10 @@ setTimeout(function() {
   window.localStorage.removeItem('mes');
 }, 3000);
 
-$("#voltarValor").click(function() {
-  $("#numero").text("1");
-});
+ function pegaTipoLancamento() {
+  window.location = "./despesas.html";
+   console.log("Chegou aqui");
+ }
 
 fetch(`http://localhost:8080/api/lancamentos/mes/${mesTotal}/tipo/{tipo}/total?tipo=Receita`, {
   headers: {
@@ -140,6 +141,17 @@ xhr.addEventListener("load", function () {
     }
   });
 
+  let temLancamento = document.querySelector(".info-valorReceita");
+  let tableSemLancamento = document.querySelector(".table");
+  let divSemLancamento = document.querySelector(".div-imgSem")
+  if (!temLancamento) {
+    tableSemLancamento.classList.add("semLancamento");
+    divSemLancamento.classList.remove("semLancamento"); 
+  } else {
+    tableSemLancamento.classList.remove(".comLancamento");
+    divSemLancamento.classList.add("semLancamento");
+  }
+  
   function obtemDadosReceitas(receita) {
     let receitas = {
       valor: receita.valor,
@@ -264,7 +276,7 @@ xhr.addEventListener("load", function () {
       validado = false;
     }
     if (form.tipolancamento.value === "Selecione") {
-      adicionaMensageErro(campoTipoLancamento, "tipolancamento");
+      adicionaMensageErro(campoTipoLancamento, "tipo");
       removeMensagemErro(campoTipoLancamento);
       validado = false;
     }
