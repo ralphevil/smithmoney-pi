@@ -30,30 +30,7 @@ public class CategoriaController {
 		public CategoriaController(CategoriaService categoriaService) {
 			this.categoriaService = categoriaService;
 		}
-		
-		@PostMapping
-		public ResponseEntity<Void> create(@Valid @RequestBody Categoria categoria) {
-			
-			categoria = this.categoriaService.create(categoria);
-			
-			URI uri = ServletUriComponentsBuilder
-					 .fromCurrentRequest()
-					 .path("/{id}")
-					 .buildAndExpand(categoria.getId())
-					 .toUri();
-			
-			return ResponseEntity.created(uri).build();
-		}
-		
-		@PutMapping("/{id}")
-		public ResponseEntity<Void> update(@PathVariable Long id, @Valid @RequestBody Categoria categoria) {
-			categoria.setId(id);
-			
-			this.categoriaService.update(categoria);
-			
-			return ResponseEntity.noContent().build();
-		}
-		
+				
 		@GetMapping("/{id}")
 		public ResponseEntity<Categoria> findById(@PathVariable Long id) {
 			
@@ -74,12 +51,6 @@ public class CategoriaController {
 			List<Categoria> categoria = this.categoriaService.findAll();
 			
 			return ResponseEntity.ok(categoria);
-		}
-		
-		@DeleteMapping("/{id}")
-		public ResponseEntity<Void> delete(@PathVariable Long id) {
-			this.categoriaService.deleteById(id);
-			return ResponseEntity.noContent().build();
 		}
 		
 	}
