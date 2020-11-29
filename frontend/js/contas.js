@@ -1,3 +1,4 @@
+const url = "http://localhost:8080";
 
 let btnAdd = document.querySelector("#btn-adiciona");
 let btnFechar = document.querySelector('#btn-fechar');
@@ -27,7 +28,7 @@ function iniciaModal(modalId) {
   const token = window.localStorage.getItem('token');
 
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:8080/api/contas");
+  xhr.open("GET", url+"/api/contas");
   xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 
   xhr.addEventListener("load", function() {
@@ -195,7 +196,7 @@ function iniciaModal(modalId) {
     });
 
     function salvaConta(conta) {
-      fetch("http://localhost:8080/api/contas", {
+      fetch(url+"/api/contas", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -215,7 +216,7 @@ function iniciaModal(modalId) {
     }
 
     function salvaContaEditado(conta, pegaIdContaEditado) {
-      fetch("http://localhost:8080/api/contas/" + pegaIdContaEditado, {
+      fetch(url+"/api/contas/" + pegaIdContaEditado, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -273,7 +274,7 @@ function iniciaModal(modalId) {
       $(document).on("click", ".btn-deletar", function(){
         let pegaIdConta = $(this).parent().parent().find(".oculta-tabela").text();
 
-        fetch("http://localhost:8080/api/contas/" + pegaIdConta, {
+        fetch(url+"/api/contas/" + pegaIdConta, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
@@ -295,7 +296,7 @@ function iniciaModal(modalId) {
   });
 
 
-  fetch("http://localhost:8080/api/contas/total", {
+  fetch(url+"/api/contas/total", {
   headers: {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token
