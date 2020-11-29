@@ -31,6 +31,9 @@ function perfilHeader(){
     emailPerfil.innerHTML = `${user.email}`;
     if(user.foto){
         fotoPerfil.setAttribute("src",url+"/"+user.foto);
+        fotoPerfil.onerror = function(){
+            fotoPerfil.setAttribute("src","./resourses/img/usericon.png")
+        }
     }    
 }
 

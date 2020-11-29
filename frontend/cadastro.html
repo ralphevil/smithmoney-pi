@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="./css/styles.css">
 
 </head>
@@ -84,39 +85,9 @@
             Todos os direitos reservados</span>
     </div>
 </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="./js/scripts.js"></script>
-  <script>
-    function cadastrarUsuario(event, form) {
-      event.preventDefault();
-      const nome = form.nome.value;
-      const email = form.email.value;
-      const senha = form.senha.value;
-      const data = {
-        nome: nome,
-        email: email,
-        password: senha
-      }
-
-      if ((!nome.length <= 0 || !nome == "") && (!email.length <= 0 || !email == "") && (!senha.length <= 0 || !senha == 0)) {
-        fetch('http://localhost:8080/api/usuarios', {
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          method: 'POST',
-          body: JSON.stringify(data)
-        })
-          .then(function (data) {
-            console.log('Request success: ', data);
-            if (data.ok) window.location.href = "/login.html"
-          })
-          .catch(function (error) {
-            console.log('Request failure: ', error);
-          });
-      }
-    }
-  </script>
+  <script src="./js/cadastro.js"></script>
 </body>
 
 </html>
