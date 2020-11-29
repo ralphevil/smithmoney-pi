@@ -294,6 +294,36 @@ function iniciaModal(modalId) {
     }
   });
 
+
+  fetch("http://localhost:8080/api/contas/total", {
+  headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+token
+  },
+  method: 'GET'
+}).then(response => response.json())
+.then(item=>{
+
+  let totalCorrente = item.corrente.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  let totalPoupanca = item.poupanca.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  let totalCarteira = item.carteira.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  let totalTotal = item.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  preencheTotais(totalCorrente, totalPoupanca, totalCarteira, totalTotal);
+})
+
+function preencheTotais(corrente, poupanca, carteira, total) {
+  let contaCorrente = document.querySelector("#conta-corrente");
+  let contaPoupanca = document.querySelector("#conta-poupanca");
+  let contaCarteira = document.querySelector("#conta-carteira");
+  let contaTotal = document.querySelector("#conta-total");
+  contaCorrente.textContent = corrente;
+  contaPoupanca.textContent = poupanca;
+  contaCarteira.textContent = carteira;
+  contaTotal.textContent = total;
+}
+
+
+
   $(document).ready(function(){
     $('.input-saldo').mask('000.000,00', {reverse: true});
     $(".input-saldo").change(function(){
