@@ -33,7 +33,7 @@ public class UsuarioDTO {
     @Size(max = 10)
 	private String genero;
     
-    @Size(min = 11, max = 11)
+    @Size(min = 14, max = 15)
     private String celular;
     
     private String foto;

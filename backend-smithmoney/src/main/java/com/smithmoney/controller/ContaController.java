@@ -18,13 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.smithmoney.dto.BalancoContaDTO;
 import com.smithmoney.dto.ContaDTO;
-import com.smithmoney.dto.UsuarioDTO;
 import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.model.Conta;
-import com.smithmoney.model.Lancamento;
 import com.smithmoney.model.Login;
-import com.smithmoney.model.Usuario;
 import com.smithmoney.service.ContaService;
 
 import lombok.AllArgsConstructor;
@@ -62,6 +60,12 @@ public class ContaController {
 		}
 		return ResponseEntity.ok(conta);        
     }
+	
+	@GetMapping("/total")
+	public ResponseEntity<BalancoContaDTO> totalConta(@AuthenticationPrincipal Login login){
+		BalancoContaDTO balanco = this.contaService.totalConta(login.getId());
+		return ResponseEntity.ok(balanco);
+	}
 		
 	@PatchMapping("/{id}")
 	public ResponseEntity<Conta> update(@PathVariable Long id, @Valid @RequestBody ContaDTO contaDTO, @AuthenticationPrincipal Login login){

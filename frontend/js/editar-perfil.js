@@ -23,12 +23,15 @@ function carregarPerfil(){
     }).then(response=>response.json())
     .then(json=>{
         nome.value = json.nome;
-        genero.value = json.genero;
-        data.value = json.dataNascimento;
-        celular.value = json.celular;
+        if(json.genero) genero.value = json.genero;
+        if(json.dataNascimento) data.value = json.dataNascimento;
+        if(json.email) celular.value = json.celular;
         email.value = json.email;
         if(json.foto){
-            foto.src = url+"/"+json.foto;
+            foto.setAttribute("src",url+"/"+json.foto);
+            foto.onerror = function(){
+                foto.setAttribute("src","./resourses/img/usericon.png")
+            }
         }
     })
 }
@@ -39,7 +42,7 @@ input_img.addEventListener("change",trocarIMG);
 function trocarIMG(){
     if (this.files && this.files[0]) {
         var img = document.querySelector("#img-perfil");
-        img.src = URL.createObjectURL(this.files[0]);
+        img.setAttribute("src",URL.createObjectURL(this.files[0]));
     }
 }
 
@@ -73,7 +76,7 @@ function editarPerfil(event, form){
         foto: fotoPerfil
     }  
 
-    fetch(url+"/api/usuarios/", {
+    fetch(url + "/api/usuarios/", {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer '+token
@@ -96,6 +99,16 @@ function editarPerfil(event, form){
         }
     })
 }
+
+var behavior = function (val) {
+    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+},
+options = {
+    onKeyPress: function (val, e, field, options) {
+        field.mask(behavior.apply({}, arguments), options);
+    }
+};
+$('#celular').mask(behavior, options);
 
 toastr.options = {
     "closeButton": true,

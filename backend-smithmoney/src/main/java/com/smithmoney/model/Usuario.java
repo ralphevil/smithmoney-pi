@@ -48,7 +48,7 @@ public class Usuario {
 	@Column(length = 10)
 	private LocalDate dataNascimento;
 	
-	@Column(length = 11)
+	@Column(length = 15)
 	private String celular;
 	
 	private String foto;

@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.smithmoney.dto.BalancoContaDTO;
 import com.smithmoney.dto.ContaDTO;
-import com.smithmoney.dto.UsuarioDTO;
 import com.smithmoney.exception.ArgumentNotValidException;
 import com.smithmoney.exception.IllegalAcessException;
 import com.smithmoney.exception.ObjectNotFoundException;
@@ -146,10 +146,22 @@ public class ContaService {
 		this.contaRepository.save(conta);
 	}
 	
+	@Transactional
 	public List<Conta> findAllByUser(Long usuarioId){
 		return this.contaRepository.findAllByUser(usuarioId);
 	}
 	
+	@Transactional
+	public BalancoContaDTO totalConta(Long usuarioId){
+		List<Conta> contas = this.contaRepository.findAllByUser(usuarioId);
+		Double corrente = contas.stream().filter(c->c.getTipoConta().equals(TipoConta.Corrente)).mapToDouble(x->x.getSaldo()).sum();
+		Double poupanca = contas.stream().filter(c->c.getTipoConta().equals(TipoConta.Poupanca)).mapToDouble(x->x.getSaldo()).sum();
+		Double carteira = contas.stream().filter(c->c.getTipoConta().equals(TipoConta.Carteira)).mapToDouble(x->x.getSaldo()).sum();
+		Double total = contas.stream().mapToDouble(x->x.getSaldo()).sum();
+		return BalancoContaDTO.builder().corrente(corrente).poupanca(poupanca).carteira(carteira).total(total).build();
+	}
+	
+	@Transactional
 	public Conta findById(Long id) {
         Optional
             .ofNullable(id)
