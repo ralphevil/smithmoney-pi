@@ -126,8 +126,8 @@ function iniciaModal(modalId) {
 
     function validaCampos(form) {
       let campoSaldo = "#erro-saldo";
-      let campoNome = "#erro-descricao";
-      let campoTipo_Conta = "#erro-tipo_Conta";
+      let campoNome = "#erro-nome";
+      let campoTipoConta = "#erro-tipoConta";
       let campoBanco = "#erro-banco";
 
       let validado = true;
@@ -139,7 +139,7 @@ function iniciaModal(modalId) {
       } 
 
       if (form.nome.value === "") {
-        adicionaMensageErro(campoNome, "descricao");
+        adicionaMensageErro(campoNome, "nome");
         removeMensagemErro(campoNome);
         validado = false;
       }
@@ -278,8 +278,10 @@ function iniciaModal(modalId) {
               let campoSaldo = item.saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
               let novoSaldo = campoSaldo.replace("R$", " ");
               modalSaldo.value = novoSaldo;
-              let modalNome = document.querySelector("#descricao");
+              let modalNome = document.querySelector("#nome");
               modalNome.value = item.nome;
+              let modalBanco = document.querySelector("#banco");
+              modalBanco.value = item.banco;
               let editado = document.querySelector("#editarConta");
               editado.value = "Editado";
               let editadoId = document.querySelector("#editarContaId");
