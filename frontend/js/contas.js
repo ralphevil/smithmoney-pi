@@ -204,7 +204,10 @@ function iniciaModal(modalId) {
           body:JSON.stringify(conta),
       }).then(response => {
           if(response.ok) {
-            toastr.success("Lançamento salvo com sucesso!");
+            toastr.success("Conta cadastrada com sucesso!");
+            setTimeout(function () {
+              window.location.reload();
+            }, 2000);
           } else {
             toastr.error("Ocorreu um erro no envio dos dados!");
           }
@@ -221,7 +224,10 @@ function iniciaModal(modalId) {
         body:JSON.stringify(conta),
       }).then(response => {
           if(response.ok) {
-            toastr.success("Despesa editada com sucesso!");
+            toastr.success("Conta editada com sucesso!");
+            setTimeout(function () {
+              window.location.reload();
+            }, 2000);
           } else {
             toastr.error("Ocorreu um erro no envio dos dados!");
             console.log(response.status);
@@ -249,8 +255,6 @@ function iniciaModal(modalId) {
               modalNome.value = item.nome;
               let modalBanco = document.querySelector("#banco");
               modalBanco.value = item.banco;
-              let modalConta = document.querySelector("#tipo_Conta");
-              modalConta.value = item.tipo_Conta
               let editado = document.querySelector("#editarConta");
               editado.value = "Editado";
               let editadoId = document.querySelector("#editarContaId");
@@ -275,10 +279,10 @@ function iniciaModal(modalId) {
             },
         }).then(response => {
             if(response.ok) {
-              toastr.success("Despesa deletada com sucesso!");
+              toastr.success("Conta deletada com sucesso!");
               setTimeout(function() {
                 window.location.reload();
-              }, 3000);
+              }, 2000);
             } else {
               toastr.error("Ocorreu um erro no envio dos dados!");
               console.log(response.status);
