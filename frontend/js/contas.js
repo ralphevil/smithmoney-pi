@@ -1,5 +1,3 @@
-const url = "http://localhost:8080";
-
 let btnAdd = document.querySelector("#btn-adiciona");
 let btnFechar = document.querySelector('#btn-fechar');
 
