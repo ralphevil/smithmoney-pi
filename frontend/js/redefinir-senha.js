@@ -26,6 +26,10 @@ function redefinir(event){
         const dados = {
             "password":new_password.value
         }
+
+        const load = document.querySelector(".lds-ellipsis");
+        load.style.display = "inline-block";
+        
         fetch(url+"/api/auth/login",{
         headers: {
             'Content-Type': 'application/json',
@@ -34,24 +38,28 @@ function redefinir(event){
         method: 'PATCH',
         body: JSON.stringify(dados)
         }).then(response => {
-        if(response.ok){
-            toastr.success(
-                "Registro atualizado com sucesso!",
-                null,
-                {
-                  onHidden: function () {
-                        window.localStorage.removeItem("token");
-                        window.location = "/login.html";
+            load.style.display = "none";
+            if(response.ok){
+                toastr.success(
+                    "Registro atualizado com sucesso!",
+                    null,
+                    {
+                    onHidden: function () {
+                            window.localStorage.removeItem("token");
+                            window.location = "/login.html";
+                        }
                     }
-                }
-              );          
+                );          
+            }else{
+                toastr.error("Ocorreu algum erro ao atualizar os dados!");
+            }
+        }).catch(_ => {
+            load.style.display = "none";
+            toastr.error("Servidor indisponível.");
+        });
         }else{
-            toastr.error("Ocorreu algum erro ao atualizar os dados!");
-        }
-    })
-    }else{
-        toastr.error("Preencha todos os campos!");
-    }    
+            toastr.error("Preencha todos os campos!");
+        }    
 }
 
 toastr.options = {
