@@ -127,7 +127,7 @@ xhr.addEventListener("load", function () {
   let status;
   let classe;
   lancamentosPendentes.map((pendentes) => {
-    (!despesa.pago) ? status = "Pendente" : status = "Paga";
+    (!pendentes.pago) ? status = "Pendente" : status = "Paga";
     (status == "Paga") ? classe = "status-paga" : classe = "status-pendente";
 
     if (pendentes.pago == false) {
