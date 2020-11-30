@@ -34,8 +34,18 @@ function iniciaModal(modalId) {
     let resposta = xhr.responseText;
     let contas = JSON.parse(resposta);
 
-    console.log(contas);
+    //console.log(contas);
 
+    let temConta = contas
+    let tableSemConta = document.querySelector(".table");
+    let divSemConta = document.querySelector(".div-imgSem");
+    if (temConta.length == 0 || temConta == null) {
+      tableSemConta.classList.add("comConta");
+      divSemConta.classList.remove("semConta"); 
+    } else {
+      tableSemConta.classList.remove("semConta");
+      divSemConta.classList.add(".semConta");
+    }
 
     contas.map((conta) => {
 
@@ -180,7 +190,7 @@ function iniciaModal(modalId) {
           editado: form.editarConta.value,
           editadoId: form.editarContaId.value 
         }
-        console.log(conta);
+        //console.log(conta);
         form.reset(); 
 
         if (form.editarConta.value === "Editado") {

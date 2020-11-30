@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.smithmoney.dto.BalancoLancamentoDTO;
+import com.smithmoney.dto.BalancoPendenteDTO;
 import com.smithmoney.dto.LancamentoDTO;
 import com.smithmoney.exception.ArgumentNotValidException;
 import com.smithmoney.exception.IllegalAcessException;
@@ -126,13 +127,6 @@ public class LancamentoService {
 	@Transactional
 	public List<Lancamento> findAllByType(Long usuarioId, TipoLancamento tipo){
 		return this.lancamentoRepository.findAllByType(usuarioId, tipo);
-	}
-	
-	@Transactional
-	public List<Lancamento> pendingByType(Long usuarioId, TipoLancamento tipo){
-		List<Lancamento> lancamentos = this.lancamentoRepository.findAllByType(usuarioId, tipo);
-		List<Lancamento> pending = lancamentos.stream().filter(l->l.getPago().equals(false)).collect(Collectors.toList());
-		return pending;
 	}
 	
 	@Transactional

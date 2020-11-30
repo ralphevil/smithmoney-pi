@@ -70,12 +70,6 @@ public class LancamentoController {
 		return ResponseEntity.ok(lancamentos);
 	}
 	
-	@GetMapping("/pendente/tipo/{tipo}")
-	public ResponseEntity<List<Lancamento>> pendingByType(@PathVariable TipoLancamento tipo, @AuthenticationPrincipal Login login){
-		List<Lancamento> lancamentos = this.lancamentoService.pendingByType(login.getId(), tipo);
-		return ResponseEntity.ok(lancamentos);
-	}
-	
 	@GetMapping("/mes/{mes}/tipo/{tipo}/total")
 	public ResponseEntity<BalancoLancamentoDTO> totalByType(@PathVariable int mes, TipoLancamento tipo, @AuthenticationPrincipal Login login){
 		BalancoLancamentoDTO balanco = this.lancamentoService.totalByType(login.getId(), mes, tipo);

@@ -1216,6 +1216,32 @@ tbody tr:hover {
     margin-top: 25px;
 }
 
+
+/*Input Nova Senha*/
+.input-novaSenha {
+    display: block;
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+}
+
+.input-novaSenha:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
+.inputs-novaSenha {
+    margin-top: 25px;
+}
+
+/*Input Nova Senha*/
+
 .escolha {
     margin-top: 15px;
 }
@@ -1261,6 +1287,7 @@ tbody tr:hover {
     outline-style: none;
 }
 
+<<<<<<< HEAD
 .info-valorPendentes {
     color: #F44336;
 }
@@ -1269,6 +1296,35 @@ tbody tr:hover {
     color: #D14803;
 }
 
+=======
+
+/*btn editar perfil*/
+
+.btn-addNovaSenha {
+    margin: 30px 0 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: #FFF;
+    background:#339CFF;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 20px;
+    transition: 1s;
+}
+
+.btn-addNovaSenha:hover {
+    background: #1a5e9e;
+}
+
+.btn-addNovaSenha:focus {
+    outline-style: none;
+}
+
+/*btn editar perfil*/
+
+>>>>>>> 6f920167d739fa259584937351671786da06e2db
 .info-valorDespesa {
     color: red;
 }
@@ -1425,6 +1481,14 @@ input::placeholder {
     display: none;
 }
 
+
+.semConta {
+    display: none;
+}
+
+.comConta {
+    display: none;
+}
 .categorias-content {
     max-width: 960px;
     margin: 0 auto;
@@ -1437,51 +1501,6 @@ input::placeholder {
     font-weight: bold;
     margin-left: 100px;
 }
-
-/*
-
-.despesa-bloco {
-    max-width: 600px;
-    margin: 50px auto;
-    background: crimson;
-    padding: 20px;
-    background: #FFF;
-    border-radius: 16px;
-    -webkit-box-shadow: 3px 3px 7px #999; 
-    -moz-box-shadow: 3px 3px 7px #999;
-    box-shadow: 3px 3px 7px #999;
-}
-.despesa-bloco h2 {
-    font-size: 36px;
-    color: #C0392B;
-    font-weight: bold;
-    text-align: center;
-}
-
-.categorias-item {
-    width: 90%;
-    background: #CD6155;
-    padding: 10px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 30px auto;
-    border: none;
-    border-radius: 50px;
-    -webkit-box-shadow: 3px 3px 7px #999; 
-    -moz-box-shadow: 3px 3px 7px #999;
-    box-shadow: 3px 3px 7px #999; 
-}
-
-.categorias-item:hover  {
-    opacity: 0.9;
-}
-
-.categorias-item span {
-    font-size: 18px;
-    font-weight: bold;
-    color: #FFF;
-} */
 
 .section-desp {
     padding: 30px;
