@@ -2,10 +2,14 @@ package com.smithmoney.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
 import com.smithmoney.dto.BalancoCategoriaDTO;
+import com.smithmoney.dto.BalancoPendenteDTO;
 import com.smithmoney.dto.DashboardDTO;
 import com.smithmoney.model.Categoria;
 import com.smithmoney.model.Conta;
@@ -67,5 +71,20 @@ public class DashboardService {
 		});
 		
 		return balancoCategoria;
+	}
+	
+	@Transactional
+	public List<Lancamento> pendingByType(Long usuarioId, TipoLancamento tipo){
+		List<Lancamento> lancamentos = this.lancamentoRepository.findAllByType(usuarioId, tipo);
+		List<Lancamento> pending = lancamentos.stream().filter(l->l.getPago().equals(false)).collect(Collectors.toList());
+		return pending;
+	}
+	
+	@Transactional
+	public BalancoPendenteDTO totalPendingByType(Long usuarioId){
+		List<Lancamento> pending = this.lancamentoRepository.findAllByPaid(usuarioId, false);
+		Double receita = pending.stream().filter(l->l.getTipo() == TipoLancamento.Receita).mapToDouble(x->x.getValor()).sum();
+		Double despesa = pending.stream().filter(l->l.getTipo() == TipoLancamento.Despesa).mapToDouble(x->x.getValor()).sum();
+		return BalancoPendenteDTO.builder().despesa(despesa).receita(receita).build();
 	}
 }

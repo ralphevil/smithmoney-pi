@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smithmoney.dto.BalancoCategoriaDTO;
+import com.smithmoney.dto.BalancoPendenteDTO;
 import com.smithmoney.dto.DashboardDTO;
+import com.smithmoney.model.Lancamento;
 import com.smithmoney.model.Login;
 import com.smithmoney.model.TipoLancamento;
 import com.smithmoney.service.DashboardService;
@@ -41,6 +43,18 @@ public class DashboardController {
 	@GetMapping("/categoria/mes/{mes}/tipo/{tipo}")
 	public ResponseEntity<List<BalancoCategoriaDTO>> getCategoryDashboard(@PathVariable int mes, TipoLancamento tipo, @AuthenticationPrincipal Login login){
 		List<BalancoCategoriaDTO> balanco = this.dashboardService.getCategoryDashboard(login.getId(), mes, tipo);
+		return ResponseEntity.ok(balanco);
+	}
+	
+	@GetMapping("/pendente/tipo/{tipo}")
+	public ResponseEntity<List<Lancamento>> pendingByType(@PathVariable TipoLancamento tipo, @AuthenticationPrincipal Login login){
+		List<Lancamento> lancamentos = this.dashboardService.pendingByType(login.getId(), tipo);
+		return ResponseEntity.ok(lancamentos);
+	}
+	
+	@GetMapping("/pendente/total")
+	public ResponseEntity<BalancoPendenteDTO> totalPendingByType(@AuthenticationPrincipal Login login){
+		BalancoPendenteDTO balanco = this.dashboardService.totalPendingByType(login.getId());
 		return ResponseEntity.ok(balanco);
 	}
 }
