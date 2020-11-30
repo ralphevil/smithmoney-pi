@@ -14,7 +14,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smith Money - Painel</title>
+  <title>Smith Money</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -55,20 +55,19 @@
 
   <div class="conteudo">
     <div class="topo-content">
-      <select  id="select-date" class="select-date">
-        <option class="optionCoresDash" value="0">Selecione</option>
-        <option class="optionCoresDash" value="1">Janeiro</option>
-        <option class="optionCoresDash" value="2">Fevereiro</option>
-        <option class="optionCoresDash" value="3">Março</option>
-        <option class="optionCoresDash" value="4">Abril</option>
-        <option class="optionCoresDash" value="5">Maio</option>
-        <option class="optionCoresDash" value="6">Junho</option>
-        <option class="optionCoresDash" value="7">Julho</option>
-        <option class="optionCoresDash" value="8">Agosto</option>
-        <option class="optionCoresDash" value="9">Setembro</option>
-        <option class="optionCoresDash" value="10">Outubro</option>
-        <option class="optionCoresDash" value="11">Novembro</option>
-        <option class="optionCoresDash" value="12">Dezembro</option>
+      <select id="select-date" class="select-date" onChange="pegaMes()">
+        <option class="optionCoresDespesa" value="0" id="janeiro" class="optionCores">Janeiro</option>
+        <option class="optionCoresDespesa" value="1" id="fevereiro">Fevereiro</option>
+        <option class="optionCoresDespesa" value="2" id="marco">Março</option>
+        <option class="optionCoresDespesa" value="3" id="abril">Abril</option>
+        <option class="optionCoresDespesa" value="4" id="maio">Maio</option>
+        <option class="optionCoresDespesa" value="5" id="junho">Junho</option>
+        <option class="optionCoresDespesa" value="6" id="julho">Julho</option>
+        <option class="optionCoresDespesa" value="7" id="agosto">Agosto</option>
+        <option class="optionCoresDespesa" value="8" id="setembro">Setembro</option>
+        <option class="optionCoresDespesa" value="9" id="outubro">Outubro</option>
+        <option class="optionCoresDespesa" value="10" id="novembro">Novembro</option>
+        <option class="optionCoresDespesa" value="11" id="dezembro">Dezembro</option>
       </select>
 
       <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar novo Lançamento">+</button>
@@ -84,7 +83,7 @@
           <a href="./contas.html" >
             <div>
               <h3>Contas Saldo</h3>
-              <p style="color: #3498DB ">R$ 10.000,00</p>
+              <p style="color: #229954" id="total-contas">R$ 10.000,00</p>
             </div>
             <div class="grid">
               <img src="./resourses/img/transacoes.svg" alt="Dinheiro" class="img-cards">
@@ -95,7 +94,7 @@
           <a href="./despesas.html">
             <div>
               <h3>Despesas</h3>
-              <p style="color: #B03A2E">R$ 0,00</p>
+              <p style="color: #B03A2E" id="total-despesas">R$ 0,00</p>
             </div>
             <div class="grid">
               <img src="./resourses/img/relatorios.svg" alt="Dinheiro" class="img-cards">
@@ -106,7 +105,7 @@
           <a href="./receitas.html">
             <div>
               <h3>Receitas</h3>
-              <p style="color: #229954">R$ 0,00</p>
+              <p style="color: #229954" id="total-receitas">R$ 0,00</p>
             </div>
             <div class="grid">
               <img src="./resourses/img/dashboard.svg" alt="Dinheiro" class="img-cards">
@@ -117,7 +116,7 @@
           <a href="#">
             <div>
               <h3>Total</h3>
-              <p>R$ 0,00</p>
+              <p id="total">R$ 0,00</p>
             </div>
             <div class="grid">
               <img src="./resourses/img/receita_2.svg" alt="Dinheiro" class="img-cards">
@@ -206,13 +205,24 @@
           <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
           <span class="erro-invisivel" id="erro-descricao">Deve informar uma descrição</span>
         </div>
+
+        <div class="escolha">
+          <label for="contas">Tipo do Lançamento</label>
+          <select name="tipolancamento" class="select-padrao" id="tipo">
+            <option selected>Selecione</option>
+            <option>Despesa</option> 
+            <option>Receita</option>
+          </select>
+          <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo do lançamento</span>
+        </div>
       
         <div class="inputs-form">
           <label for="categorias">Categorias</label>
           <select name="categoria" class="select-padrao" id="categoria">
             <option selected>Selecione</option>
-            <option value="1">Alimentação</option> 
-            <option value="2">Salário</option>
+            <option value="1">Casa</option> 
+            <option value="4">Alimentação</option> 
+            <option value="22">Salário</option>
             <!--<option>Lazer</option>
             <option>Moradia</option>
             <option>Saúde</option>
@@ -226,22 +236,12 @@
           <label for="contas">Contas</label>
           <select name="conta" class="select-padrao" id="conta">
             <option selected>Selecione</option>
-            <option value="1">Santander</option> 
-            <option value="2">Itaú</option>
-            <option value="4">Bradesco</option>
-            <option value="5">Inter</option>
+              <option value="1">Inter</option> 
+              <option value="2">Satannder</option>
+              <option value="3">Itau</option>
+              <option value="4">Bradesco</option>
           </select>
           <span class="erro-invisivel" id="erro-contas">Deve informar uma conta</span>
-        </div>
-
-        <div class="escolha">
-          <label for="contas">Tipo do Lançamento</label>
-          <select name="tipolancamento" class="select-padrao" id="tipo">
-            <option selected>Selecione</option>
-            <option>Despesa</option> 
-            <option>Receita</option>
-          </select>
-          <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo do lançamento</span>
         </div>
 
         <input type="button" id="btn-add" class="btn-addnova" value="Salvar">

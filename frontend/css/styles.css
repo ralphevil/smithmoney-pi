@@ -338,6 +338,7 @@ body {
 
 .card-dash p {
     font-size: 22px;
+    font-weight: 600;
     transition: 1s;
     margin: 20px 0 auto;
   }
