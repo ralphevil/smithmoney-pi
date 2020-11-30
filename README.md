@@ -10,13 +10,6 @@ A Smith Money é um gerenciador financeiro pessoal que busca como objetivo ajud
   <img width="200" height="200" src="./frontend/resourses/img/logo.png">
 </p>
 
-## :clipboard: Histórico de Lançamentos
-
-* 0.1.0
-    * Criação das primeiras páginas do FrontEnd
-* 0.0.1
-    * Trabalho em andamento
-
 ## :mortar_board: Equipe
 
 <table>
