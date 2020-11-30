@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!--FAVICON-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./resourses/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./resourses/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./resourses/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./resourses/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./resourses/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!--FIM FAVICON-->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smith Money - Painel</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./js/validated.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <button id="btnScrollToTop">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
+
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
+      <div class="btn-menu">
+        <a><label for="btn-menu">☰</label></a>
+      </div>
+      <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+        <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+        <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
+      </a>
+      <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
+        <ul class="navbar-nav">
+          <li>
+            <div class="texto-avatar">
+                <a href="#" onclick="logout()"><img src="./resourses/img/sair_01.svg" class="menu-icon"> <span style="color: #2669EE;">Sair</span> </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="conteudo">
+    <div class="topo-content">
+      <h3 class="titulo-categorias">Categorias</h3>
+      
+      <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar novo Lançamento">+</button>
+
+      <select name="select-tipo" class="select-tipoDespesas" id="select-tipo" onChange="pegaTipoLancamento()">
+        <option style="background: #229954; color: #FFF;" selected>Receitas</option>
+        <option style="background: #C0392B ; color: #FFF;" class="optionCoresReceitas">Despesas</option>
+      </select>
+    </div>
+
+    <section class="categorias-content">
+      <div class="despesa-bloco">
+        <h2>Receitas</h2>
+        <div class="categorias-item">
+          <span id="catdesp1"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp2"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp3"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp4"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp5"></span>
+        </div>
+        <div class="categorias-item" >
+          <span id="catdesp6"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp7"></span>
+        </div>
+        <div class="categorias-item"> 
+          <span id="catdesp8"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp9"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp10"></span>
+        </div> 
+        <div class="categorias-item">
+          <span  id="catdesp11"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp12"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp13"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp14"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp15"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp16"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp17"></span>
+        </div>
+        <div class="categorias-item"> 
+          <span id="catdesp18"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp19"></span>
+        </div>
+        <div class="categorias-item">
+          <span id="catdesp20"></span>
+        </div> 
+        <div class="categorias-item">
+          <span id="catdesp21"></span>
+        </div> 
+      </div>
+    </section>
+
+    <div id="modal-adiciona" class="modal-conteudo">
+      <div class="moda">
+        <button class="fechar" id="btn-fechar">X</button>
+        <h3>Novo Lançamento</h3>
+        <form class="form-add" id="formulario-lancamento">
+          <div>
+            <label for="valor">Valor</label>
+            <span class="cifrao">R$ </span>
+            <input type="text" name="valor" id="valor" class="input-valor" placeholder="0,00">
+            <span class="erro-invisivel" id="erro-valor">Deve ter um valor maior que 0</span>
+          </div>
+          
+          <div class="inputs-form">
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data" class="input-padrao">
+            <span class="erro-invisivel" id="erro-data">Deve informar uma data</span>
+          </div>
+  
+          <div class="inputs-form">
+            <label for="descricao"  class="label-form">Descrição</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
+            <span class="erro-invisivel" id="erro-descricao">Deve informar uma descrição</span>
+          </div>
+        
+          <div class="inputs-form">
+            <label for="categorias">Categorias</label>
+            <select name="categoria" class="select-padrao" id="categoria">
+              <option selected>Selecione</option>
+              <option value="1">Alimentação</option> 
+              <option value="2">Salário</option>
+              <!--<option>Lazer</option>
+              <option>Moradia</option>
+              <option>Saúde</option>
+              <option>Viagens</option>
+              <option>Educação</option> -->               
+            </select>
+            <span class="erro-invisivel" id="erro-categoria">Deve selecionar uma categoria</span>
+          </div>
+            
+          <div class="escolha">
+            <label for="contas">Contas</label>
+            <select name="conta" class="select-padrao" id="conta">
+              <option selected>Selecione</option>
+              <option value="1">Santander</option> 
+              <option value="2">Itaú</option>
+              <option value="4">Bradesco</option>
+              <option value="5">Inter</option>
+            </select>
+            <span class="erro-invisivel" id="erro-contas">Deve informar uma conta</span>
+          </div>
+  
+          <div class="escolha">
+            <label for="contas">Tipo do Lançamento</label>
+            <select name="tipolancamento" class="select-padrao" id="tipo">
+              <option selected>Selecione</option>
+              <option>Despesa</option> 
+              <option>Receita</option>
+            </select>
+            <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo do lançamento</span>
+          </div>
+  
+          <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
+          <input type="hidden" id="editarDespesa" name="editarDespesa" class="editarDespesa">
+          <input type="hidden" id="editarDespesaId" name="editarDespesaId" class="editarDespesaId">
+        </form>
+      </div>
+    </div>
+
+    <input type="checkbox" id="btn-menu" />
+    <div class="container-menu">
+      <div class="cont-menu">
+        <nav>
+          <p><img src="./resourses/img/usericon.png" class="img-avatar"></p>
+          <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
+          <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
+          <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
+          <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
+          <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
+          <a href="./categorias-despesas.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Categorias</a>
+          <a href="./editar-perfil.html"><img src="./resourses/img/perfil.svg" class="menu-icon ">Perfil</a>
+          <div class="footer-version">
+            <sapn class="version">SmithMoney v1.0</span>
+          </div>
+        </nav>
+        <label for="btn-menu">✖️</label>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./js/categorias.js"></script>
+    <script src="./js/scripts.js"></script> 
+    <script src="./js/jquery.mask.js"></script>
+    <script>perfilHeader();</script>
+</body>
+</html>

@@ -1368,3 +1368,59 @@ input::placeholder {
 .comLancamento {
     display: none;
 }
+
+.categorias-content {
+    max-width: 960px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.titulo-categorias {
+    color: #2669EE;
+    padding: 20px;
+    font-weight: bold;
+    margin-left: 100px;
+}
+
+.despesa-bloco {
+    max-width: 600px;
+    margin: 50px auto;
+    background: crimson;
+    padding: 20px;
+    background: #FFF;
+    border-radius: 16px;
+    -webkit-box-shadow: 3px 3px 7px #999; 
+    -moz-box-shadow: 3px 3px 7px #999;
+    box-shadow: 3px 3px 7px #999;
+}
+.despesa-bloco h2 {
+    font-size: 36px;
+    color: #C0392B;
+    font-weight: bold;
+    text-align: center;
+}
+
+.categorias-item {
+    width: 90%;
+    background: #CD6155;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    border: none;
+    border-radius: 50px;
+    -webkit-box-shadow: 3px 3px 7px #999; 
+    -moz-box-shadow: 3px 3px 7px #999;
+    box-shadow: 3px 3px 7px #999; 
+}
+
+.categorias-item:hover  {
+    opacity: 0.9;
+}
+
+.categorias-item span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+}
