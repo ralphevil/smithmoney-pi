@@ -158,19 +158,22 @@
             <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
             <span class="erro-invisivel" id="erro-descricao">Deve informar uma descrição</span>
           </div>
+
+          <div class="escolha">
+            <label for="contas">Tipo do Lançamento</label>
+            <select name="tipolancamento" class="select-padrao" id="tipo" onChange="pegaTipo()">
+              <option selected>Selecione</option>
+              <option>Despesa</option> 
+              <option>Receita</option>
+            </select>
+            <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo do lançamento</span>
+          </div>
         
           <div class="inputs-form">
             <label for="categorias">Categorias</label>
             <select name="categoria" class="select-padrao" id="categoria">
               <option selected>Selecione</option>
-              <option value="1">Casa</option> 
-              <option value="4">Alimentação</option> 
-              <option value="22">Salário</option>
-              <!--<option>Lazer</option>
-              <option>Moradia</option>
-              <option>Saúde</option>
-              <option>Viagens</option>
-              <option>Educação</option> -->              
+
             </select>
             <span class="erro-invisivel" id="erro-categoria">Deve selecionar uma categoria</span>
           </div>
@@ -180,21 +183,12 @@
             <select name="conta" class="select-padrao" id="conta">
               <option selected>Selecione</option>
               <option value="1">Inter</option> 
-              <option value="2">Satannder</option>
+              <option value="2">Satannder</option>z
               <option value="3">Itau</option>
               <option value="4">Bradesco</option>
+              <option value="5">Banco do Brasil</option>
             </select>
             <span class="erro-invisivel" id="erro-contas">Deve informar uma conta</span>
-          </div>
-  
-          <div class="escolha">
-            <label for="contas">Tipo do Lançamento</label>
-            <select name="tipolancamento" class="select-padrao" id="tipo">
-              <option selected>Selecione</option>
-              <option>Despesa</option> 
-              <option>Receita</option>
-            </select>
-            <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo do lançamento</span>
           </div>
   
           <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
