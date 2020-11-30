@@ -126,6 +126,8 @@ xhr.addEventListener("load", function () {
 
   let status;
   let classe;
+  let cor;
+
   lancamentosPendentes.map((pendentes) => {
     (!pendentes.pago) ? status = "Pendente" : status = "Paga";
     (status == "Paga") ? classe = "status-paga" : classe = "status-pendente";
@@ -137,6 +139,17 @@ xhr.addEventListener("load", function () {
       tabelaPendentes.appendChild(trPendentes);
     }
   });
+
+  let temLancamento = document.querySelector(".info-valorPendentes");
+  let tableSemLancamento = document.querySelector(".table");
+  let divSemLancamento = document.querySelector(".div-imgSem")
+  if (!temLancamento) {
+    tableSemLancamento.classList.add("semLancamento");
+    divSemLancamento.classList.remove("semLancamento"); 
+  } else {
+    tableSemLancamento.classList.remove(".comLancamento");
+    divSemLancamento.classList.add("semLancamento");
+  } 
 
   function obtemDadosDespesas(pendentes) {
     let despesas = {
@@ -168,18 +181,14 @@ xhr.addEventListener("load", function () {
 
     trDespesa.classList.add("despesas");
 
-    let dataInput = pendentes.data;
-    data = new Date(dataInput);
-    dataFormatada = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
-
     trDespesa.appendChild(montaTd(pendentes.id, "oculta-tabela"));
     trDespesa.appendChild(montaTd(status, classe));
-    trDespesa.appendChild(montaTd(dataFormatada, "info-data"));
+    trDespesa.appendChild(montaTd(formataData(pendentes.data), "info-data"));
     trDespesa.appendChild(montaTd(pendentes.descricao, "info-descricao"));
     trDespesa.appendChild(montaTd(pendentes.tipo, "info-tipo"));
     trDespesa.appendChild(montaTd(pendentes.categorias, "info-categoria"));
     trDespesa.appendChild(montaTd(pendentes.conta, "info-conta"));
-    trDespesa.appendChild(montaTd(pendentes.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valor"));
+    trDespesa.appendChild(montaTd(pendentes.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }), "info-valorPendentes"));
 
     tdEfetiva.appendChild(btnEfetiva);
     trDespesa.appendChild(tdEfetiva);
@@ -434,6 +443,42 @@ xhr.addEventListener("load", function () {
   }
 });
 
+//Pendentes Despesas
+fetch(`http://localhost:8080/api/lancamentos/mes/${mesTotal}/tipo/{tipo}/total?tipo=Despesa`, {
+  headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+token
+  },
+  method: 'GET'
+}).then(response => response.json())
+.then(item => {
+  let totalDespesasPendentes = item.pendente.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  preencheTotalPendentesDes(totalDespesasPendentes);
+})
+
+function preencheTotalPendentesDes(despesas) {
+  let despesasPendentesTotal = document.querySelector("#despesa-pendentes");
+  despesasPendentesTotal.textContent = despesas;
+}
+
+//Pendentes Receitas
+fetch(`http://localhost:8080/api/lancamentos/mes/${mesTotal}/tipo/{tipo}/total?tipo=Receita`, {
+  headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+token
+  },
+  method: 'GET'
+}).then(response => response.json())
+.then(item => {
+  let totalReceitasPendentes = item.pendente.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  preencheTotalPendentesRec(totalReceitasPendentes);
+})
+
+function preencheTotalPendentesRec(receitas) {
+  let receitasPendentesTotal = document.querySelector("#receitas-pendentes");
+  receitasPendentesTotal.textContent = receitas;
+}
+
 $(document).ready(function () {
   $('.input-valor').mask('000.000,00', { reverse: true });
   $(".input-valor").change(function () {
@@ -442,7 +487,6 @@ $(document).ready(function () {
 });
 
 xhr.send();
-
 
 toastr.options = {
   "closeButton": true,

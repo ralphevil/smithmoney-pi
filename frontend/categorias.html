@@ -58,79 +58,40 @@
       
       <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar novo Lançamento">+</button>
 
-      <select name="select-tipo" class="select-tipoDespesas" id="select-tipo" onChange="pegaTipoLancamento()">
-        <option style="background: #229954; color: #FFF;" selected>Receitas</option>
-        <option style="background: #C0392B ; color: #FFF;" class="optionCoresReceitas">Despesas</option>
+      <select class="select-tipoCategoriaDesp" id="select-tipocategoria" onChange="pegaTipoCategoria()">
+        <option style="background: #C0392B ; color: #FFF;" value="despesa" class="optionCoresReceitas" selected>Categoria de Despesas</option>
+        <option style="background: #229954; color: #FFF;" value="receita">Categoria de Receitas</option>
       </select>
     </div>
 
-    <section class="categorias-content">
-      <div class="despesa-bloco">
-        <h2>Receitas</h2>
-        <div class="categorias-item">
-          <span id="catdesp1"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp2"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp3"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp4"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp5"></span>
-        </div>
-        <div class="categorias-item" >
-          <span id="catdesp6"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp7"></span>
-        </div>
-        <div class="categorias-item"> 
-          <span id="catdesp8"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp9"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp10"></span>
-        </div> 
-        <div class="categorias-item">
-          <span  id="catdesp11"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp12"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp13"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp14"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp15"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp16"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp17"></span>
-        </div>
-        <div class="categorias-item"> 
-          <span id="catdesp18"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp19"></span>
-        </div>
-        <div class="categorias-item">
-          <span id="catdesp20"></span>
-        </div> 
-        <div class="categorias-item">
-          <span id="catdesp21"></span>
-        </div> 
-      </div>
+    <section class="section-desp">
+      <h3>Despesas</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Identificador</th>
+            <th scope="col">Categoria</th>
+          </tr>
+        </thead>
+        <tbody id="categoria-despesa">
+          
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-rect section-categoria">
+      <h3>Receitas</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Identificador</th>
+            <th scope="col">Categoria</th>
+          </tr>
+        </thead>
+        <tbody id="categoria-receitas">
+          
+        </tbody>
+      </table>
     </section>
 
     <div id="modal-adiciona" class="modal-conteudo">
@@ -211,7 +172,7 @@
           <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
           <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
           <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
-          <a href="./categorias-despesas.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Categorias</a>
+          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Categorias</a>
           <a href="./editar-perfil.html"><img src="./resourses/img/perfil.svg" class="menu-icon ">Perfil</a>
           <div class="footer-version">
             <sapn class="version">SmithMoney v1.0</span>

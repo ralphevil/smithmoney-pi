@@ -91,7 +91,7 @@ setTimeout(function() {
 
 function pegaTipoLancamento() {
   window.location = "./receitas.html";
- }
+}
 
 fetch(`http://localhost:8080/api/lancamentos/mes/${mesTotal}/tipo/{tipo}/total?tipo=Despesa`, {
   headers: {

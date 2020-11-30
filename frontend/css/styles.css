@@ -749,6 +749,42 @@ body {
     outline-style: none;
 }
 
+.select-tipoCategoriaDesp {
+    margin: 20px 10px;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #A93226;
+}
+
+.select-tipoCategoriaDesp:focus {
+    outline-style: none;
+}
+
+.select-tipoCategoriaRect {
+    margin: 20px 10px;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #186A3B;
+}
+
+.select-tipoCategoriaRect:focus {
+    outline-style: none;
+}
+
 .select-tipoDespesas:hover {
     background: #C0392B;
 }
@@ -1225,6 +1261,14 @@ tbody tr:hover {
     outline-style: none;
 }
 
+.info-valorPendentes {
+    color: #F44336;
+}
+
+.valorPendenteDesp {
+    color: #D14803;
+}
+
 .info-valorDespesa {
     color: red;
 }
@@ -1394,6 +1438,8 @@ input::placeholder {
     margin-left: 100px;
 }
 
+/*
+
 .despesa-bloco {
     max-width: 600px;
     margin: 50px auto;
@@ -1435,4 +1481,52 @@ input::placeholder {
     font-size: 18px;
     font-weight: bold;
     color: #FFF;
+} */
+
+.section-desp {
+    padding: 30px;
+}
+
+.section-desp table {
+    width: 600px;
+    margin: 40px auto;
+}
+
+.section-rect {
+    padding: 30px;
+}
+
+.section-rect table {
+    width: 600px;
+    margin: 40px auto;
+}
+
+.section-categoria {
+    display: none;
+    opacity: 0;
+	transition: 0.5s;
+}
+
+.catOut {
+    opacity: 0;
+	transition: 1s;
+}
+
+.titulo-definecategoria {
+    margin-left: 25px;
+    color: blue;
+}
+
+.section-desp h3 {
+    color: #C0392B;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-rect h3 {
+    color: #186A3B;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
 }

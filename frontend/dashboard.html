@@ -79,7 +79,7 @@
 
     <section class="descripiton-cards">
       <ul class="cards">
-        <li class="card-dash">
+        <li class="card-dash" title="Total que você tem em suas contas ativas">
           <a href="./contas.html" >
             <div>
               <h3>Contas Saldo</h3>
@@ -90,7 +90,7 @@
             </div>
           </a>
         </li>
-        <li class="card-dash">
+        <li class="card-dash" title="Valor total de despesas pagas ou pendentes">
           <a href="./despesas.html">
             <div>
               <h3>Despesas</h3>
@@ -101,7 +101,7 @@
             </div>
           </a>
         </li>
-        <li class="card-dash">
+        <li class="card-dash" title="Valor total de receitas recebidas ou pendentes">
           <a href="./receitas.html">
             <div>
               <h3>Receitas</h3>
@@ -112,11 +112,11 @@
             </div>
           </a>
         </li>
-        <li class="card-dash">
-          <a href="#">
+        <li class="card-dash" title="Total de receitas menos despesas">
+          <a>
             <div>
               <h3>Total</h3>
-              <p id="total">R$ 0,00</p>
+              <p style="color: #000000" id="total">R$ 0,00</p>
             </div>
             <div class="grid">
               <img src="./resourses/img/receita_2.svg" alt="Dinheiro" class="img-cards">
@@ -144,9 +144,36 @@
       </div>
     </section>
 
-    <section>
+    <section class="descripiton-cards">
       <h3 class="titulo-tabela">Pendências e alertas</h3>
       <hr class="divisoria">
+      <ul class="cards">
+        <li class="card-dash">
+          <a href="./despesas.html" >
+            <div>
+              <h3>Total de despesas pendentes</h3>
+              <p style="color: #B03A2E" id="despesa-pendentes">R$ 0,00</p>
+            </div>
+            <div class="grid">
+              <img src="./resourses/img/despesas-pendentes.png" alt="Dinheiro" class="img-cards">
+            </div>
+          </a>
+        </li>
+        <li class="card-dash">
+          <a href="./receitas.html">
+            <div>
+              <h3>Total de receitas pendentes</h3>
+              <p style="color: #229954" id="receitas-pendentes">R$ 0,00</p>
+            </div>
+            <div class="grid">
+              <img src="./resourses/img/aumentar.png" alt="Dinheiro" class="img-cards">
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
       <table class="table">
         <thead>
           <tr>
@@ -166,6 +193,10 @@
           
         </tbody>
       </table>
+      <div id="div-imgSem" class="div-imgSem semLancamento">
+        <img src="./resourses/img/sem-lancamento.png" alt="" class="img-sem">
+        <p>Você não possui pendências</p>
+      </div>
     </section>
 
     <footer class="footer">

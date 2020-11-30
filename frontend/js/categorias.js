@@ -34,63 +34,72 @@ xhr.addEventListener("load", function () {
 
   categorias.map((categoria) => {
     if (categoria.tipo == "Despesa") {
-   
-     populaSpan(categoria.categoria);
-     populaSpan(categoria.categoria);
-     populaSpan(categoria.categoria);
-     populaSpan(categoria.categoria);
+      let buscaCategoria = obtemDadosCategoria(categoria);
+      let trCategoria = montaTr(buscaCategoria);
+      let tabelaCategoria = document.querySelector("#categoria-despesa");
+      tabelaCategoria.appendChild(trCategoria);
+    } else {
+      let buscaCategoria = obtemDadosCategoria(categoria);
+      let trCategoria = montaTr(buscaCategoria);
+      let tabelaCategoria = document.querySelector("#categoria-receitas");
+      tabelaCategoria.appendChild(trCategoria);
     }
-    
-    
   });
 
-  function populaSpan(categoria) {
-    let catdesp1 = document.querySelector("#catdesp1");
-    let catdesp2 = document.querySelector("#catdesp2");
-    let catdesp3 = document.querySelector("#catdesp3");
-    let catdesp4 = document.querySelector("#catdesp4");
-    let catdesp5 = document.querySelector("#catdesp5");
-    let catdesp6 = document.querySelector("#catdesp6");
-    let catdesp7 = document.querySelector("#catdesp7");
-    let catdesp8 = document.querySelector("#catdesp8");
-    let catdesp9 = document.querySelector("#catdesp9");
-    let catdesp10 = document.querySelector("#catdesp10");
-    let catdesp11 = document.querySelector("#catdesp11");
-    let catdesp12 = document.querySelector("#catdesp12");
-    let catdesp13 = document.querySelector("#catdesp13");
-    let catdesp14 = document.querySelector("#catdesp14");
-    let catdesp15 = document.querySelector("#catdesp15");
-    let catdesp16 = document.querySelector("#catdesp16");
-    let catdesp17 = document.querySelector("#catdesp17");
-    let catdesp18 = document.querySelector("#catdesp18");
-    let catdesp19 = document.querySelector("#catdesp19");
-    let catdesp20 = document.querySelector("#catdesp20");
-    let catdesp21 = document.querySelector("#catdesp21");
+  function montaTr(categoria) {
+    let trCategoria = document.createElement("tr");
+    trCategoria.classList.add("categoria");
 
-    catdesp1.textContent = categoria;
-    catdesp2.textContent = categoria;
-    catdesp3.textContent = categoria;
-    catdesp4.textContent = categoria;
-    catdesp5.textContent = categoria;
-    catdesp6.textContent = categoria;
-    catdesp7.textContent = categoria;
-    catdesp8.textContent = categoria;
-    catdesp9.textContent = categoria;
-    catdesp10.textContent = categoria;
-    catdesp11.textContent = categoria;
-    catdesp12.textContent = categoria;
-    catdesp13.textContent = categoria;
-    catdesp14.textContent = categoria;
-    catdesp15.textContent = categoria;
-    catdesp16.textContent = categoria;
-    catdesp17.textContent = categoria;
-    catdesp18.textContent = categoria;
-    catdesp19.textContent = categoria;
-    catdesp20.textContent = categoria;
-    catdesp21.textContent = categoria;
+    trCategoria.appendChild(montaTd(categoria.id, "info-id"));
+    trCategoria.appendChild(montaTd(categoria.categoria, "info-categoria"));
+
+    return trCategoria;
   }
 
+  function montaTd(dado, classe) {
+    let td = document.createElement("td");
+    td.textContent = dado;
+    td.classList.add(classe);
+    return td;
+  }
 
+  function obtemDadosCategoria(categoria) {
+    let categorias = {
+      id: categoria.id,
+      categoria: categoria.categoria
+    }
+    return categorias;
+  }
 });
+
+
+function pegaTipoCategoria() {
+  let select = document.getElementById('select-tipocategoria');
+  let option = select.options[select.selectedIndex];
+  let categoriaEscolhida = option.value;
+
+  let sectionRect = document.querySelector(".section-rect");
+  let sectionDesp = document.querySelector(".section-desp");
+
+  if (categoriaEscolhida == "receita") {
+    sectionRect.classList.remove("catOut");
+    sectionDesp.classList.add("catOut");
+    select.classList.add("select-tipoCategoriaRect");
+    setTimeout(function() {
+      sectionDesp.classList.add("section-categoria");
+      sectionRect.classList.remove("section-categoria");
+    }, 500);
+
+  } else {
+    sectionDesp.classList.remove("catOut");
+    sectionRect.classList.add("catOut");
+    select.classList.remove("select-tipoCategoriaRect");
+    select.classList.add("select-tipoCategoriaDesp");
+    setTimeout(function() {
+      sectionRect.classList.add("section-categoria");
+      sectionDesp.classList.remove("section-categoria");
+    }, 500);
+  }
+}
 
 xhr.send();
