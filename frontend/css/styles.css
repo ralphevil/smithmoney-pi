@@ -1380,3 +1380,12 @@ input::placeholder {
 .comLancamento {
     display: none;
 }
+
+
+.semConta {
+    display: none;
+}
+
+.comConta {
+    display: none;
+}
