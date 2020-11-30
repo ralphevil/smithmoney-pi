@@ -132,6 +132,12 @@ body {
     border: none;
 }
 
+.btn-template2 {
+    border-radius: 0.5em;
+    background-color: #339CFF;
+    border: none;
+}
+
 #logo-text {
     font-size: 1.2em;
     margin-left: 0.2em;
@@ -210,7 +216,7 @@ body {
 
 
 #container-sobre{
-    width: 50em;
+    width: 50%;
 }
 
 .container-template input, #container-perfil .form-control{
@@ -221,6 +227,12 @@ body {
 }
 
 .container-template .btn-template{
+    padding: 0.5em 0;
+    width: 80%;
+    font-size: 20px;
+}
+
+.container-template2 .btn-template2{
     padding: 0.5em 0;
     width: 80%;
     font-size: 20px;
