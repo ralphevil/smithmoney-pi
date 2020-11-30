@@ -54,7 +54,7 @@
 
   <div class="conteudo">
     <div class="topo-content">
-      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
       <button  class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova conta">+</button>
       <div class="dash-title">
         <h3>Contas</h3>
@@ -205,10 +205,8 @@
       function validarForm() { 
             var optionSelect = document.getElementById("tipoConta").value;
 
-            if(optionSelect == "Carteira" ){
-                document.getElementById('banco').value = "Carteira";
-                document.getElementById("banco-form").hidden = true;
-  
+            if(optionSelect == "Carteira" ){                
+                document.getElementById("banco-form").hidden = true;  
             }else{
                 document.getElementById("banco-form").hidden = false;
             }
