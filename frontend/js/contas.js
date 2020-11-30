@@ -6,6 +6,7 @@ btnAdd.addEventListener('click', function(event) {
 });
 
 function iniciaModal(modalId) {
+  validarForm();
   let modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.add('mostrar');

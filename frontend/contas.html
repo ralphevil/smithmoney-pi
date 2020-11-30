@@ -54,40 +54,12 @@
 
   <div class="conteudo">
     <div class="topo-content">
-
-      <h3></h3>
-
-      <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova conta">+</button>
-
+      <span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+      <button  class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar nova conta">+</button>
       <div class="dash-title">
         <h3>Contas</h3>
       </div>
     </div>
-
-<!--     <section>
-      <ul class="cards-despesas">
-        <li>
-          <h2>Conta Corrente</h2>
-          <img src="./resourses/img/dinheiro.png"  alt="">
-          <p class="produto-preco">-R$ 5.000,00</p>
-        </li>
-        <li>
-          <h2>Conta Poupança</h2>
-          <img src="./resourses/img/dinheiro.png" alt="">
-          <p class="produto-preco">R$ 3.000,00</p>
-        </li>
-        <li>
-          <h2>Carteira</h2>
-          <img src="./resourses/img/dinheiro.png" alt="">
-          <p class="produto-preco">R$ 3.000,00</p>
-        </li>
-        <li>
-          <h2>Total Contas</h2>
-          <img src="./resourses/img/dinheiro.png" alt="">
-          <p style="color: #04A922;" class="produto-preco">-R$ 2.500,00</p>
-        </li>
-      </ul>
-    </section> -->
 
     <section class="descripiton-cards">
       <ul class="cards">
@@ -233,10 +205,8 @@
       function validarForm() { 
             var optionSelect = document.getElementById("tipoConta").value;
 
-            if(optionSelect == "Carteira" ){
-                document.getElementById('banco').value = "Carteira";
-                document.getElementById("banco-form").hidden = true;
-  
+            if(optionSelect == "Carteira" ){                
+                document.getElementById("banco-form").hidden = true;  
             }else{
                 document.getElementById("banco-form").hidden = false;
             }

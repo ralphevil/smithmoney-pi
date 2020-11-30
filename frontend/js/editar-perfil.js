@@ -65,6 +65,12 @@ imgInput.addEventListener("change", ()=>{
 
 })
 
+nome.addEventListener("focusout",()=>{
+    if(nome.value < 0 || nome.value == ""){
+        toastr.error("É obrigatório o preenchimento do campo nome!");
+    }
+})
+
 //ATUALIZAR PERFIL
 function editarPerfil(event, form){
     event.preventDefault();
@@ -74,7 +80,19 @@ function editarPerfil(event, form){
         dataNascimento: form.data.value,
         celular: form.celular.value,
         foto: fotoPerfil
-    }  
+    }
+
+    if(celular.value < 0 || celular.value == ""){
+        dados.celular = null;
+    }
+
+    if(genero.value < 0 || genero.value == ""){
+        dados.genero = null;
+    }
+
+    if(data.value < 0 || data.value == ""){
+        dados.dataNascimento = null;
+    }
 
     fetch(url + "/api/usuarios/", {
         headers: {

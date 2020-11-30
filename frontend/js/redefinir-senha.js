@@ -11,7 +11,7 @@ let botao = document.querySelector("#redefinir")
 
 confirm_password.addEventListener("focusout",()=>{
     if(new_password.value != confirm_password.value){
-        toastr.error("As senhas não são iguais");
+        toastr.error("As senhas não são iguais!");
         new_password.value = "";
         confirm_password.value = "";
     }
