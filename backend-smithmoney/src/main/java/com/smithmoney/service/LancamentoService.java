@@ -3,6 +3,7 @@ package com.smithmoney.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -125,6 +126,13 @@ public class LancamentoService {
 	@Transactional
 	public List<Lancamento> findAllByType(Long usuarioId, TipoLancamento tipo){
 		return this.lancamentoRepository.findAllByType(usuarioId, tipo);
+	}
+	
+	@Transactional
+	public List<Lancamento> pendingByType(Long usuarioId, TipoLancamento tipo){
+		List<Lancamento> lancamentos = this.lancamentoRepository.findAllByType(usuarioId, tipo);
+		List<Lancamento> pending = lancamentos.stream().filter(l->l.getPago().equals(false)).collect(Collectors.toList());
+		return pending;
 	}
 	
 	@Transactional
