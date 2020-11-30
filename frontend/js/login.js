@@ -3,12 +3,15 @@ function fazerLogin(event, form) {
     if((form.username.value < 0 || form.username.value == "") || (form.password.value < 0 || form.password.value == "")){
       toastr.error("Preencha todos os campos!");
     }else{
+      const load = document.querySelector(".lds-ellipsis");
+      load.style.display = "inline-block";
       const username = form.username.value;
       const password = form.password.value;
       const dados = {
         username: username,
         password: password
       }
+
       fetch(url+"/api/auth/login", {
         headers: {
           'Content-Type': 'application/json'
@@ -17,6 +20,7 @@ function fazerLogin(event, form) {
         body: JSON.stringify(dados)
       })
         .then(response => {
+          load.style.display = "none";
           if(response.ok){
             response.json().then(data => {
               window.localStorage.setItem('token', data.token);
@@ -28,7 +32,10 @@ function fazerLogin(event, form) {
             form.username.value = "";
             form.password.value = "";
           }
-        })
+        }).catch(_ => {
+          load.style.display = "none";
+          toastr.error("Servidor indisponível.");
+        });
     }    
   }
 

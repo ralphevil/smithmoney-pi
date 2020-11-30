@@ -97,6 +97,9 @@ function editarPerfil(event, form){
         dados.dataNascimento = null;
     }
 
+    const load = document.querySelector(".lds-ellipsis");
+    load.style.display = "inline-block";
+
     fetch(url + "/api/usuarios/", {
         headers: {
             'Content-Type': 'application/json',
@@ -105,6 +108,7 @@ function editarPerfil(event, form){
         method: 'PATCH',
         body: JSON.stringify(dados)
     }).then(response=>{
+        load.style.display = "none";
         if (response.ok){
             toastr.success("Perfil atualizado com sucesso!");
             let dadosStorage = JSON.parse(window.localStorage.getItem("user"));
@@ -118,7 +122,10 @@ function editarPerfil(event, form){
         }else{
             toastr.error("Ocorreu um erro ao atualizar o perfil!");
         }
-    })
+    }).catch(_ => {
+        load.style.display = "none";
+        toastr.error("Servidor indisponível.");
+      });
 }
 
 //MASCARA CELULAR
@@ -134,7 +141,7 @@ $('#celular').mask(behavior, options);
 
 //ALTERAR SENHA
 confirm_password.addEventListener("focusout",()=>{
-    if(new_password.value != confirm_password){
+    if(new_password.value != confirm_password.value){
         toastr.error("As senhas não são iguais!");
         new_password.value = "";
         confirm_password.value = "";

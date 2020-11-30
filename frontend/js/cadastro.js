@@ -22,6 +22,9 @@ function cadastrarUsuario(event, form) {
     }
 
     if ((!nome.length <= 0 || !nome == "") && (!email.length <= 0 || !email == "") && (!senha.length <= 0 || !senha == 0) && (!confirmar.length <= 0 || !confirmar == 0)) {
+      const load = document.querySelector(".lds-ellipsis");
+      load.style.display = "inline-block";
+
       fetch(url+"/api/usuarios", {
         headers: {
           "Content-Type": "application/json"
@@ -30,6 +33,7 @@ function cadastrarUsuario(event, form) {
         body: JSON.stringify(data)
       })
         .then(function (data) {
+          load.style.display = "none";
           if (data.ok){
             toastr.success("Cadastro realizado com sucesso!",null,{
                 onHidden: function(){
@@ -39,7 +43,10 @@ function cadastrarUsuario(event, form) {
           }else{
             toastr.error("Ocorreu um erro ao realizar o cadastro!");
           }
-        })
+        }).catch(_ => {
+          load.style.display = "none";
+          toastr.error("Servidor indisponível.");
+        });
     }else{
         toastr.error("Preencha todos os campos!");
     }

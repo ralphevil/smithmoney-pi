@@ -5,27 +5,36 @@ botao.addEventListener("click", recuperaSenha, false);
 
 function recuperaSenha(event){
     event.preventDefault();
-    const dados = {
-        "email":email.value
+    if(email.value < 0 || email.value == ""){
+        toastr.error("Preencha o campo email!")
+    }else{
+        const load = document.querySelector(".lds-ellipsis");
+        load.style.display = "inline-block";
+        fetch(url+"/api/auth/forgot-password",{
+            method: "POST",
+            body: JSON.stringify(email.value),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then(response=>{
+            load.style.display = "none";
+            if(response.ok){
+                toastr.success("Email com link de alteração de senha enviado para "+email.value,null,{
+                    onHidden: function(){
+                        window.location = "./login.html";
+                    }
+                });            
+            }else{
+                toastr.error("Email não cadastrado na base de dados");
+                email.value = "";
+            }
+        }).catch(_ => {
+            load.style.display = "none";
+            toastr.error("Servidor indisponível.");
+          });
     }
-    fetch(url+"/api/auth/forgot-password",{
-        method: "POST",
-        body: JSON.stringify(dados),
-        headers:{
-            "Content-Type":"application/json"
-        }
-    }).then(response=>{
-        if(response.ok){
-            toastr.success("Email com link de alteração de senha enviado para "+email.value,null,{
-                onHidden: function(){
-                    window.location = "./login.html";
-                }
-            });            
-        }else{
-            toastr.error("Email não cadastrado na base de dados");
-            email.value = "";
-        }
-    })
+    
+    
 }
 
 toastr.options = {
