@@ -249,7 +249,7 @@
       
         <div class="inputs-form">
           <label for="categorias">Categorias</label>
-          <select class="select-padrao" id="categoria">
+          <select class="select-padrao" id="categoria" onChange="pegaTipo()">
             <option selected>Selecione</option>
 
           </select>
@@ -258,13 +258,9 @@
           
         <div class="escolha">
           <label for="contas">Contas</label>
-          <select name="conta" class="select-padrao" id="conta">
+          <select class="select-padrao" id="conta">
             <option selected>Selecione</option>
-            <option value="1">Inter</option> 
-            <option value="2">Satannder</option>z
-            <option value="3">Itau</option>
-            <option value="4">Bradesco</option>
-            <option value="5">Banco do Brasil</option>
+           
           </select>
           <span class="erro-invisivel" id="erro-contas">Deve informar uma conta</span>
         </div>
