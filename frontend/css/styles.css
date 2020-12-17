@@ -15,62 +15,37 @@ body {
 }
 
 .header {
-    -webkit-box-shadow: 1px 1px 7px #999; 
-    -moz-box-shadow: 1px 1px 7px #999;
-    box-shadow: 1px 1px 7px #999;    
+  background: #FFF;
+  -webkit-box-shadow: 1px 1px 7px #999; 
+  -moz-box-shadow: 1px 1px 7px #999;
+  box-shadow: 1px 1px 7px #999;    
 }
+
 .header a {
     margin-left: 20px;
 }
 
-footer ul {
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 auto;
+    bottom: 0;
+}
+
+.footer span {
+    font-size: 12px;
+}
+
+.footer ul {
     list-style: none;
     margin-top: 20px;
 }
 
-footer ul li {
+.footer ul li {
     display: inline;
     margin-left: 15px;
 }
 
-footer img {
-    width: 2em;
-}
-
-footer {
-    margin-top: 35px;
-    margin-bottom: 0;
-    text-align: center;
-    width: 100%;
-}
-
-/* footer ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-footer ul li {
-
-    margin-left: 15px;
-}
-
-footer img {
-    width: 2em;
-}
-
-footer {
-    position: absolute;
-    margin-bottom: 0;
-    text-align: center;
-    width: 100%;
-    color: #fff;
-}
-
-.footer-social{
-    background-color: #333;
-}
-*/
 .social{
     width:1.6em;
 }
@@ -91,19 +66,23 @@ footer {
 /*  LANDING   */
 #navbarSite a.nav-link{
     display: inline-block;
-    padding: 15px;
+    padding: 22px;
     line-height: normal;
     text-decoration: none;
-    color: #666 !important;
-    transition: all 0.3s ease;
+    color: #000000;
+    font-size: 16px;
+    transition: all 1s ease;
     border-bottom: 2px solid transparent;
-    margin-right: 20px;
 } 
+
+.cadastro {
+    font-size: 8px;
+}
 
 #navbarSite a.nav-link:hover {
     color: #2669EE !important;
-    border-bottom: 2px solid #2669EE;
-    padding-bottom: 5px;
+    border-bottom: 1px solid #2669EE;
+    padding-bottom: 3px;
 }
 
 .map-responsive {
@@ -153,6 +132,12 @@ footer {
     border: none;
 }
 
+.btn-template2 {
+    border-radius: 0.5em;
+    background-color: #339CFF;
+    border: none;
+}
+
 #logo-text {
     font-size: 1.2em;
     margin-left: 0.2em;
@@ -171,16 +156,26 @@ footer {
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 0;
-    min-height: 85%;
+    min-height: 75%;
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
 #background-template {
-    background-color: #0468A9;
+    background-color: #EEEEEE;
     color: white;
-    height: 15em;
+    height: 14em;
+    text-align: center;
+    padding: 3em;
+    position: relative;
+}
+
+#background-template-perfil{
+
+    background-color: #0468A9;
+    color: #EEEEEE;
+    height: 14em;
     text-align: center;
     padding: 3em;
     position: relative;
@@ -188,17 +183,28 @@ footer {
 
 .container-template {
     margin-top: -5em;
-    padding: 2em;
+    padding: 3em;
     padding-top: 3em;
-    width: 35em;
+    width: 30%;
     position: relative;
     background-color: white;
     border-radius: 1em;
     text-align: center;
 }
 
+.container-template2 {
+  margin-top: -5em;
+  padding: 2em;
+  padding-top: 3em;
+  width: 40%;
+  position: relative;
+  background-color: white;
+  border-radius: 1em;
+  text-align: center;
+}
+
 #container-contato{
-    width: 70em;
+    width: 35em;
 }
 
 
@@ -210,18 +216,25 @@ footer {
 
 
 #container-sobre{
-    width: 50em;
+    width: 50%;
 }
 
 .container-template input, #container-perfil .form-control{
-    background-color: #F0F5F9;
-    height: 3em;
-    margin: 0 auto;
-    border: none;
+  background-color: #F0F5F9;
+  height: 3em;
+  margin: 0 auto;
+  border: none;
 }
 
 .container-template .btn-template{
-    padding: 0.5em 6em 0.5em 6em;
+    padding: 0.5em 0;
+    width: 80%;
+    font-size: 20px;
+}
+
+.container-template2 .btn-template2{
+    padding: 0.5em 0;
+    width: 80%;
     font-size: 20px;
 }
 
@@ -235,30 +248,182 @@ footer {
 }
 
 @keyframes treme {
-    0% {margin-left: 0;}
-    25% {margin-left: 5px;}
-    50% {margin-left: 0;}
-    75% {margin-left: -5px;}
-    100% {margin-left: 0;}
+  0% {margin-left: 0;}
+  25% {margin-left: 5px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -5px;}
+  100% {margin-left: 0;}
 }
 
 .texto-recupera {
-    color: #666;
-    font-size: 16px;
+  color: #666;
+  font-size: 16px;
 }
 
 /* FIM - LOGIN / CADASTRO / RECUPERAR-SENHA / REDEFINIR-SENHA / EDITAR-PERFIL / CATEGORIA / SOBRE / CONTATO  */
 
-/* HEANDER TELAS */
-.img-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.grafico-balanco {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  margin: 40px 10px;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 3px 3px 10px #999; 
+  -moz-box-shadow: 3px 3px 10px #999;
+  box-shadow: 3px 3px 10px #999; 
 }
 
-.texto-avatar {
-    text-align: right;
-    margin-right: 15px;
+.graficos-content {
+  display: flex;
+  margin: 30px auto;
+}
+
+.graficos {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  margin-left: 15px;
+  padding: 15px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 3px 3px 10px #999; 
+  -moz-box-shadow: 3px 3px 10px #999;
+  box-shadow: 3px 3px 10px #999; 
+}
+
+.graficos h4 {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.categoria-despesas {
+  width: 100%;
+  height: 100%;
+}
+
+.categoria-receitas {
+  width: 100%;
+  height: 100%;
+}
+
+.cards {
+  display: flex;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.card-dash {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 16px;
+    background: #FFF;
+    list-style: none;
+    -webkit-box-shadow: 3px 3px 10px #999; 
+    -moz-box-shadow: 3px 3px 10px #999;
+    box-shadow: 3px 3px 10px #999; 
+    transition: 1s;
+}
+
+.card-dash:hover {
+    transform: scale(1.02);
+}
+
+.card-dash:nth-child(1n) {
+    margin-left: 15px;
+}
+
+.card-dash a {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-dash a:hover {
+    text-decoration: none;
+}
+
+.card-dash p {
+    font-size: 22px;
+    font-weight: 600;
+    transition: 1s;
+    margin: 20px 0 auto;
+  }
+
+.text-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #FFF;
+  padding: 20px;
+  list-style: none;
+  border-radius: 16px;
+  -webkit-box-shadow: 3px 3px 10px #999; 
+  -moz-box-shadow: 3px 3px 10px #999;
+  box-shadow: 3px 3px 10px #999; 
+  transition: 1s;
+}
+
+.text-card:nth-child(1n) {
+  margin-left: 15px;
+}
+
+.text-card:hover {
+  transform: scale(1.02);
+}
+
+.text-card h4 {
+  font-weight: 600;
+  color: #B2BABB;
+}
+
+.text-card p {
+  font-size: 24px;
+  font-weight: 600;
+  transition: 1s;
+  margin: 20px 0 auto;
+}
+
+.grid {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin-left: 15px;
+}
+
+.img-cards {
+  width: 100%;
+}
+
+/* HEANDER TELAS */
+.img-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.texto-nome {
+    font-size: 22px !important;
+    color: #F39C12 !important;
+}
+
+.texto-email {
+    font-size: 14px !important;
+    color: #3498DB !important; 
+}
+
+
+
+/*.texto-avatar {
+  text-align: right;
+  margin-right: 15px;
 }
 
 .texto-avatar p {
@@ -266,8 +431,8 @@ footer {
 }
 
 .texto-email {
-    font-size: 12px;
-    color: #666;
+  font-size: 14px;
+  color: #666;
 }
 
 .texto-avatar p strong {
@@ -278,37 +443,26 @@ footer {
     display: flex;
 }
 
-.texto-perfil li {
-    margin-left: 25px;
-}
-
 .texto-perfil {
     list-style: none;
 }
 
 .avatar-perfil {
-    font-size: 14px;
-    color: #2669EE;
+    color: rgba(52, 152, 219, 0.6);
+    transition: 1s;
 }
 
-.avatar-perfil a {
-    text-decoration: none;
+.avatar-perfil:hover {
+    color: rgba(52, 152, 219, 0.1);
+} */
+
+.avatar-sair a {
+    color: red;
+    transition: 1s;
 }
 
-.avatar-perfil a:hover {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.avatar-sair  a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #DF2F09;
-}
-
-.avatar-sair  a:hover {
-    text-decoration: underline;
-    font-weight: bold;
+.avatar-sair a:hover {
+    color: darkred;
 }
 
 /* FIM HEADER TELAS*/
@@ -426,10 +580,11 @@ footer {
 .footer-version {
     display:flex;
     justify-content: center;
-    margin-top: 40%;
+    margin-top: 60%;
 }
 
 .version {
+    font-size: 14px;
     color: #FFF;
 }
 
@@ -480,11 +635,13 @@ footer {
     background-color: white;
     border-radius: 1em;
     width: 40em;
+    box-shadow: 2px -8px 20px 0px;
 }
 
 #img-perfil{
     position: relative;
     margin-top: -7em;
+    object-fit: cover;
 }
 
 .img-perfil-container {
@@ -495,6 +652,7 @@ footer {
    object-position: center;
    display: flex;
    position: relative;
+
 }
 
 #img-perfil {
@@ -519,10 +677,12 @@ footer {
     border-radius: 50%;
     background-color: #f0f0f0;
     color: #666;
+    transition: 1s;
 
 }
 
 .btn-img-select:hover {
+
     background-color: #0468A9;
     color: #fafafa;
 }
@@ -531,12 +691,11 @@ footer {
 
 /* INICIO DASHBOARD CONTENT */
 .conteudo {
-    max-width: 1300px;
-    height: 100vh;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.select-date {
+.select-dateDash {
     margin: 20px 10px;
     width: 200px;
     height: 40px;
@@ -546,7 +705,124 @@ footer {
     border: none;
     font-size: 18px;
     font-weight: 600;
+    color: #FFF;
+    background: #2962FF;
 }
+
+.select-tipoReceitas {
+    margin: 20px 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #229954;
+}
+
+.select-tipoReceitas:focus {
+    outline-style: none;
+}
+
+.select-tipoReceitas:hover {
+    background: #27AE60;
+}
+
+.select-tipoDespesas {
+    margin: 20px 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #A93226;
+}
+
+.select-tipoDespesas:focus {
+    outline-style: none;
+}
+
+.select-tipoCategoriaDesp {
+    margin: 20px 10px;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #A93226;
+}
+
+.select-tipoCategoriaDesp:focus {
+    outline-style: none;
+}
+
+.select-tipoCategoriaRect {
+    margin: 20px 10px;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    background: #186A3B;
+}
+
+.select-tipoCategoriaRect:focus {
+    outline-style: none;
+}
+
+.select-tipoDespesas:hover {
+    background: #C0392B;
+}
+
+.optionCoresDash {
+    border: 1px solid blue;
+    background: #FFF;
+    color: #000000;
+}
+
+.select-dateDash:focus {
+    outline-style: none;
+}
+
+.select-date {
+    margin: 20px 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ABB2B9;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    transition: 1s;
+}
+
+.select-date {
+    outline-style: none;
+}
+
+.optionCores {
+    border: 1px solid blue;
+    background: #FFF;
+    color: #000000;
+}
+
 
 .dash-title {
     margin: 20px 10px;
@@ -560,26 +836,100 @@ footer {
     justify-content: space-between;
 }
 
-.descripiton-cards {
-    display: flex;
+.cards-despesas {
+    display: flex;  
 }
 
-.cards {
-    margin: 10px;
+.cards-despesas  li {
+    list-style: none;
     background: #FFF;
-    width: 465px;
-    height: 120px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 30%;
+    vertical-align: top;
+    padding: 15px 15px;
+    margin-left: 25px;
+    box-sizing: border-box;
+  
+    border-radius: 16px;
+    border: none;
+
+    -webkit-box-shadow: 3px 3px 10px #999; 
+    -moz-box-shadow: 3px 3px 10px #999;
+    box-shadow: 3px 3px 10px #999; 
 }
 
-.text-card {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    color: #424949;
-    font-weight: 500;
+.cards-despesas  li h2 {
+    font-size: 26px;
+    color: #3F3844;
+}
+
+.cards-despesas  li p {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0 0;
+    color: #F44336;
+    transition: 1s;
+}
+
+.cards-despesas  li:hover {
+    background: #F7F9F9;
+}
+
+.cards-despesas  li:hover p {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.cards-despesas  li img {
+    width: 10%;
+    margin-left: 90%;
+}
+
+.cards-receitas li {
+    list-style: none;
+    background: #FFF;
+    width: 30%;
+    vertical-align: top;
+    padding: 15px 15px;
+    margin-left: 25px;
+    box-sizing: border-box;
+  
+    border-radius: 6px;
+    border: none;
+
+    -webkit-box-shadow: 3px 3px 7px #999; 
+    -moz-box-shadow: 3px 3px 7px #999;
+    box-shadow: 3px 3px 7px #999; 
+}
+
+.cards-receitas {
+    display: flex;  
+}
+
+.cards-receitas  li h2 {
+    font-size: 26px;
+    color: #3F3844;
+    transition: 1s;
+}
+
+.cards-receitas  li p {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0 0;
+    color: forestgreen;
+}
+
+.cards-receitas li:hover {
+    background: #F7F9F9;
+}
+
+.cards-receitas li:hover h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.cards-receitas li img {
+    width: 10%;
+    margin-left: 90%;
 }
 
 .total-receitas {
@@ -647,11 +997,35 @@ footer {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.table-card h3 {
-    font-size: 22px;
-    margin-top: 25px;
-    margin-left: 10px;
-    color: #666;
+.table {
+    margin: 30px 10px 200px 10px;
+    background: #FFF;
+    border-radius: 16px;
+    -webkit-box-shadow: 3px 3px 10px #999; 
+    -moz-box-shadow: 3px 3px 10px #999;
+    box-shadow: 3px 3px 10px #999; 
+    transition: 1s;
+}
+
+tbody tr {
+    transition: 0.8s all;
+}
+
+tbody tr:hover {
+    background: #EBF5FB;
+    border-radius: 5px;
+}
+
+.tabela-dash {
+    background: #FFF;
+    margin-left: 25px;
+    padding: 15px;
+}
+
+.titulo-tabela {
+    margin: 0 0 0 25px;
+    color: #0000008A;
+
 }
 
 .balanco-card {
@@ -660,7 +1034,7 @@ footer {
     height: 200px;
     margin: 15px auto;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
 .balance {
@@ -676,33 +1050,499 @@ footer {
 
 /* FIM DASHBOARD CONTENT */
 
+.btn-adiciona {
+    margin-top: 12px;
+    margin-right: 53px;
+    font-size: 26px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #2669EE;
+    color: #FFF;
+    border: none;
+    transition: 1s;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
 
-/*  INICIO TRANSAÇÔEs */
+.btn-adiciona:focus {
+    outline-style: none;
+}
 
-.pending-transactions-card {
-    background: #FFF;
-    width: 100%;
+.btn-adiciona:hover {
+    background: #52BE80;
+}
+
+.modal-conteudo {
+    width: 100vw;
     height: 100vh;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
-tbody tr:hover {
-    background: #ECF0F1;
+.modal-conteudo.mostrar {
+    display: flex;
 }
 
-/* FIM TRANSAÇÔES */
-
-/*  INICIO TRANSAÇÔEs */
-
-.pending-despesas-card {
+.moda {
     background: #FFF;
-    width: 100%;
-    height: 100vh;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 40%;
+    padding: 30px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    position: relative;
 }
 
-/* FIM TRANSAÇÔES */
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mostrar .moda {
+    animation: modal 1s;
+}
+
+.fechar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    font-size: 1.2em;
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 1s;
+    outline: 0;
+}
+
+.fechar:focus {
+    outline-style: none;
+}
+
+.fechar:hover {
+    color: #F1948A;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: 2s;
+}
+
+.form-add {
+    margin: 40px 0;
+}
+
+.form-add label {
+    color: #767676;
+    font-weight: 500;
+    display: block;
+    font-size: 1em;
+    margin: 0 0 10px;
+ }
+
+ .input-valor {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F44336;
+    margin: 0;
+    padding: 10px 30px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+ }
+
+ .input-valor:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
+.input-saldo {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F44336;
+    margin: 0;
+    padding: 10px 30px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+ }
+
+ .input-saldo:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
+.input-padrao {
+    display: block;
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+}
+
+.input-padrao:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
+.inputs-form {
+    margin-top: 25px;
+}
+
+
+/*Input Nova Senha*/
+.input-novaSenha {
+    display: block;
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    height: 10%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #D5D8DC;
+}
+
+.input-novaSenha:focus {
+    outline-style: none;
+    border-bottom-color: darkorchid;
+}
+
+.inputs-novaSenha {
+    margin-top: 25px;
+}
+
+/*Input Nova Senha*/
+
+.escolha {
+    margin-top: 25px;
+}
+
+.select-padrao {
+    border: solid 1px #D5D8DC;
+    border-radius: 10px;
+    color:#000000;
+    padding: 15px;
+    width: 100%;
+    height: 47px;
+    font-size: 14px;
+}
+
+.vai {
+    border-radius: 10px;
+}
+
+.select-padrao:focus {
+    outline-style: none;
+   border-color: darkorchid;
+}
+
+.btn-addnova {
+    margin: 30px 0 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: #FFF;
+    background:#2ECC71;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 20px;
+    transition: 1s;
+}
+
+.btn-addnova:hover {
+    background: #186A3B;
+}
+
+.btn-addnova:focus {
+    outline-style: none;
+}
+
+.info-valorPendentes {
+    color: #F44336;
+}
+
+.valorPendenteDesp {
+    color: #D14803;
+}
+
+
+/*btn editar perfil*/
+
+.btn-addNovaSenha {
+    margin: 30px 0 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: #FFF;
+    background:#339CFF;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 20px;
+    transition: 1s;
+}
+
+.btn-addNovaSenha:hover {
+    background: #1a5e9e;
+}
+
+.btn-addNovaSenha:focus {
+    outline-style: none;
+}
+
+/*btn editar perfil*/
+
+.info-valorDespesa {
+    color: red;
+}
+
+.info-saldo {
+    color: red;
+}
+
+.info-valorReceita {
+    color: #4CAF50;
+}
+
+.info-saldoConta {
+    color: #4CAF50;
+}
+
+.status-paga {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.status-efetuada {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.status-pendente {
+    font-weight: bold;
+    color: #D14803;
+}
+
+.status-invisivel {
+    display: none;
+}
+
+.add-button-container {
+    text-align: right;
+    margin-top: 10px;
+
+}
+
+button.add-categoria {
+    background-color: #0468A9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border: none;
+    font-size: 29px;
+    border-radius: 36px;
+    color: #ffffff;
+    width: 47px;
+}
+
+.img-controler {
+    width: 80%;
+}
+
+.btn-efetuar {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}   
+
+.btn-efetuar:hover {
+    background: #D5F5E3;
+    transform: scale(1.1);
+}
+
+.btn-efetuar:focus {
+    outline-style: none;
+}
+
+.btn-altera {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}   
+
+.btn-altera:hover {
+    background: #D6EAF8;
+    transform: scale(1.1);
+}
+
+.btn-altera:focus {
+    outline-style: none;
+}
+
+.btn-deletar {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}   
+
+.btn-deletar:hover {
+    background: #FADBD8;
+    transform: scale(1.1);
+}
+
+.btn-deletar:focus {
+    outline-style: none;
+}
+
+.cifrao {
+    position: absolute;
+    margin-top: 7px;
+    padding: 0 0 35px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F44336;
+}
+
+input::placeholder {
+    color: #F44336;
+}
+
+.divisoria {
+    margin: 15px auto;
+    width: 95%;
+}
+
+.erro-texto {
+    margin: 0;
+    font-size: 12px;
+    color: #FF6D00;
+}
+
+.erro-invisivel {
+    display: none;
+}
+
+.oculta-tabela {
+    display: none;
+}
+
+.div-imgSem {
+    width: 350px;
+    margin: 20px auto;
+}
+
+.div-imgSem p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9E9E9E;
+}
+
+.img-sem {
+    width: 100%;
+    opacity: 0.5;
+}
+
+.semLancamento {
+    display: none;
+}
+
+.comLancamento {
+    display: none;
+}
+
+
+.semConta {
+    display: none;
+}
+
+.comConta {
+    display: none;
+}
+.categorias-content {
+    max-width: 960px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.titulo-categorias {
+    color: #2669EE;
+    padding: 20px;
+    font-weight: bold;
+    margin-left: 100px;
+}
+
+.section-desp {
+    padding: 30px;
+}
+
+.section-desp table {
+    width: 600px;
+    margin: 40px auto;
+}
+
+.section-rect {
+    padding: 30px;
+}
+
+.section-rect table {
+    width: 600px;
+    margin: 40px auto;
+}
+
+.section-categoria {
+    display: none;
+    opacity: 0;
+	transition: 0.5s;
+}
+
+.catOut {
+    opacity: 0;
+	transition: 1s;
+}
+
+.titulo-definecategoria {
+    margin-left: 25px;
+    color: blue;
+}
+
+.section-desp h3 {
+    color: #C0392B;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-rect h3 {
+    color: #186A3B;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}

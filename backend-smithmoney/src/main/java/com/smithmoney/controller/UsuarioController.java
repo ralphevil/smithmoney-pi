@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.smithmoney.dto.UsuarioDTO;
+import com.smithmoney.model.Login;
 import com.smithmoney.model.Usuario;
 import com.smithmoney.service.UsuarioService;
 
@@ -32,23 +34,11 @@ public class UsuarioController {
 	private final UsuarioService usuarioService;
 	
 	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll(){
-		List<Usuario> usuarioTodos = this.usuarioService.findAll();
-		return ResponseEntity.ok(usuarioTodos);
-	}
-	
-	@GetMapping("/id/{id}")
-	public ResponseEntity<Usuario> findById(@PathVariable Long id){
-		Usuario usuario = this.usuarioService.findById(id);
+	public ResponseEntity<Usuario> getUser(@AuthenticationPrincipal Login login){
+		Usuario usuario = this.usuarioService.findById(login.getId());
 		return ResponseEntity.ok(usuario);
 	}
-	
-	@GetMapping("/email/{email}")
-	public ResponseEntity<Usuario> findById(@PathVariable String email){
-		Usuario usuario = this.usuarioService.findByEmail(email);
-		return ResponseEntity.ok(usuario);
-	}
-	
+		
 	@PostMapping
 	public ResponseEntity<Void> create(@Valid @RequestBody UsuarioDTO usuarioDTO){
 		Usuario usuarioSalvo = this.usuarioService.create(usuarioDTO);
@@ -62,16 +52,16 @@ public class UsuarioController {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@PatchMapping("/{id}")
-	public ResponseEntity<Usuario> update(@PathVariable Long id, @Valid @RequestBody UsuarioDTO usuarioDTO){
-		usuarioDTO.setId(id);
+	@PatchMapping
+	public ResponseEntity<Usuario> update(@AuthenticationPrincipal Login login, @Valid @RequestBody UsuarioDTO usuarioDTO){
+		usuarioDTO.setId(login.getId());
 		this.usuarioService.update(usuarioDTO);
 		return ResponseEntity.noContent().build();
 	}
 	
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteById(@PathVariable Long id){
-		this.usuarioService.delete(id);
+	@DeleteMapping
+	public ResponseEntity<Void> delete(@AuthenticationPrincipal Login login){
+		this.usuarioService.delete(login.getId());
 		return ResponseEntity.noContent().build();
 	}
 	

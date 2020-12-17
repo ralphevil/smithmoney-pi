@@ -2,366 +2,223 @@
 <html lang="pt-BR">
 
 <head>
-    <!--FAVICON-->
-    <link rel="apple-touch-icon" sizes="180x180" href="./resourses/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./resourses/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./resourses/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./resourses/favicon/site.webmanifest">
-    <link rel="mask-icon" href="./resourses/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <!--FIM FAVICON-->
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smith Money - Painel</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!--FAVICON-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./resourses/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./resourses/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./resourses/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./resourses/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./resourses/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!--FIM FAVICON-->
 
-    <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smith Money - Painel</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./js/validated.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <button id="btnScrollToTop">
-        <i class="material-icons">keyboard_arrow_up</i>
-    </button>
+  <button id="btnScrollToTop">
+    <i class="material-icons">keyboard_arrow_up</i>
+  </button>
 
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
-            <div class="btn-menu">
-                <a><label for="btn-menu">☰</label></a>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light menu-hiden">
+      <div class="btn-menu">
+        <a><label for="btn-menu">☰</label></a>
+      </div>
+      <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
+        <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
+        <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
+      </a>
+      <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
+        <ul class="navbar-nav">
+          <li>
+            <div class="texto-avatar">
+                <a href="#" onclick="logout()"><img src="./resourses/img/sair_01.svg" class="menu-icon"> <span style="color: #2669EE;">Sair</span> </a>
             </div>
-            <a class="navbar-brand h1 mb-0 d-flex align-items-center" href="./index.html">
-                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45 alt="Logotipo">
-                <span id="logo-text">Smith<span style="color: #00B0F0">Money</span></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navbarSite" class="collapse navbar-collapse d-flex-sm justify-content-end text-center">
-                <ul class="navbar-nav">
-                    <li>
-                        <div class="texto-avatar">
-                            <p><strong>Gagego Maciel</strong></p>
-                            <p class="texto-email">gagego.maciel@gmail.com</p>
-                            <ul class="texto-perfil">
-                                <li class="avatar-perfil"><a href="./editar-perfil.html">Perfil</a></li>
-                                <li class="avatar-sair"><a href="./index.html">Sair</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><img src="./resourses/img/Foto_Perfil.jpg" alt="" class="img-avatar"></li>
-                </ul>
-            </div>
-            </div>
-        </nav>
-    </header>
+          </li>
+        </ul>
+      </div>
+      </div>
+      </div>
+    </nav>
+  </header>
 
-    <div class="conteudo">
-        <div class="topo-content">
-            <select name="cars" id="cars" class="select-date">
-                <option value="0">Selecione</option>
-                <option value="1">Janeiro</option>
-                <option value="2">Fevereiro</option>
-                <option value="3">Março</option>
-                <option value="4">Abril</option>
-                <option value="5">Maio</option>
-                <option value="6">Junho</option>
-                <option value="7">Julho</option>
-                <option value="8">Agosto</option>
-                <option value="9">Setembro</option>
-                <option value="10">Outubro</option>
-                <option value="11">Novembro</option>
-                <option value="12">Dezembro</option>
-            </select>
-            <div  class="dash-title">
-                <h3>Despesas</h3>
-            </div>
-        </div>
+  <div class="conteudo">
+    <div class="topo-content">
+      <select id="select-date" class="select-date" onChange="pegaMes()">
+        <option class="optionCoresDespesa" value="0" id="janeiro" class="optionCores">Janeiro</option>
+        <option class="optionCoresDespesa" value="1" id="fevereiro">Fevereiro</option>
+        <option class="optionCoresDespesa" value="2" id="marco">Março</option>
+        <option class="optionCoresDespesa" value="3" id="abril">Abril</option>
+        <option class="optionCoresDespesa" value="4" id="maio">Maio</option>
+        <option class="optionCoresDespesa" value="5" id="junho">Junho</option>
+        <option class="optionCoresDespesa" value="6" id="julho">Julho</option>
+        <option class="optionCoresDespesa" value="7" id="agosto">Agosto</option>
+        <option class="optionCoresDespesa" value="8" id="setembro">Setembro</option>
+        <option class="optionCoresDespesa" value="9" id="outubro">Outubro</option>
+        <option class="optionCoresDespesa" value="10" id="novembro">Novembro</option>
+        <option class="optionCoresDespesa" value="11" id="dezembro">Dezembro</option>
+      </select>
+      
+      <button class="btn-adiciona" type="button" id="btn-adiciona" title="Adicionar novo Lançamento">+</button>
 
-        <section class="descripiton-cards">
-            <div class="cards">
-                <div class="text-card">
-                    <p>Despesas Pendentes</p>
-                    <p>R$</p>
-                </div>
-                <p class="total-receitas">- R$ 5.000,00</p>
-            </div>
-            <div class="cards">
-                <div class="text-card">
-                    <p>Despesas Pagas</p>
-                    <p>R$</p>
-                </div>
-                <p class="total-despesas">- R$ 5.000,00</p>
-            </div>
-            <div class="cards">
-                <div class="text-card">
-                    <p>Total</p>
-                    <p>R$</p>
-                </div>
-                <p class="total-cartao">- R$ 5.000,00</p>
-            </div>
-        </section>
-
-        <section class="table-card">
-            <div class="pending-despesas-card">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Status</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Conta</th>
-                        <th scope="col">Valor</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Àgua</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Luz</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 169,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento parcela do carro</td>
-                        <td>Transporte</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 699,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento mensalidade academia</td>
-                        <td>Saúde</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 99,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento mensalidade academia</td>
-                        <td>Saúde</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 99,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento Gás</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento Gás</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento Gás</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Àgua</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Almoço no restaurante</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Àgua</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Àgua</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Luz</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 169,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento parcela do carro</td>
-                        <td>Transporte</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 699,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Àgua</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 199,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #04A922; font-weight: bold;">Pago</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento conta de Luz</td>
-                        <td>Moradia</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 169,00</td>
-                        <td></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                      <tr>
-                        <td style="color: #D14803; font-weight: bold;">Pendente</td>
-                        <td>09/09/2020</td>
-                        <td>Pagamento parcela do carro</td>
-                        <td>Transporte</td>
-                        <td>Banco Itaú</td>
-                        <td style="color: #D14803;"> - R$ 699,00</td>
-                        <td><a href="#"><img src="./resourses/img/verifica 1.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lapis.png" alt=""></a></td>
-                        <td><a href="#"><img src="./resourses/img/lixeira.png" alt=""></a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </section>
-
-        
-        <footer>
-            <div class="footer">
-                <h5><strong>Social</strong></h5>
-                <ul>
-                    <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
-                </ul>
-                <span>2020 - 2020 © <strong style="color: #2669EE" >Smith<span style="color: #04A922">Money</span></strong>. Todos os direitos reservados</span>
-            </div>
-        </footer>
+      <select name="select-tipo" class="select-tipoDespesas" id="select-tipo" onChange="pegaTipoLancamento()">
+        <option style="background: #C0392B ; color: #FFF;" class="optionCoresReceitas" selected>Despesas</option>
+        <option style="background: #229954; color: #FFF;">Receitas</option>
+      </select>
     </div>
-    
+
+    <section class="descripiton-cards">
+      <ul class="cards">
+        <li class="text-card">
+          <div>
+            <h4>Despesas Pendentes</h4>
+            <p style="color: #B03A2E" id="despesa-pendente">R$ 0,00</p>
+          </div>
+          <div class="grid">
+            <img src="./resourses/img/despesas-despesa.png" alt="Dinheiro" class="img-cards">
+          </div>
+        </li>
+        <li class="text-card">
+          <div>
+            <h4>Despesas Pagas</h4>
+            <p style="color: #B03A2E" id="despesa-paga">R$ 0,00</p>
+          </div>
+          <div class="grid">
+            <img src="./resourses/img/relatorios.svg" alt="Dinheiro" class="img-cards">
+          </div>
+        </li>
+        <li class="text-card">
+          <div>
+            <h4>Total</h4>
+            <p id="despesa-total">R$ 0,00</p>
+          </div>
+          <div class="grid">
+            <img src="./resourses/img/totais.png" alt="Dinheiro" class="img-cards">
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="display: none;">id</th>
+            <th scope="col">Status</th>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Conta</th>
+            <th scope="col">Valor</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="tabela-despesas">
+          
+        </tbody>
+      </table>
+      <div id="div-imgSem" class="div-imgSem semLancamento">
+        <img src="./resourses/img/sem-lancamento.png" alt="" class="img-sem">
+        <p>Você não possui despesas nesse período</p>
+      </div>
+    </section>
+
+    <div id="modal-adiciona" class="modal-conteudo">
+      <div class="moda">
+        <button class="fechar" id="btn-fechar">X</button>
+        <h3>Novo Lançamento</h3>
+        <form class="form-add" id="formulario-lancamento">
+          <div>
+            <label for="valor">Valor</label>
+            <span class="cifrao">R$ </span>
+            <input type="text" name="valor" id="valor" class="input-valor" placeholder="0,00">
+            <span class="erro-invisivel" id="erro-valor">Deve ter um valor maior que 0</span>
+          </div>
+          
+          <div class="inputs-form">
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data" class="input-padrao">
+            <span class="erro-invisivel" id="erro-data">Deve informar uma data</span>
+          </div>
+  
+          <div class="inputs-form">
+            <label for="descricao"  class="label-form">Descrição</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="1" style="resize: none" class="input-padrao" placeholder="Digite aqui uma descrição"></textarea>
+            <span class="erro-invisivel" id="erro-descricao">Deve informar uma descrição</span>
+          </div>
+
+          <div class="escolha">
+            <label for="contas">Tipo do Lançamento</label>
+            <select name="tipolancamento" class="select-padrao" id="tipo" onChange="pegaTipo()">
+              <option selected>Selecione</option>
+              <option>Despesa</option> 
+              <option>Receita</option>
+            </select>
+            <span class="erro-invisivel" id="erro-tipo">Deve informar o tipo do lançamento</span>
+          </div>
+        
+          <div class="inputs-form">
+            <label for="categorias">Categorias</label>
+            <select name="categoria" class="select-padrao" id="categoria">
+              <option selected>Selecione</option>
+                        
+            </select>
+            <span class="erro-invisivel" id="erro-categoria">Deve selecionar uma categoria</span>
+          </div>
+            
+          <div class="escolha">
+            <label for="contas">Contas</label>
+            <select class="select-padrao" id="conta">
+              <option selected>Selecione</option>
+             
+            </select>
+            <span class="erro-invisivel" id="erro-contas">Deve informar uma conta</span>
+          </div>
+  
+          <input type="button" id="btn-add" class="btn-addnova" value="Salvar">
+          <input type="hidden" id="editarDespesa" name="editarDespesa" class="editarDespesa">
+          <input type="hidden" id="editarDespesaId" name="editarDespesaId" class="editarDespesaId">
+        </form>
+      </div>
+    </div>
+
     <input type="checkbox" id="btn-menu" />
     <div class="container-menu">
-        <div class="cont-menu">
-            <nav>
-                <p>MENU</p>
-                <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
-                <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
-                <a href="./transacoes.html"><img src="./resourses/img/transacao.svg" class="menu-icon " />Transações</a>
-                <a href="#"><img src="./resourses/img/estatisticas.svg" class="menu-icon " />Relatórios</a>
-                <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
-                <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
-                <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Configurações</a>
-                <div class="footer-version">
-                    <sapn class="version">SmithMoney 1.0v</span>
-                </div>
-            </nav>
-            <label for="btn-menu">✖️</label>
-        </div>
-    </div> 
-    <!-- <footer class="mt-5">
-        <div class="container-flux mb-3">
-            <div class="row justify-content-center footer-social mx-0">
-                <ul>
-                    <li><a href="#"><img src="./resourses/img/facebook.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/instagram.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/twitter.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/youtube.png" alt="" class="social"></a></li>
-                </ul>
-            </div>
-            <div class="row justify-content-center my-4 mx-0">
-                <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos
-                    reservados</span>
-            </div>
-        </div>
-    </footer> -->
+      <div class="cont-menu">
+        <nav>
+          <p><img src="./resourses/img/usericon.png" class="img-avatar"></p>
+          <a href="./editar-perfil.html"><p class="texto-nome" style="font-size: 16px;"></p><p class="texto-email" style="font-size: 12px;"></p> </a>
+          <a href="./dashboard.html"><img src="./resourses/img/home.svg" class="menu-icon " />Dashboard</a>
+          <a href="./contas.html"><img src="./resourses/img/banco.svg" class="menu-icon " />Contas</a>
+          <a href="./despesas.html"><img src="./resourses/img/despesas.svg" class="menu-icon " />Despesas</a>
+          <a href="./receitas.html"><img src="./resourses/img/dinheiro.svg" class="menu-icon " />Receitas</a>
+          <a href="./categorias.html"><img src="./resourses/img/configuracoes.svg" class="menu-icon " />Categorias</a>
+          <a href="./editar-perfil.html"><img src="./resourses/img/perfil.svg" class="menu-icon ">Perfil</a>
+          <div class="footer-version">
+            <sapn class="version">SmithMoney v1.0</span>
+          </div>
+        </nav>
+        <label for="btn-menu">✖️</label>
+      </div>
+    </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="./js/scripts.js"></script>
+    <script src="./js/despesas.js"></script>   
+    <script src="./js/jquery.mask.js"></script>
+    <script>perfilHeader();</script>
 </body>
 </html>

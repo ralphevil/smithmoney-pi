@@ -2,138 +2,94 @@
 <html lang="pt-BR">
 
 <head>
-    <!--FAVICON-->
-    <link rel="apple-touch-icon" sizes="180x180" href="./resourses/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./resourses/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./resourses/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./resourses/favicon/site.webmanifest">
-    <link rel="mask-icon" href="./resourses/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <!--FIM FAVICON-->
+  <!--FAVICON-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./resourses/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./resourses/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./resourses/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./resourses/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./resourses/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!--FIM FAVICON-->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smith Money - Cadastrar Conta</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/styles.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smith Money - Cadastrar Conta</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/load.css">
 </head>
 
 <body>
-    <div class="container-fluid" id='container-geral'>
-        <button id="btnScrollToTop">
-            <i class="material-icons">keyboard_arrow_up</i>
-        </button>
+  <div class="container-fluid" id='container-geral'>
+    <button id="btnScrollToTop">
+      <i class="material-icons">keyboard_arrow_up</i>
+    </button>
 
-        <header>
+    <header>
 
-        </header>
+    </header>
 
-        <main>
-            <div id="template">
-                <div id="background-template">
-                    <h3><strong>Faça seu Cadastro</strong></h3>
-                </div>
-                <form onsubmit="cadastrarUsuario(event, this);">
-                    <div class="container container-template">
+    <main>
+      <div id="template">
+        <div id="background-template">
+            <a class="navbar-brand h1 mb-0 d-flex align-items-center mb-4 justify-content-center" href="./index.html">
+              <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=60 height=60
+                  alt="Logotipo">
+              <span id="logo-text" style="color: black">Smith<span
+                      style="color: #00B0F0">Money</span></span>
+            </a>
+        </div>
+        <form onsubmit="cadastrarUsuario(event, this);">
+          <div class="container container-template">
 
-                        <div class="row d-flex justify-content-center">
-                            <a class="navbar-brand h1 mb-0 d-flex align-items-center mb-4" href="./index.html">
-                                <img src="./resourses/img/logo.png" class="img-fluid mt-0" width=45 height=45
-                                    alt="Logotipo">
-                                <span id="logo-text" style="color: black">Smith<span
-                                        style="color: #00B0F0">Money</span></span>
-                            </a>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Nome" id="nome">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Seu e-mail" id="email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Senha" id="senha">
-                        </div>
-                        <div class="form-group pt-4">
-                            <button type="submit" class="btn btn-primary btn-template">Cadastrar</button>
-                        </div>
-                        <div class="form-group pt-4">
-                            <a href="./login.html" type="submit">Entre agora!</a>
-                        </div>
-                    </div>
-                </form>
+            <div class="row d-flex justify-content-center">
+              <h3><strong>CADASTRAR</strong></h3>
             </div>
-        </main>
+            <br>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Nome" id="nome">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Seu e-mail" id="email">
+            </div>
+            <div class="form-group d-flex">
+              <input type="password" class="form-control" placeholder="Senha" id="senha">
+              <input type="password" class="form-control ml-2" placeholder="Confirmar" id="confirm_senha">
+            </div>
+            <div class="form-group pt-4">
+              <button type="submit" class="btn btn-primary btn-template" id="cadastrar">Cadastrar</button>
+            </div>
+            <div class="form-group pt-4">
+              <a href="./login.html" type="submit">Entre agora!</a>
+            </div>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer">
+        <h5 style="text-indent:0;"><strong>Social</strong></h5>
+        <ul style="text-indent: -3em;">
+            <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
+            <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
+            <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
+            <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
+        </ul>
+        <span>2020 - 2020 © <strong style="color: #2669EE">Smith<span style="color: #04A922">Money</span></strong>.
+            Todos os direitos reservados</span>
     </div>
-
-    <footer>
-        <div class="footer">
-            <h5><strong>Social</strong></h5>
-            <ul>
-                <li><a href="#"><img src="./resourses/img/facebook-1.png" alt="" class="social"></a></li>
-                <li><a href="#"><img src="./resourses/img/instagram-1.png" alt="" class="social"></a></li>
-                <li><a href="#"><img src="./resourses/img/twitter-1.png" alt="" class="social"></a></li>
-                <li><a href="#"><img src="./resourses/img/youtube-1.png" alt="" class="social"></a></li>
-            </ul>
-            <span>2020 - 2020 © <strong style="color: #2669EE">Smith<span style="color: #04A922">Money</span></strong>.
-                Todos os direitos reservados</span>
-        </div>
-    </footer>
-
-    <!-- <footer class="mt-5">
-        <div class="container-flux mb-3">
-            <div class="row justify-content-center footer-social mx-0">
-                <ul>
-                    <li><a href="#"><img src="./resourses/img/facebook.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/instagram.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/twitter.png" alt="" class="social"></a></li>
-                    <li><a href="#"><img src="./resourses/img/youtube.png" alt="" class="social"></a></li>
-                </ul>
-            </div>
-            <div class="row justify-content-center my-4 mx-0">
-                <span>2020 - 2020 © <strong>Smith<span style="color: #00B0F0">Money</span></strong>. Todos os direitos
-                    reservados</span>
-            </div>
-        </div>
-    </footer> -->
-
-    <script src="./js/scripts.js"></script>
-    <script>
-        function cadastrarUsuario(event, form) {
-            event.preventDefault();
-            const nome = form.nome.value;
-            const email = form.email.value;
-            const senha = form.senha.value;
-            const data = {
-                nome: nome,
-                email: email,
-                password: senha
-            }
-            
-            if((!nome.length <= 0 || !nome == "")&&(!email.length <=0 || !email == "")&&(!senha.length <=0 || !senha == 0)) {
-                fetch('http://localhost:8080/api/usuarios', {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                    method: 'POST',                
-                    body: JSON.stringify(data)
-                })
-                .then(function (data) {
-                    console.log('Request success: ', data); 
-                    if(data.ok) window.location.href = "/login.html"                       
-                })
-                .catch(function (error) {
-                    console.log('Request failure: ', error);
-                });
-            }       
-        }
-    </script>
+</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="./js/scripts.js"></script>
+  <script src="./js/cadastro.js"></script>
 </body>
 
 </html>
